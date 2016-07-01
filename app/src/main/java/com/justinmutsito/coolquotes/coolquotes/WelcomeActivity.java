@@ -43,7 +43,6 @@ public class WelcomeActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         ButterKnife.bind(this);
 
-        checkTheme();
         randomQuote();
         getQuotes(mPersonNumber);
         mCurrentQuote = mQuotes[mPosition];
@@ -272,11 +271,6 @@ public class WelcomeActivity extends AppCompatActivity {
         shareIntent.setType("text/plain");
         shareIntent.putExtra(Intent.EXTRA_TEXT, text);
         startActivity(Intent.createChooser(shareIntent, getString(R.string.share)));
-    }
-
-
-    private void checkTheme() {
-        //Check the prefered theme
     }
 
 }
