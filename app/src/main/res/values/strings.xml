@@ -1,7 +1,17 @@
 <resources>
     <string name="app_name">Cool Quotes</string>
+    <string name="categories">Categories</string>
+    <string name="people">People</string>
+    <string name="favourites">Favourites</string>
+    <string name="test_text">Our prayers should be for blessings in general, for God knows best what is good for us. Happiness is unrepentant pleasure. Socrates</string>
+    <string name="share">Share with ?</string>
 
+    <string-array name="quotesOptions">
 
+        <item>Share</item>
+        <item>Add to favourites</item>
+
+    </string-array>
 
 
     <string-array name="categories">
@@ -476,7 +486,8 @@
         <item>The gem cannot be polished without friction, nor man perfected without trials. Confucius</item>
         <item>When you see a good person, think of becoming like her/him. When you see someone not so good, reflect on your own weak points. Confucius</item>
         <item>The hardest thing of all is to find a black cat in a dark room, especially if there is no cat. Don\’t complain about the snow on your neighbor\’s roof when your own doorstep is unclean. Confucius</item>
-        <item>The beginning of wisdom is to call things by their proper name. Confucius</item>￼￼￼￼￼￼￼￼
+        <item>The beginning of wisdom is to call things by their proper name. Confucius</item>
+        ￼￼￼￼￼￼￼￼
         <item>By three methods we may learn wisdom: First, by reflection, which is noblest.Second, by imitation, which is easiest; and third by experience, which is the bitterest. Confucius</item>
         <item>Everything has beauty, but not everyone sees it.Confucius</item>
         <item>Only the wisest and stupidest of men never change. Confucius</item>
@@ -578,7 +589,8 @@
         <item>Animals are my friends and I don\'t eat my friends. George Bernard Shaw</item>
         <item>You see things; you say, \'Why?\' But I dream things that never were; and I say \'Why not?. George Bernard Shaw</item>
         <item>Those who cannot change their minds cannot change anything. George Bernard Shaw</item>
-        George Bernard Shaw<item>Why should we take advice on sex from the pope? If he knows anything about it, he shouldn\'t!. George Bernard Shaw</item>
+        George Bernard Shaw
+        <item>Why should we take advice on sex from the pope? If he knows anything about it, he shouldn\'t!. George Bernard Shaw</item>
         <item>The liar\'s punishment is, not in the least that he is not believed, but that he cannot believe anyone else. George Bernard Shaw</item>
         <item>My way of joking is to tell the truth. It\'s the funniest joke in the world. George Bernard Shaw</item>
         <item>Never wrestle with pigs. You both get dirty and the pig likes it. George Bernard Shaw</item>

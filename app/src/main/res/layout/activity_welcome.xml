@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/rectangle_bg_gradient"
     tools:context="com.justinmutsito.coolquotes.coolquotes.WelcomeActivity"
-    android:background="@color/colorPrimaryDark"
     >
 
 
@@ -15,20 +15,95 @@
         android:layout_height="150dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="51dp"
+        android:layout_marginTop="37dp"
         android:src="@drawable/ic_account_circle_grey600_48dp"/>
 
     <TextView
-        android:id="@+id/quoteTextView"
+        android:id="@+id/quoteLabel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/faceImageView"
         android:layout_centerHorizontal="true"
-        android:textSize="15sp"
-        android:textColor="@color/colorSecondaryText"
-        android:text="Never wrestle with pigs. You both get dirty and the pig likes it. George Bernard"
         android:layout_margin="5dp"
         android:gravity="center_vertical|center_horizontal"
-        android:padding="5dp"/>
+        android:padding="5dp"
+        android:text="@string/test_text"
+        android:textColor="@color/colorSecondaryText"
+        android:textSize="15sp"/>
+
+    <Button
+        android:id="@+id/categoriesButton"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_below="@+id/quoteLabel"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="29dp"
+        android:background="@drawable/circle_bg_gradient"
+        android:gravity="fill_vertical"
+        android:padding="5dp"
+        android:shadowColor="#522e2e"
+        android:text="@string/categories"
+        android:textAlignment="center"
+        android:textColor="@color/colorSecondaryText"/>
+
+    <Button
+        android:id="@+id/peopleButton"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_below="@+id/categoriesButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="36dp"
+        android:background="@drawable/circle_bg_gradient"
+        android:gravity="fill_vertical"
+        android:padding="5dp"
+        android:text="@string/people"
+        android:textAlignment="center"
+        android:textColor="@color/colorSecondaryText"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:id="@+id/shareIcon"
+            android:src="@drawable/ic_share_variant_grey600_48dp"
+            android:layout_weight="0.2"
+            android:paddingBottom="5dp"
+
+            />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/favouritesLabel"
+            android:text="@string/favourites"
+            android:textColor="@color/colorSecondaryText"
+            android:textAlignment="center"
+            android:textSize="17sp"
+            android:layout_weight="0.6"
+            android:gravity="center"
+            android:paddingTop="15dp"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/settingsIcon"
+            android:src="@drawable/ic_settings_grey600_48dp"
+            android:layout_weight="0.2"
+            android:paddingBottom="6dp"
+            />
+
+
+    </LinearLayout>
+
 
 </RelativeLayout>

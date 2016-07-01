@@ -17,11 +17,23 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".WelcomeActivity"
+        <activity
+            android:name=".WelcomeActivity"
             android:screenOrientation="portrait">
         </activity>
-
-
+        <activity android:name=".Categories.CategoriesActivity"
+                  android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".People.PeopleActivity"
+                  android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".Favourites.FavouritesActivity"
+                  android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".Settings.SettingsActivity"
+                  android:screenOrientation="portrait"
+                  android:parentActivityName=".WelcomeActivity">
+        </activity>
     </application>
 
 </manifest>
