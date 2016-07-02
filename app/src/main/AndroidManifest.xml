@@ -21,18 +21,25 @@
             android:name=".WelcomeActivity"
             android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".Categories.CategoriesActivity"
-                  android:screenOrientation="portrait">
+        <activity
+            android:name=".Categories.CategoriesActivity"
+            android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".People.PeopleActivity"
-                  android:screenOrientation="portrait">
+        <activity
+            android:name=".People.PeopleActivity"
+            android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".Favourites.FavouritesActivity"
-                  android:screenOrientation="portrait">
+        <activity
+            android:name=".Favourites.FavouritesActivity"
+            android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".Settings.SettingsActivity"
-                  android:screenOrientation="portrait"
-                  android:parentActivityName=".WelcomeActivity">
+        <activity
+            android:name=".Settings.SettingsActivity"
+            android:parentActivityName=".WelcomeActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".Categories.CategoryActivity"
+            android:screenOrientation="portrait">
         </activity>
     </application>
 
