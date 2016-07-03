@@ -5,6 +5,8 @@
     <string name="favourites">Favourites</string>
     <string name="test_text">Our prayers should be for blessings in general, for God knows best what is good for us. Happiness is unrepentant pleasure. Socrates</string>
     <string name="share">Share with ?</string>
+    <string name="categoryKey">categoryKey</string>
+    <string name="bundleKey">bundleKey</string>
 
 
     <string-array name="quotesOptions">
