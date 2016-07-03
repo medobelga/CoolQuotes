@@ -10,6 +10,7 @@
     <string name="jump_to">Jump to</string>
     <string name="back">Back</string>
     <string name="next">Next</string>
+    <string name="end">Oops,thus all</string>
 
 
     <string-array name="quotesOptions">

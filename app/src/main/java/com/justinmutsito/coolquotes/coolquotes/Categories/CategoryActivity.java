@@ -5,35 +5,49 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.justinmutsito.coolquotes.coolquotes.R;
 
 import butterknife.Bind;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class CategoryActivity extends AppCompatActivity {
-    private int mPosition;
     private String[] mQuotes;
+    private int count = 0;
 
-    @Bind(R.id.quote1Label) TextView mQuote1;
-    @Bind(R.id.quote2Label) TextView mQuote2;
-    @Bind(R.id.quote3Label) TextView mQuote3;
-    @Bind(R.id.quote4Label) TextView mQuote4;
-    @Bind(R.id.previousIcon) ImageView mPrevious;
-    @Bind(R.id.jumpToLabel) TextView mJumpTo;
-    @Bind(R.id.nextIcon) ImageView mNext;
-
+    @Bind(R.id.quote1Label)
+    TextView mQuote1;
+    @Bind(R.id.quote2Label)
+    TextView mQuote2;
+    @Bind(R.id.quote3Label)
+    TextView mQuote3;
+    @Bind(R.id.quote4Label)
+    TextView mQuote4;
+    @Bind(R.id.previousIcon)
+    ImageView mPrevious;
+    @Bind(R.id.jumpToLabel)
+    TextView mJumpTo;
+    @Bind(R.id.nextIcon)
+    ImageView mNext;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_category);
+        ButterKnife.bind(this);
         getSupportActionBar().hide();
 
 
         Intent intent = getIntent();
         Bundle bundle = intent.getBundleExtra(getString(R.string.bundleKey));
-        mPosition = bundle.getInt(getString(R.string.categoryKey));
+        int position = bundle.getInt(getString(R.string.categoryKey));
+
+        getQuotes(position);
+        setQuotes();
+
 
     }
 
@@ -94,5 +108,61 @@ public class CategoryActivity extends AppCompatActivity {
 
 
     }
+
+    private void setQuotes() {
+        //Set all the TextViews
+        mQuote1.setText(mQuotes[count]);
+        mQuote2.setText(mQuotes[count + 1]);
+        mQuote3.setText(mQuotes[count + 2]);
+        mQuote4.setText(mQuotes[count + 3]);
+    }
+
+
+    @OnClick(R.id.previousIcon)
+    public void previous() {
+
+        if (count == 0) {
+            setQuotes();
+        } else {
+            count--;
+            setQuotes();
+        }
+    }
+
+    @OnClick(R.id.nextIcon)
+    public void next() {
+
+        count++;
+        if (count + 3 <= mQuotes.length - 1) {
+            setQuotes();
+        } else if (mQuotes.length - count == 2) {
+
+            mQuote1.setText(mQuotes[count]);
+            mQuote2.setText(mQuotes[count + 1]);
+            mQuote3.setText(mQuotes[count + 2]);
+            endOfQuotes();
+
+        } else if (mQuotes.length - count == 1) {
+
+            mQuote1.setText(mQuotes[count]);
+            mQuote2.setText(mQuotes[count + 1]);
+            endOfQuotes();
+
+        } else {
+            count--;
+            setQuotes();
+            endOfQuotes();
+
+
+        }
+    }
+
+
+    private void endOfQuotes() {
+        Toast.makeText(CategoryActivity.this, R.string.end, Toast.LENGTH_SHORT).show();
+    }
+
+
+
 }
 
