@@ -3,12 +3,26 @@ package com.justinmutsito.coolquotes.coolquotes.Categories;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.justinmutsito.coolquotes.coolquotes.R;
+
+import butterknife.Bind;
 
 public class CategoryActivity extends AppCompatActivity {
     private int mPosition;
     private String[] mQuotes;
+
+    @Bind(R.id.quote1Label) TextView mQuote1;
+    @Bind(R.id.quote2Label) TextView mQuote2;
+    @Bind(R.id.quote3Label) TextView mQuote3;
+    @Bind(R.id.quote4Label) TextView mQuote4;
+    @Bind(R.id.previousIcon) ImageView mPrevious;
+    @Bind(R.id.jumpToLabel) TextView mJumpTo;
+    @Bind(R.id.nextIcon) ImageView mNext;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
