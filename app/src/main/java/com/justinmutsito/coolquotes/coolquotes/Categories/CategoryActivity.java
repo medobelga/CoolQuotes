@@ -1,7 +1,9 @@
 package com.justinmutsito.coolquotes.coolquotes.Categories;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -158,10 +160,60 @@ public class CategoryActivity extends AppCompatActivity {
     }
 
 
+    @OnClick(R.id.quote1Label)
+    public void useQuote1() {
+        //Share or add quote to favourites
+        quoteOptions(count);
+
+    }
+
+    @OnClick(R.id.quote2Label)
+    public void useQuote2() {
+        quoteOptions(count + 1);
+    }
+
+    @OnClick(R.id.quote3Label)
+    public void useQuote3() {
+        quoteOptions(count + 2);
+    }
+
+    @OnClick(R.id.quote4Label)
+    public void useQuote4() {
+        quoteOptions(count + 3);
+    }
+
     private void endOfQuotes() {
         Toast.makeText(CategoryActivity.this, R.string.end, Toast.LENGTH_SHORT).show();
     }
 
+
+    private void share(String text) {
+        //Share text
+        Intent shareIntent = new Intent(Intent.ACTION_SEND);
+        shareIntent.setType("text/plain");
+        shareIntent.putExtra(Intent.EXTRA_TEXT, text + ".Shared from " + getString(R.string.app_name) + " .");
+        startActivity(Intent.createChooser(shareIntent, getString(R.string.share)));
+    }
+
+    private void quoteOptions(final int location) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(CategoryActivity.this);
+
+        builder.setItems(R.array.quotesOptions, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int position) {
+                if (position == 0) {
+                    //Share
+                    share(mQuotes[location]);
+                } else {
+                    //Add to favourites
+                }
+            }
+        });
+
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
 
 
 }

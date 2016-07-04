@@ -269,7 +269,7 @@ public class WelcomeActivity extends AppCompatActivity {
         //Share text
         Intent shareIntent = new Intent(Intent.ACTION_SEND);
         shareIntent.setType("text/plain");
-        shareIntent.putExtra(Intent.EXTRA_TEXT, text);
+        shareIntent.putExtra(Intent.EXTRA_TEXT, text + ".Shared from " + getString(R.string.app_name) + " .");
         startActivity(Intent.createChooser(shareIntent, getString(R.string.share)));
     }
 
