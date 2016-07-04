@@ -36,7 +36,8 @@
         <activity
             android:name=".Settings.SettingsActivity"
             android:parentActivityName=".WelcomeActivity"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:label="@string/settings">
         </activity>
         <activity android:name=".Categories.CategoryActivity"
             android:screenOrientation="portrait">

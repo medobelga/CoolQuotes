@@ -8,6 +8,178 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/rectangle_bg_gradient"
     tools:context="com.justinmutsito.coolquotes.coolquotes.Settings.SettingsActivity">
+
+
+    <TextView
+        android:id="@+id/themeLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:text="@string/theme"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="29dp"/>
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/themeLabel"
+        android:layout_marginTop="17dp"
+        android:id="@+id/layout1"
+        android:orientation="horizontal"
+        android:background="@color/colorPrimaryLight"
+        android:padding="5dp"
+        android:weightSum="1"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/zeluga_brown"
+            android:textSize="15sp"
+            android:padding="5dp"
+            android:layout_weight=".97"
+
+            />
+
+
+        <at.markushi.ui.CircleButton
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:id="@+id/brownCheckbox"
+            android:src="@drawable/ic_checkbox_marked_circle_grey600_48dp"
+            app:cb_color="#50ffffff"
+            app:cb_pressedRingWidth="8dip" />
+
+    </LinearLayout>
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/layout1"
+        android:id="@+id/layout2"
+        android:orientation="horizontal"
+        android:background="@color/colorPrimaryLight"
+        android:padding="5dp"
+        android:weightSum="1"
+        android:layout_alignParentEnd="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/crystal_blue"
+            android:textSize="15sp"
+            android:padding="5dp"
+            android:layout_weight=".97"
+
+            />
+
+        <at.markushi.ui.CircleButton
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:id="@+id/blueCheckbox"
+            android:src="@drawable/ic_checkbox_blank_circle_outline_grey600_48dp"
+            app:cb_color="#50ffffff"
+            app:cb_pressedRingWidth="8dip" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/notificationsLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:text="@string/notifications"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_below="@+id/layout2"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="25dp"/>
+
+
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/notificationsLabel"
+        android:layout_marginTop="17dp"
+        android:id="@+id/layout3"
+        android:orientation="horizontal"
+        android:background="@color/colorPrimaryLight"
+        android:padding="5dp"
+        android:weightSum="1"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/_9_am"
+            android:textSize="15sp"
+            android:padding="5dp"
+            android:layout_weight=".97"
+
+            />
+
+
+        <at.markushi.ui.CircleButton
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:id="@+id/morningCheckbox"
+            android:src="@drawable/ic_checkbox_marked_circle_grey600_48dp"
+            app:cb_color="#50ffffff"
+            app:cb_pressedRingWidth="8dip" />
+
+    </LinearLayout>
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/layout3"
+        android:id="@+id/layout4"
+        android:orientation="horizontal"
+        android:background="@color/colorPrimaryLight"
+        android:padding="5dp"
+        android:weightSum="1"
+        android:layout_alignParentEnd="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/_9_pm"
+            android:textSize="15sp"
+            android:padding="5dp"
+            android:layout_weight=".97"
+
+            />
+
+        <at.markushi.ui.CircleButton
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:id="@+id/eveningCheckbox"
+            android:src="@drawable/ic_checkbox_blank_circle_outline_grey600_48dp"
+            app:cb_color="#50ffffff"
+            app:cb_pressedRingWidth="8dip" />
+
+    </LinearLayout>
+
+    <Button
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:text="About"
+        android:id="@+id/aboutButton"
+        android:textColor="#ffffff"
+        android:padding="5dp"
+        android:background="@drawable/circle_bg_gradient"
+        android:layout_below="@+id/layout4"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"/>
+
 
 </RelativeLayout>
