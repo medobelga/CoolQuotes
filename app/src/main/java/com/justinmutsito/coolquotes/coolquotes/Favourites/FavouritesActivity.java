@@ -1,11 +1,11 @@
 package com.justinmutsito.coolquotes.coolquotes.Favourites;
 
+import android.app.ListActivity;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 
 import com.justinmutsito.coolquotes.coolquotes.R;
 
-public class FavouritesActivity extends AppCompatActivity {
+public class FavouritesActivity extends ListActivity {
 
 
     @Override
@@ -14,9 +14,7 @@ public class FavouritesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_favourites);
 
 
-
-
-
-
     }
+
+
 }

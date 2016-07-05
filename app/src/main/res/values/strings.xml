@@ -18,6 +18,7 @@
     <string name="_9_am">9 AM</string>
     <string name="_9_pm">9 PM</string>
     <string name="crystal_blue">Crystal blue</string>
+    <string name="empty">Oops you have no favourites yet.</string>
 
 
     <string-array name="quotesOptions">
