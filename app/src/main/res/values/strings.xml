@@ -19,12 +19,23 @@
     <string name="_9_pm">9 PM</string>
     <string name="crystal_blue">Crystal blue</string>
     <string name="empty">Oops you have no favourites yet.</string>
+    <string name="added">Added to favourites</string>
+    <string name="not_added">Oops,please try again.</string>
+    <string name="deleted">Deleted</string>
+    <string name="try_again">Oops try again</string>
 
 
     <string-array name="quotesOptions">
 
         <item>Share</item>
         <item>Add to favourites</item>
+
+    </string-array>
+
+    <string-array name="shareOrDelete">
+
+        <item>Share</item>
+
 
     </string-array>
 
@@ -189,7 +200,7 @@
         <item>There are two motives for reading a book; one, that you enjoy it; the other, that you can boast about it. ― Bertrand Russell</item>
         <item>Humor is laughing at what you haven\'t got when you ought to have it. ― Langston Hughes</item>
         <item> Humor is a rubber sword - it allows you to make a point without drawing blood. ― Mary Hirsch</item>
-        <item> Defining and analyzing humor is a pastime of humorless people. ― Robert Benchley A study of economics reveals that the best time to buy anything is last year.― Marty Allen</item>
+        <item> Defining and analyzing humor is a pastime of humorless people. ― Robert Benchley </item>
         <item>When you\'re in jail, a good friend will be trying to bail you out. A best friend will be in the cell next to you saying, \'Damn, that was fun\'. ― Groucho Marx</item>
 
     </string-array>

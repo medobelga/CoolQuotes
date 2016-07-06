@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.justinmutsito.coolquotes.coolquotes.Database.DBOpenHelper;
 import com.justinmutsito.coolquotes.coolquotes.R;
 
 import butterknife.Bind;
@@ -18,6 +19,7 @@ import butterknife.OnClick;
 public class CategoryActivity extends AppCompatActivity {
     private String[] mQuotes;
     private int count = 0;
+    private DBOpenHelper mDBOpenHelper;
 
     @Bind(R.id.quote1Label)
     TextView mQuote1;
@@ -41,6 +43,7 @@ public class CategoryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_category);
         ButterKnife.bind(this);
         getSupportActionBar().hide();
+        mDBOpenHelper = new DBOpenHelper(this);
 
 
         Intent intent = getIntent();
@@ -206,6 +209,14 @@ public class CategoryActivity extends AppCompatActivity {
                     share(mQuotes[location]);
                 } else {
                     //Add to favourites
+                    boolean added = mDBOpenHelper.addFavourite(mQuotes[location]);
+                    if(added){
+
+                        Toast.makeText(CategoryActivity.this, R.string.added,Toast.LENGTH_SHORT).show();
+                    }
+                    else{
+                        Toast.makeText(CategoryActivity.this, R.string.not_added,Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
         });
@@ -215,6 +226,10 @@ public class CategoryActivity extends AppCompatActivity {
         dialog.show();
     }
 
-
+    @Override
+    protected void onPause() {
+        super.onPause();
+        mDBOpenHelper.close();
+    }
 }
 

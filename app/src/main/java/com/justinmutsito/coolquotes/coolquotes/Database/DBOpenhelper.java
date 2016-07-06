@@ -9,7 +9,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 /**
  * Created by justin on 7/5/16.
  */
-public class DBOpenhelper extends SQLiteOpenHelper {
+public class DBOpenHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "favourites.db";
     private static final int DATABASE_VERSION = 1;
@@ -22,7 +22,7 @@ public class DBOpenhelper extends SQLiteOpenHelper {
     private static final String DB_CREATE = "CREATE TABLE " + TABLE_NAME + " (" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COLUMN_FAVOURITE + " TEXT)";
 
 
-    public DBOpenhelper(Context context) {
+    public DBOpenHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
@@ -62,10 +62,10 @@ public class DBOpenhelper extends SQLiteOpenHelper {
     }
 
 
-    public boolean delete(long id) {
+    public boolean delete(int id) {
         SQLiteDatabase db = this.getWritableDatabase();
 
-      int deleted = db.delete(TABLE_NAME, COLUMN_ID + " = ?", new String[]{String.valueOf(id)});
+        int deleted = db.delete(TABLE_NAME, COLUMN_ID + " = ?", new String[]{String.valueOf(id)});
 
         if (deleted == 0) return false;
 

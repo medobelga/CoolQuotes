@@ -8,8 +8,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.justinmutsito.coolquotes.coolquotes.Categories.CategoriesActivity;
+import com.justinmutsito.coolquotes.coolquotes.Database.DBOpenHelper;
 import com.justinmutsito.coolquotes.coolquotes.Favourites.FavouritesActivity;
 import com.justinmutsito.coolquotes.coolquotes.People.PeopleActivity;
 import com.justinmutsito.coolquotes.coolquotes.Settings.SettingsActivity;
@@ -27,6 +29,7 @@ public class WelcomeActivity extends AppCompatActivity {
     private int mPersonNumber;
     private int mPosition;
     private String mCurrentQuote;
+    private DBOpenHelper mDBOpenHelper;
 
     @Bind(R.id.faceImageView) ImageView mFace;
     @Bind(R.id.quoteLabel) TextView mQuote;
@@ -42,11 +45,13 @@ public class WelcomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_welcome);
         getSupportActionBar().hide();
         ButterKnife.bind(this);
+        mDBOpenHelper = new DBOpenHelper(this);
 
         randomQuote();
         getQuotes(mPersonNumber);
         mCurrentQuote = mQuotes[mPosition];
         mQuote.setText(mCurrentQuote);
+
 
     }
 
@@ -70,6 +75,15 @@ public class WelcomeActivity extends AppCompatActivity {
                     share(mCurrentQuote);
                 } else {
                     //Add to favourites
+                    boolean added = mDBOpenHelper.addFavourite(mCurrentQuote);
+                    if(added){
+
+                        Toast.makeText(WelcomeActivity.this, R.string.added,Toast.LENGTH_SHORT).show();
+                    }
+                    else{
+                        Toast.makeText(WelcomeActivity.this, R.string.not_added,Toast.LENGTH_SHORT).show();
+                    }
+
                 }
             }
         });
@@ -273,6 +287,11 @@ public class WelcomeActivity extends AppCompatActivity {
         startActivity(Intent.createChooser(shareIntent, getString(R.string.share)));
     }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        mDBOpenHelper.close();
+    }
 }
 
 
