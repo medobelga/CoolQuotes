@@ -62,10 +62,10 @@ public class DBOpenHelper extends SQLiteOpenHelper {
     }
 
 
-    public boolean delete(int id) {
+    public boolean delete(String text) {
         SQLiteDatabase db = this.getWritableDatabase();
 
-        int deleted = db.delete(TABLE_NAME, COLUMN_ID + " = ?", new String[]{String.valueOf(id)});
+        int deleted = db.delete(TABLE_NAME, COLUMN_FAVOURITE + " = ?", new String[]{text});
 
         if (deleted == 0) return false;
 

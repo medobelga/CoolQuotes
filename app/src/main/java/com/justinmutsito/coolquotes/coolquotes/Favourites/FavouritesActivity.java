@@ -48,11 +48,11 @@ public class FavouritesActivity extends ListActivity {
     }
 
 
-      @Override protected void onListItemClick(ListView l, View v, int position, long id) {
-      super.onListItemClick(l, v, position, id);
-      quoteOptions(position);
-     }
-
+    @Override
+    protected void onListItemClick(ListView l, View v, int position, long id) {
+        super.onListItemClick(l, v, position, id);
+        quoteOptions(position);
+    }
 
 
     private void share(String text) {
@@ -74,6 +74,10 @@ public class FavouritesActivity extends ListActivity {
                     share(mFavourites.get(location));
                 } else {
                     //Delete
+
+                    mDBOpenHelper.delete(mFavourites.get(location));
+                    onCreate(savedInstanceState);
+
 
                 }
             }
