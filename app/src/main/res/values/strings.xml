@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Cool Quotes</string>
     <string name="categories">Categories</string>
-    <string name="people">People</string>
+    <string name="authors">Authors</string>
     <string name="favourites">Favourites</string>
     <string name="test_text">Our prayers should be for blessings in general, for God knows best what is good for us. Happiness is unrepentant pleasure. Socrates</string>
     <string name="share">Share with ?</string>
@@ -23,6 +23,10 @@
     <string name="not_added">Oops,please try again.</string>
     <string name="deleted">Deleted</string>
     <string name="try_again">Oops try again</string>
+    <string name="good_evening">Good evening.</string>
+    <string name="good_morning">Good morning.</string>
+    <string name="te">testinh</string>
+    <string name="day_quote">Quote of the day</string>
 
 
     <string-array name="quotesOptions">
@@ -334,7 +338,7 @@
         <item>Have you ever wondered which hurts the most: saying something and wishing you had not, or saying nothing, and wishing you had?</item>
     </string-array>
     ￼
-    <string-array name="people">
+    <string-array name="authors">
         <item>Albert Einstein</item>
         <item>Abraham Lincoln</item>
         <item>Benjamin Franklin</item>

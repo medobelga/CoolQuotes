@@ -56,7 +56,7 @@
         android:background="@drawable/circle_bg_gradient"
         android:gravity="fill_vertical"
         android:padding="5dp"
-        android:text="@string/people"
+        android:text="@string/authors"
         android:textAlignment="center"
         android:textColor="@color/colorSecondaryText"/>
 

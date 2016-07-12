@@ -1,23 +1,16 @@
-package com.justinmutsito.coolquotes.coolquotes;
+package com.justinmutsito.coolquotes.coolquotes.Notifications;
 
-import android.app.AlarmManager;
-import android.app.PendingIntent;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.justinmutsito.coolquotes.coolquotes.Authors.AuthorsActivity;
-import com.justinmutsito.coolquotes.coolquotes.Categories.CategoriesActivity;
 import com.justinmutsito.coolquotes.coolquotes.Database.DBOpenHelper;
-import com.justinmutsito.coolquotes.coolquotes.Favourites.FavouritesActivity;
-import com.justinmutsito.coolquotes.coolquotes.Notifications.NotificationReceiver;
-import com.justinmutsito.coolquotes.coolquotes.Settings.SettingsActivity;
+import com.justinmutsito.coolquotes.coolquotes.R;
 
 import java.util.Calendar;
 import java.util.Random;
@@ -26,7 +19,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class WelcomeActivity extends AppCompatActivity {
+public class NotificationActivity extends AppCompatActivity {
 
 
     private String[] mQuotes;
@@ -35,43 +28,47 @@ public class WelcomeActivity extends AppCompatActivity {
     private String mCurrentQuote;
     private DBOpenHelper mDBOpenHelper;
 
-    @Bind(R.id.faceImageView) ImageView mFace;
-    @Bind(R.id.quoteLabel) TextView mQuote;
-    @Bind(R.id.categoriesButton) Button mCategories;
-    @Bind(R.id.peopleButton) Button mPeople;
-    @Bind(R.id.shareIcon) ImageView mIconShare;
-    @Bind(R.id.favouritesLabel) TextView mFavorites;
-    @Bind(R.id.settingsIcon) ImageView mIconSettings;
 
+    @Bind(R.id.faceImageView)
+    ImageView mFace;
+    @Bind(R.id.quoteLabel)
+    TextView mQuote;
+    @Bind(R.id.greetingLabel)
+    TextView mGreetings;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_welcome);
-        getSupportActionBar().hide();
+        setContentView(R.layout.activity_notification);
         ButterKnife.bind(this);
-        checkSettings();
-        mDBOpenHelper = new DBOpenHelper(this);
+        getSupportActionBar().hide();
 
+        mDBOpenHelper = new DBOpenHelper(this);
         randomQuote();
         getQuotes(mPersonNumber);
         mCurrentQuote = mQuotes[mPosition];
         mQuote.setText(mCurrentQuote);
 
 
-    }
 
-    @OnClick(R.id.faceImageView)
-    public void animateFace() {
-        //Animate face
-    }
+        Calendar rightNow = Calendar.getInstance();
+        int hour = rightNow.get(Calendar.HOUR_OF_DAY);
 
+        if (hour>=21){
+            mGreetings.setText(R.string.good_evening);
+        }
+
+        else {
+            mGreetings.setText(R.string.good_morning);
+        }
+
+
+    }
 
     @OnClick(R.id.quoteLabel)
-    public void getQuote() {
-        //Share or add quote to favourites
-
-        AlertDialog.Builder builder = new AlertDialog.Builder(WelcomeActivity.this);
+    public void useQuote() {
+        // Share or add quote to favourites
+        AlertDialog.Builder builder = new AlertDialog.Builder(NotificationActivity.this);
 
         builder.setItems(R.array.quotesOptions, new DialogInterface.OnClickListener() {
             @Override
@@ -82,54 +79,21 @@ public class WelcomeActivity extends AppCompatActivity {
                 } else {
                     //Add to favourites
                     boolean added = mDBOpenHelper.addFavourite(mCurrentQuote);
-                    if(added){
+                    if (added) {
 
-                        Toast.makeText(WelcomeActivity.this, R.string.added,Toast.LENGTH_SHORT).show();
-                    }
-                    else{
-                        Toast.makeText(WelcomeActivity.this, R.string.not_added,Toast.LENGTH_SHORT).show();
+                        Toast.makeText(NotificationActivity.this, R.string.added, Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(NotificationActivity.this, R.string.not_added, Toast.LENGTH_SHORT).show();
                     }
 
                 }
             }
         });
 
-
         AlertDialog dialog = builder.create();
         dialog.show();
-    }
 
 
-    @OnClick(R.id.categoriesButton)
-    public void startActivityCategories() {
-        startActivity(new Intent(WelcomeActivity.this, CategoriesActivity.class));
-
-    }
-
-
-    @OnClick(R.id.peopleButton)
-    public void startActivityPeople() {
-        startActivity(new Intent(WelcomeActivity.this, AuthorsActivity.class));
-    }
-
-    @OnClick(R.id.shareIcon)
-    public void shareAppDetails() {
-        //Share app with friends
-
-        String url = "https://play.google.com/store/apps/details?id=com.justinmutsito.standoutqoutes";
-        String message = "Check out this cool app " + url;
-        share(message);
-
-    }
-
-    @OnClick(R.id.favouritesLabel)
-    public void startActivityFavourites() {
-        startActivity(new Intent(WelcomeActivity.this, FavouritesActivity.class));
-    }
-
-    @OnClick(R.id.settingsIcon)
-    public void configSettings() {
-        startActivity(new Intent(WelcomeActivity.this, SettingsActivity.class));
     }
 
     private void randomQuote() {
@@ -143,6 +107,7 @@ public class WelcomeActivity extends AppCompatActivity {
         mPosition = r.nextInt(MINIMUM_NUMBER_OF_QUOTES - 1);
 
     }
+
 
     private void getQuotes(int n) {
 
@@ -282,7 +247,6 @@ public class WelcomeActivity extends AppCompatActivity {
 
             }
         }
-
     }
 
     private void share(String text) {
@@ -293,23 +257,4 @@ public class WelcomeActivity extends AppCompatActivity {
         startActivity(Intent.createChooser(shareIntent, getString(R.string.share)));
     }
 
-
-    private void checkSettings(){
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(Calendar.HOUR_OF_DAY,9);
-        Intent intent = new Intent(getApplicationContext(), NotificationReceiver.class);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(),10,intent,PendingIntent.FLAG_UPDATE_CURRENT);
-        AlarmManager manager = (AlarmManager) getApplicationContext().getSystemService(ALARM_SERVICE);
-        manager.setRepeating(AlarmManager.RTC_WAKEUP,calendar.getTimeInMillis(),AlarmManager.INTERVAL_DAY,pendingIntent );
-
-
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        mDBOpenHelper.close();
-    }
 }
-
-
