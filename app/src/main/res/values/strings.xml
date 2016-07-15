@@ -28,6 +28,7 @@
     <string name="day_quote">Quote of the day</string>
     <string name="authorsKey">AuthorsKey</string>
     <string name="go_to_number">Go to number?</string>
+    <string name="off">Off</string>
 
 
     <string-array name="quotesOptions">
