@@ -2,11 +2,12 @@ package com.justinmutsito.coolquotes.coolquotes.Settings;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.Toast;
+import android.widget.TextView;
 
 import com.justinmutsito.coolquotes.coolquotes.R;
 
@@ -23,7 +24,10 @@ public class SettingsActivity extends AppCompatActivity {
     public String mTheme;
     public int mTime;
 
-
+    @Bind(R.id.themeLabel)
+    TextView mThemeLabel;
+    @Bind(R.id.notificationsLabel)
+    TextView mNotificationLabel;
     @Bind(R.id.brownCheckbox)
     CircleButton mBrown;
     @Bind(R.id.blueCheckbox)
@@ -38,7 +42,18 @@ public class SettingsActivity extends AppCompatActivity {
     Button mAbout;
     @Bind(R.id.backgroundImage)
     ImageView mBackgroundImage;
-
+    @Bind(R.id.fadedImage)
+    ImageView mFadedImage;
+    @Bind(R.id.zBrownLabel)
+    TextView mThemeBrownLabel;
+    @Bind(R.id.cBlueLabel)
+    TextView mThemeBlueLabel;
+    @Bind(R.id.offLabel)
+    TextView mOffLabel;
+    @Bind(R.id.morningLabel)
+    TextView mMorningLabel;
+    @Bind(R.id.eveningLabel)
+    TextView mEveningLabel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,7 +81,6 @@ public class SettingsActivity extends AppCompatActivity {
         } else {
             setEvening();
         }
-        Toast.makeText(this, "working" + mTime + " " + mTheme, Toast.LENGTH_LONG).show();
 
         saveTheme(mTheme);
         saveTheme(mTime);
@@ -79,6 +93,7 @@ public class SettingsActivity extends AppCompatActivity {
         mTheme = "brown";
         mBlue.setImageResource(R.drawable.ic_checkbox_blank_circle_outline_grey600_48dp);
         mBrown.setImageResource(R.drawable.ic_checkbox_marked_circle_grey600_48dp);
+        setBrownTheme();
         saveTheme(mTheme);
 
 
@@ -89,6 +104,7 @@ public class SettingsActivity extends AppCompatActivity {
         mTheme = "blue";
         mBrown.setImageResource(R.drawable.ic_checkbox_blank_circle_outline_grey600_48dp);
         mBlue.setImageResource(R.drawable.ic_checkbox_marked_circle_grey600_48dp);
+        setBlueTheme();
         saveTheme(mTheme);
     }
 
@@ -150,6 +166,37 @@ public class SettingsActivity extends AppCompatActivity {
         SharedPreferences.Editor editorTime = savedTime.edit();
         editorTime.putInt("TimeKey", time);
         editorTime.commit();
+    }
+
+    private void setBlueTheme() {
+        String white = "#ffffff";
+        mBackgroundImage.setImageResource(R.drawable.blue_bg);
+        //mFadedImage.setImageResource(R.color.bluecolorPrimaryLight);
+        mFadedImage.setImageResource(R.color.blueFaded);
+        mThemeLabel.setTextColor(Color.parseColor(white));
+        mNotificationLabel.setTextColor(Color.parseColor(white));
+        mAbout.setTextColor(Color.parseColor(white));
+        mThemeBrownLabel.setTextColor(Color.parseColor(white));
+        mThemeBlueLabel.setTextColor(Color.parseColor(white));
+        mOffLabel.setTextColor(Color.parseColor(white));
+        mMorningLabel.setTextColor(Color.parseColor(white));
+        mEveningLabel.setTextColor(Color.parseColor(white));
+
+
+    }
+
+    private void setBrownTheme() {
+        String darkGrey = "#212121";
+        mBackgroundImage.setImageResource(R.drawable.brown_bg);
+        mFadedImage.setImageResource(R.color.colorFaded);
+        mThemeLabel.setTextColor(Color.parseColor(darkGrey));
+        mNotificationLabel.setTextColor(Color.parseColor(darkGrey));
+        mAbout.setTextColor(Color.parseColor(darkGrey));
+        mThemeBrownLabel.setTextColor(Color.parseColor(darkGrey));
+        mThemeBlueLabel.setTextColor(Color.parseColor(darkGrey));
+        mOffLabel.setTextColor(Color.parseColor(darkGrey));
+        mMorningLabel.setTextColor(Color.parseColor(darkGrey));
+        mEveningLabel.setTextColor(Color.parseColor(darkGrey));
     }
 
 }

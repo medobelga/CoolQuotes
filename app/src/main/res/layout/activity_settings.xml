@@ -16,6 +16,7 @@
     <ImageView
         android:layout_alignParentStart="true"
         android:layout_width="match_parent"
+        android:id="@+id/fadedImage"
         android:layout_height="match_parent"
         android:src="@color/colorFaded"
         android:layout_margin="5dp"
@@ -55,6 +56,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/zBrownLabel"
             android:text="@string/zeluga_brown"
             android:textSize="15sp"
             android:padding="5dp"
@@ -90,6 +92,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/cBlueLabel"
             android:text="@string/crystal_blue"
             android:textSize="15sp"
             android:padding="5dp"
@@ -139,6 +142,7 @@ android:layout_alignParentEnd="true">
     android:layout_height="wrap_content"
     android:text="@string/off"
     android:textSize="15sp"
+    android:id="@+id/offLabel"
     android:padding="5dp"
     android:layout_weight=".97"
 
@@ -173,6 +177,7 @@ android:layout_alignParentEnd="true">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/morningLabel"
             android:text="@string/_9_am"
             android:textSize="15sp"
             android:padding="5dp"
@@ -209,6 +214,7 @@ android:layout_alignParentEnd="true">
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/_9_pm"
+            android:id="@+id/eveningLabel"
             android:textSize="15sp"
             android:padding="5dp"
             android:layout_weight=".97"
