@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -51,7 +53,7 @@ public class AuthorActivity extends AppCompatActivity {
         Bundle bundle = intent.getBundleExtra(getString(R.string.authorsKey));
         int position = bundle.getInt(getString(R.string.bundleKey));
         getQuotes(position);
-        setQuotes();
+        setQuotes(count);
 
 
     }
@@ -199,9 +201,7 @@ public class AuthorActivity extends AppCompatActivity {
     }
 
 
-
-
-    private void setQuotes() {
+    private void setQuotes(int count) {
         //Set all the TextViews
         mQuote1.setText(mQuotes[count]);
         mQuote2.setText(mQuotes[count + 1]);
@@ -214,10 +214,10 @@ public class AuthorActivity extends AppCompatActivity {
     public void previous() {
 
         if (count == 0) {
-            setQuotes();
+            setQuotes(count);
         } else {
             count--;
-            setQuotes();
+            setQuotes(count);
         }
     }
 
@@ -226,7 +226,7 @@ public class AuthorActivity extends AppCompatActivity {
 
         count++;
         if (count + 3 <= mQuotes.length - 1) {
-            setQuotes();
+            setQuotes(count);
         } else if (mQuotes.length - count == 2) {
 
             mQuote1.setText(mQuotes[count]);
@@ -242,7 +242,7 @@ public class AuthorActivity extends AppCompatActivity {
 
         } else {
             count--;
-            setQuotes();
+            setQuotes(count);
             endOfQuotes();
 
 
@@ -254,6 +254,28 @@ public class AuthorActivity extends AppCompatActivity {
     public void useQuote1() {
         //Share or add quote to favourites
         quoteOptions(count);
+
+    }
+
+    @OnClick(R.id.jumpToLabel)
+    public void jumpTo() {
+        //Jump to quote number
+        View dialogView = getLayoutInflater().inflate(R.layout.jump_to_layout, null);
+        final EditText numberText = (EditText) dialogView.findViewById(R.id.numberField);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(AuthorActivity.this);
+        builder.setView(dialogView)
+                .setPositiveButton("Go", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        String number =numberText.getText().toString();
+                        goTo(number);
+
+                    }
+                }).setCancelable(true);
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
 
     }
 
@@ -310,6 +332,13 @@ public class AuthorActivity extends AppCompatActivity {
 
         AlertDialog dialog = builder.create();
         dialog.show();
+    }
+
+    private void goTo(String number) {
+        int goTo = Integer.parseInt(number);
+        if (goTo < mQuotes.length - 3) {
+            setQuotes(goTo);
+        }
     }
 
     @Override

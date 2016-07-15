@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,6 +22,7 @@ public class CategoryActivity extends AppCompatActivity {
     private String[] mQuotes;
     private int count = 0;
     private DBOpenHelper mDBOpenHelper;
+
 
     @Bind(R.id.quote1Label)
     TextView mQuote1;
@@ -51,7 +54,7 @@ public class CategoryActivity extends AppCompatActivity {
         int position = bundle.getInt(getString(R.string.categoryKey));
 
         getQuotes(position);
-        setQuotes();
+        setQuotes(count);
 
 
     }
@@ -114,9 +117,9 @@ public class CategoryActivity extends AppCompatActivity {
 
     }
 
-    private void setQuotes() {
-        //Set all the TextViews
-        mQuote1.setText(mQuotes[count]);
+    private void setQuotes(int count) {
+
+        mQuote1.setText(mQuotes[count] );
         mQuote2.setText(mQuotes[count + 1]);
         mQuote3.setText(mQuotes[count + 2]);
         mQuote4.setText(mQuotes[count + 3]);
@@ -127,10 +130,10 @@ public class CategoryActivity extends AppCompatActivity {
     public void previous() {
 
         if (count == 0) {
-            setQuotes();
+            setQuotes(count);
         } else {
             count--;
-            setQuotes();
+            setQuotes(count);
         }
     }
 
@@ -139,7 +142,7 @@ public class CategoryActivity extends AppCompatActivity {
 
         count++;
         if (count + 3 <= mQuotes.length - 1) {
-            setQuotes();
+            setQuotes(count);
         } else if (mQuotes.length - count == 2) {
 
             mQuote1.setText(mQuotes[count]);
@@ -155,7 +158,7 @@ public class CategoryActivity extends AppCompatActivity {
 
         } else {
             count--;
-            setQuotes();
+            setQuotes(count);
             endOfQuotes();
 
 
@@ -185,6 +188,27 @@ public class CategoryActivity extends AppCompatActivity {
         quoteOptions(count + 3);
     }
 
+    @OnClick(R.id.jumpToLabel)
+    public void jumpTo() {
+        //Jump to quote number
+        View dialogView = getLayoutInflater().inflate(R.layout.jump_to_layout, null);
+        final EditText numberText = (EditText) dialogView.findViewById(R.id.numberField);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(CategoryActivity.this);
+        builder.setView(dialogView)
+                .setPositiveButton("Go", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        String number =numberText.getText().toString();
+                        goTo(number);
+
+                    }
+                }).setCancelable(true);
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
     private void endOfQuotes() {
         Toast.makeText(CategoryActivity.this, R.string.end, Toast.LENGTH_SHORT).show();
     }
@@ -210,12 +234,11 @@ public class CategoryActivity extends AppCompatActivity {
                 } else {
                     //Add to favourites
                     boolean added = mDBOpenHelper.addFavourite(mQuotes[location]);
-                    if(added){
+                    if (added) {
 
-                        Toast.makeText(CategoryActivity.this, R.string.added,Toast.LENGTH_SHORT).show();
-                    }
-                    else{
-                        Toast.makeText(CategoryActivity.this, R.string.not_added,Toast.LENGTH_SHORT).show();
+                        Toast.makeText(CategoryActivity.this, R.string.added, Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(CategoryActivity.this, R.string.not_added, Toast.LENGTH_SHORT).show();
                     }
                 }
             }
@@ -224,6 +247,16 @@ public class CategoryActivity extends AppCompatActivity {
 
         AlertDialog dialog = builder.create();
         dialog.show();
+    }
+
+
+    private void goTo(String number) {
+        int goTo = Integer.parseInt(number);
+        if(goTo< mQuotes.length - 3){
+            setQuotes(goTo);
+        }
+
+
     }
 
     @Override
