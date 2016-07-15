@@ -26,6 +26,7 @@
     <string name="good_evening">Good evening.</string>
     <string name="good_morning">Good morning.</string>
     <string name="day_quote">Quote of the day</string>
+    <string name="authorsKey">AuthorsKey</string>
 
 
     <string-array name="quotesOptions">

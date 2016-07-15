@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.justinmutsito.coolquotes.coolquotes.R;
 
@@ -55,24 +54,21 @@ public class AuthorsAdapter extends BaseAdapter {
     public View getView(final int position, View convertView, ViewGroup parent) {
         // TODO Auto-generated method stub
         ViewHolder holder;
+
+
         if (convertView == null) {
             convertView = LayoutInflater.from(mContext).inflate(R.layout.author_layout, null);
             holder = new ViewHolder();
             holder.mName = (TextView) convertView.findViewById(R.id.nameLabel);
             holder.mIconFace = (ImageView) convertView.findViewById(R.id.faceImageView);
-            holder.mName.setText(mAuthors[position]);
-            holder.mIconFace.setImageResource(mAuthorFace[position]);
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
 
-        convertView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(mContext, "working", Toast.LENGTH_SHORT).show();
-            }
-        });
+        holder.mName.setText(mAuthors[position]);
+        holder.mIconFace.setImageResource(mAuthorFace[position]);
+
         return convertView;
 
 
