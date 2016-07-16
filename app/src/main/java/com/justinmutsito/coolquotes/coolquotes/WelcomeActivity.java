@@ -2,6 +2,7 @@ package com.justinmutsito.coolquotes.coolquotes;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -10,7 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.justinmutsito.coolquotes.coolquotes.Authors.AuthorsActivity;
+import com.justinmutsito.coolquotes.coolquotes.Authors.AuthorActivity;
 import com.justinmutsito.coolquotes.coolquotes.Categories.CategoriesActivity;
 import com.justinmutsito.coolquotes.coolquotes.Database.DBOpenHelper;
 import com.justinmutsito.coolquotes.coolquotes.Favourites.FavouritesActivity;
@@ -32,13 +33,24 @@ public class WelcomeActivity extends AppCompatActivity {
     private String mCurrentQuote;
     private DBOpenHelper mDBOpenHelper;
 
-    @Bind(R.id.faceImageView) ImageView mFace;
-    @Bind(R.id.quoteLabel) TextView mQuote;
-    @Bind(R.id.categoriesButton) Button mCategories;
-    @Bind(R.id.peopleButton) Button mPeople;
-    @Bind(R.id.shareIcon) ImageView mIconShare;
-    @Bind(R.id.favouritesLabel) TextView mFavorites;
-    @Bind(R.id.settingsIcon) ImageView mIconSettings;
+    @Bind(R.id.faceImageView)
+    ImageView mFace;
+    @Bind(R.id.quoteLabel)
+    TextView mQuote;
+    @Bind(R.id.categoriesButton)
+    Button mCategories;
+    @Bind(R.id.authorButton)
+    Button mAuthor;
+    @Bind(R.id.shareIcon)
+    ImageView mIconShare;
+    @Bind(R.id.favouritesLabel)
+    TextView mFavorites;
+    @Bind(R.id.settingsIcon)
+    ImageView mIconSettings;
+    @Bind(R.id.fadedImage)
+    ImageView mFadedImage;
+    @Bind(R.id.backgroundImage)
+    ImageView mBackgrounImage;
 
 
     @Override
@@ -47,14 +59,18 @@ public class WelcomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_welcome);
         ButterKnife.bind(this);
 
-        mDBOpenHelper = new DBOpenHelper(this);
+        //Set theme using mTheme passed from the SettingsActivity
+        mTheme = getIntent().getStringExtra("ThemeKey");
+        setMyTheme(mTheme);
 
+        //Get and set UI data
         randomQuote();
         getQuotes(mPersonNumber);
         mCurrentQuote = mQuotes[mPosition];
         mQuote.setText(mCurrentQuote);
-        mTheme = getIntent().getStringExtra("ThemeKey");
-        //Set theme using mTheme passed from the SettingsActivity
+
+        //Open database for saving
+        mDBOpenHelper = new DBOpenHelper(this);
 
 
     }
@@ -80,12 +96,11 @@ public class WelcomeActivity extends AppCompatActivity {
                 } else {
                     //Add to favourites
                     boolean added = mDBOpenHelper.addFavourite(mCurrentQuote);
-                    if(added){
+                    if (added) {
 
-                        Toast.makeText(WelcomeActivity.this, R.string.added,Toast.LENGTH_SHORT).show();
-                    }
-                    else{
-                        Toast.makeText(WelcomeActivity.this, R.string.not_added,Toast.LENGTH_SHORT).show();
+                        Toast.makeText(WelcomeActivity.this, R.string.added, Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(WelcomeActivity.this, R.string.not_added, Toast.LENGTH_SHORT).show();
                     }
 
                 }
@@ -100,14 +115,19 @@ public class WelcomeActivity extends AppCompatActivity {
 
     @OnClick(R.id.categoriesButton)
     public void startActivityCategories() {
-        startActivity(new Intent(WelcomeActivity.this, CategoriesActivity.class));
+        Intent intent = new Intent(WelcomeActivity.this, CategoriesActivity.class);
+        intent.putExtra("ThemeKey", mTheme);
+        startActivity(intent);
 
     }
 
 
-    @OnClick(R.id.peopleButton)
+    @OnClick(R.id.authorButton)
     public void startActivityPeople() {
-        startActivity(new Intent(WelcomeActivity.this, AuthorsActivity.class));
+        Intent intent = new Intent(WelcomeActivity.this, AuthorActivity.class);
+        intent.putExtra("ThemeKey", mTheme);
+        startActivity(intent);
+
     }
 
     @OnClick(R.id.shareIcon)
@@ -122,13 +142,16 @@ public class WelcomeActivity extends AppCompatActivity {
 
     @OnClick(R.id.favouritesLabel)
     public void startActivityFavourites() {
-        startActivity(new Intent(WelcomeActivity.this, FavouritesActivity.class));
+        Intent intent = new Intent(WelcomeActivity.this, FavouritesActivity.class);
+        intent.putExtra("ThemeKey", mTheme);
+        startActivity(intent);
+
     }
 
     @OnClick(R.id.settingsIcon)
     public void configSettings() {
         Intent intent = new Intent(WelcomeActivity.this, SettingsActivity.class);
-        intent.putExtra("IntentKey","stay");
+        intent.putExtra("IntentKey", "stay");
         startActivity(intent);
     }
 
@@ -291,6 +314,35 @@ public class WelcomeActivity extends AppCompatActivity {
         shareIntent.setType("text/plain");
         shareIntent.putExtra(Intent.EXTRA_TEXT, text + ".Shared from " + getString(R.string.app_name) + " .");
         startActivity(Intent.createChooser(shareIntent, getString(R.string.share)));
+    }
+
+    private void setMyTheme(String theme) {
+        if (theme.equals("brown")) {
+            String darkGrey = "#212121";
+            mBackgrounImage.setImageResource(R.drawable.brown_bg);
+            mFadedImage.setImageResource(R.color.brownFaded);
+            mQuote.setTextColor(Color.parseColor(darkGrey));
+            mCategories.setTextColor(Color.parseColor(darkGrey));
+            mCategories.setBackground(getResources().getDrawable(R.drawable.circle_bg_gradient));
+            mAuthor.setTextColor(Color.parseColor(darkGrey));
+            mAuthor.setBackground(getResources().getDrawable(R.drawable.circle_bg_gradient));
+            mIconShare.setImageResource(R.drawable.ic_share_variant_grey600_48dp);
+            mFavorites.setTextColor(Color.parseColor(darkGrey));
+            mIconSettings.setImageResource(R.drawable.ic_settings_grey600_48dp);
+
+        } else {
+            String white = "#ffffff";
+            mBackgrounImage.setImageResource(R.drawable.blue_bg);
+            mFadedImage.setImageResource(R.color.blueFaded);
+            mQuote.setTextColor(Color.parseColor(white));
+            mCategories.setTextColor(Color.parseColor(white));
+            mCategories.setBackground(getResources().getDrawable(R.drawable.blue_circle_bg_gradient));
+            mAuthor.setTextColor(Color.parseColor(white));
+            mAuthor.setBackground(getResources().getDrawable(R.drawable.blue_circle_bg_gradient));
+            mIconShare.setImageResource(R.drawable.ic_share_white_48dp);
+            mFavorites.setTextColor(Color.parseColor(white));
+            mIconSettings.setImageResource(R.drawable.ic_settings_white_48dp);
+        }
     }
 
 

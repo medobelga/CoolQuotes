@@ -273,7 +273,7 @@ public class SettingsActivity extends AppCompatActivity {
         String lightGrey = "#757575";
         String lightBrown = "#90D7CCC8";
         mBackgroundImage.setImageResource(R.drawable.brown_bg);
-        mFadedImage.setImageResource(R.color.colorFaded);
+        mFadedImage.setImageResource(R.color.brownFaded);
         mThemeLabel.setTextColor(Color.parseColor(darkGrey));
         mNotificationLabel.setTextColor(Color.parseColor(darkGrey));
         mAbout.setTextColor(Color.parseColor(darkGrey));
