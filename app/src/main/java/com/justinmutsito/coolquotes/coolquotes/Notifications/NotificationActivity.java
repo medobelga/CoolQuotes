@@ -41,7 +41,7 @@ public class NotificationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notification);
         ButterKnife.bind(this);
-        getSupportActionBar().hide();
+
 
         mDBOpenHelper = new DBOpenHelper(this);
         randomQuote();

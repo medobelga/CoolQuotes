@@ -45,7 +45,6 @@ public class AuthorActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_author);
         ButterKnife.bind(this);
-        getSupportActionBar().hide();
         mDBOpenHelper = new DBOpenHelper(this);
 
 

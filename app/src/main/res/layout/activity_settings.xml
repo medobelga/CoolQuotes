@@ -4,23 +4,41 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
     tools:context="com.justinmutsito.coolquotes.coolquotes.Settings.SettingsActivity">
+
+
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/backgroundImage"
         android:scaleType="fitXY"
-        android:src="@drawable/brown_bg"/>
+        android:src="@drawable/brown_bg"
+        />
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#90D7CCC8"
+        android:minHeight="?android:attr/actionBarSize"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        />
+
 
     <ImageView
         android:layout_alignParentStart="true"
         android:layout_width="match_parent"
         android:id="@+id/fadedImage"
         android:layout_height="match_parent"
+        android:layout_below="@+id/toolbar"
         android:src="@color/colorFaded"
+        android:layout_marginTop="15dp"
         android:layout_margin="5dp"
         android:scaleType="fitXY"/>
+
+
 
 
     <TextView
@@ -28,6 +46,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="5dp"
+        android:layout_below="@+id/toolbar"
         android:text="@string/theme"
         android:textColor="@color/colorPrimaryText"
         android:paddingLeft="@dimen/activity_horizontal_margin"
@@ -35,7 +54,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="29dp"/>
+        android:layout_marginTop="90dp"/>
 
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"

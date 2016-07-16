@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -24,6 +25,7 @@ public class SettingsActivity extends AppCompatActivity {
     private SharedPreferences savedTime;
     public String mTheme;
     public int mTime;
+    private Toolbar myToolbar;
 
 
     @Bind(R.id.themeLabel)
@@ -56,17 +58,28 @@ public class SettingsActivity extends AppCompatActivity {
     TextView mMorningLabel;
     @Bind(R.id.eveningLabel)
     TextView mEveningLabel;
-    @Bind(R.id.layout1) LinearLayout mLayout1;
-    @Bind(R.id.layout2) LinearLayout mLayout2;
-    @Bind(R.id.layout3) LinearLayout mLayout3;
-    @Bind(R.id.layout4) LinearLayout mLayout4;
-    @Bind(R.id.layout5) LinearLayout mLayout5;
+    @Bind(R.id.layout1)
+    LinearLayout mLayout1;
+    @Bind(R.id.layout2)
+    LinearLayout mLayout2;
+    @Bind(R.id.layout3)
+    LinearLayout mLayout3;
+    @Bind(R.id.layout4)
+    LinearLayout mLayout4;
+    @Bind(R.id.layout5)
+    LinearLayout mLayout5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
         ButterKnife.bind(this);
+        myToolbar = (Toolbar) findViewById(R.id.toolbar);
+        myToolbar.setTitleTextColor(Color.parseColor("#212121"));
+        setSupportActionBar(myToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
+
 
         savedTheme = getSharedPreferences(THEME, 0);
         savedTime = getSharedPreferences(TIME, 0);
@@ -90,8 +103,8 @@ public class SettingsActivity extends AppCompatActivity {
         }
 
         saveTheme(mTheme);
-        saveTheme(mTime);
-        setSettings(mTheme, mTime);
+        saveTime(mTime);
+
     }
 
 
@@ -118,9 +131,17 @@ public class SettingsActivity extends AppCompatActivity {
     }
 
     private void setIcons() {
-        setMorning();
-        setEvening();
-        setOff();
+        if(mTime==0){
+            setOff();
+        }
+        else if (mTime==9){
+            setMorning();
+        }
+        else{
+            setEvening();
+        }
+
+
     }
 
 
@@ -138,7 +159,7 @@ public class SettingsActivity extends AppCompatActivity {
             mEvening.setImageResource(R.drawable.ic_checkbox_blank_circle_outline_white_48dp);
             mMorning.setImageResource(R.drawable.ic_checkbox_blank_circle_outline_white_48dp);
         }
-        saveTheme(mTime);
+        saveTime(mTime);
     }
 
     @OnClick(R.id.morningCheckbox)
@@ -154,7 +175,7 @@ public class SettingsActivity extends AppCompatActivity {
             mMorning.setImageResource(R.drawable.ic_checkbox_marked_circle_white_48dp);
             mOff.setImageResource(R.drawable.ic_checkbox_blank_circle_outline_white_48dp);
         }
-        saveTheme(mTime);
+        saveTime(mTime);
     }
 
 
@@ -172,7 +193,7 @@ public class SettingsActivity extends AppCompatActivity {
             mEvening.setImageResource(R.drawable.ic_checkbox_marked_circle_white_48dp);
             mOff.setImageResource(R.drawable.ic_checkbox_blank_circle_outline_white_48dp);
         }
-        saveTheme(mTime);
+        saveTime(mTime);
     }
 
 
@@ -181,16 +202,6 @@ public class SettingsActivity extends AppCompatActivity {
         startActivity(new Intent(SettingsActivity.this, AboutActivity.class));
     }
 
-    private void setSettings(String theme, int time) {
-//
-
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-
-    }
 
     private void saveTheme(String theme) {
         savedTheme = getSharedPreferences(THEME, 0);
@@ -199,7 +210,7 @@ public class SettingsActivity extends AppCompatActivity {
         editorTheme.commit();
     }
 
-    private void saveTheme(int time) {
+    private void saveTime(int time) {
         savedTime = getSharedPreferences(TIME, 0);
         SharedPreferences.Editor editorTime = savedTime.edit();
         editorTime.putInt("TimeKey", time);
@@ -207,14 +218,15 @@ public class SettingsActivity extends AppCompatActivity {
     }
 
     private void setBlueTheme() {
+        //Do not merge setBlueTheme and setBrownTheme to one method because in v2 the themes might not have any similar attributes.
         String white = "#ffffff";
-        String lightBlue = "#90B3E5FC";
+        String lightBlue = "#80B3E5FC";
+        String darkGrey = "#212121";
         mBackgroundImage.setImageResource(R.drawable.blue_bg);
-        //mFadedImage.setImageResource(R.color.bluecolorPrimaryLight);
         mFadedImage.setImageResource(R.color.blueFaded);
-        mThemeLabel.setTextColor(Color.parseColor(white));
-        mNotificationLabel.setTextColor(Color.parseColor(white));
-        mAbout.setTextColor(Color.parseColor(white));
+        mThemeLabel.setTextColor(Color.parseColor(darkGrey));
+        mNotificationLabel.setTextColor(Color.parseColor(darkGrey));
+        mAbout.setTextColor(Color.parseColor(darkGrey));
         mAbout.setBackground(getResources().getDrawable(R.drawable.blue_circle_bg_gradient));
         mThemeBrownLabel.setTextColor(Color.parseColor(white));
         mThemeBlueLabel.setTextColor(Color.parseColor(white));
@@ -227,11 +239,12 @@ public class SettingsActivity extends AppCompatActivity {
         mLayout4.setBackgroundColor(Color.parseColor(lightBlue));
         mLayout5.setBackgroundColor(Color.parseColor(lightBlue));
 
-
     }
 
     private void setBrownTheme() {
+        //Do not merge setBlueTheme and setBrownTheme to one method because in v2 the themes might not have any similar attributes.
         String darkGrey = "#212121";
+        String lightGrey = "#757575";
         String lightBrown = "#90D7CCC8";
         mBackgroundImage.setImageResource(R.drawable.brown_bg);
         mFadedImage.setImageResource(R.color.colorFaded);
@@ -239,17 +252,17 @@ public class SettingsActivity extends AppCompatActivity {
         mNotificationLabel.setTextColor(Color.parseColor(darkGrey));
         mAbout.setTextColor(Color.parseColor(darkGrey));
         mAbout.setBackground(getResources().getDrawable(R.drawable.circle_bg_gradient));
-        mThemeBrownLabel.setTextColor(Color.parseColor(darkGrey));
-        mThemeBlueLabel.setTextColor(Color.parseColor(darkGrey));
-        mOffLabel.setTextColor(Color.parseColor(darkGrey));
-        mMorningLabel.setTextColor(Color.parseColor(darkGrey));
-        mEveningLabel.setTextColor(Color.parseColor(darkGrey));
+        mThemeBrownLabel.setTextColor(Color.parseColor(lightGrey));
+        mThemeBlueLabel.setTextColor(Color.parseColor(lightGrey));
+        mOffLabel.setTextColor(Color.parseColor(lightGrey));
+        mMorningLabel.setTextColor(Color.parseColor(lightGrey));
+        mEveningLabel.setTextColor(Color.parseColor(lightGrey));
         mLayout1.setBackgroundColor(Color.parseColor(lightBrown));
         mLayout2.setBackgroundColor(Color.parseColor(lightBrown));
         mLayout3.setBackgroundColor(Color.parseColor(lightBrown));
         mLayout4.setBackgroundColor(Color.parseColor(lightBrown));
         mLayout5.setBackgroundColor(Color.parseColor(lightBrown));
-        setTheme(R.style.AppTheme);
+
 
     }
 

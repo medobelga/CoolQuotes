@@ -45,7 +45,6 @@ public class CategoryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_category);
         ButterKnife.bind(this);
-        getSupportActionBar().hide();
         mDBOpenHelper = new DBOpenHelper(this);
 
 
