@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.justinmutsito.coolquotes.coolquotes.R;
@@ -23,6 +24,7 @@ public class SettingsActivity extends AppCompatActivity {
     private SharedPreferences savedTime;
     public String mTheme;
     public int mTime;
+
 
     @Bind(R.id.themeLabel)
     TextView mThemeLabel;
@@ -54,6 +56,11 @@ public class SettingsActivity extends AppCompatActivity {
     TextView mMorningLabel;
     @Bind(R.id.eveningLabel)
     TextView mEveningLabel;
+    @Bind(R.id.layout1) LinearLayout mLayout1;
+    @Bind(R.id.layout2) LinearLayout mLayout2;
+    @Bind(R.id.layout3) LinearLayout mLayout3;
+    @Bind(R.id.layout4) LinearLayout mLayout4;
+    @Bind(R.id.layout5) LinearLayout mLayout5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,6 +101,7 @@ public class SettingsActivity extends AppCompatActivity {
         mBlue.setImageResource(R.drawable.ic_checkbox_blank_circle_outline_grey600_48dp);
         mBrown.setImageResource(R.drawable.ic_checkbox_marked_circle_grey600_48dp);
         setBrownTheme();
+        setIcons();
         saveTheme(mTheme);
 
 
@@ -102,28 +110,50 @@ public class SettingsActivity extends AppCompatActivity {
     @OnClick(R.id.blueCheckbox)
     public void setBlue() {
         mTheme = "blue";
-        mBrown.setImageResource(R.drawable.ic_checkbox_blank_circle_outline_grey600_48dp);
-        mBlue.setImageResource(R.drawable.ic_checkbox_marked_circle_grey600_48dp);
+        mBrown.setImageResource(R.drawable.ic_checkbox_blank_circle_outline_white_48dp);
+        mBlue.setImageResource(R.drawable.ic_checkbox_marked_circle_white_48dp);
         setBlueTheme();
+        setIcons();
         saveTheme(mTheme);
+    }
+
+    private void setIcons() {
+        setMorning();
+        setEvening();
+        setOff();
     }
 
 
     @OnClick(R.id.offCheckbox)
     public void setOff() {
         mTime = 0;
-        mOff.setImageResource(R.drawable.ic_checkbox_marked_circle_grey600_48dp);
-        mEvening.setImageResource(R.drawable.ic_checkbox_blank_circle_outline_grey600_48dp);
-        mMorning.setImageResource(R.drawable.ic_checkbox_blank_circle_outline_grey600_48dp);
+        if (mTheme.equals("brown")) {
+
+            mOff.setImageResource(R.drawable.ic_checkbox_marked_circle_grey600_48dp);
+            mEvening.setImageResource(R.drawable.ic_checkbox_blank_circle_outline_grey600_48dp);
+            mMorning.setImageResource(R.drawable.ic_checkbox_blank_circle_outline_grey600_48dp);
+        } else {
+
+            mOff.setImageResource(R.drawable.ic_checkbox_marked_circle_white_48dp);
+            mEvening.setImageResource(R.drawable.ic_checkbox_blank_circle_outline_white_48dp);
+            mMorning.setImageResource(R.drawable.ic_checkbox_blank_circle_outline_white_48dp);
+        }
         saveTheme(mTime);
     }
 
     @OnClick(R.id.morningCheckbox)
     public void setMorning() {
         mTime = 9;
-        mEvening.setImageResource(R.drawable.ic_checkbox_blank_circle_outline_grey600_48dp);
-        mMorning.setImageResource(R.drawable.ic_checkbox_marked_circle_grey600_48dp);
-        mOff.setImageResource(R.drawable.ic_checkbox_blank_circle_outline_grey600_48dp);
+        if (mTheme.equals("brown")) {
+            mEvening.setImageResource(R.drawable.ic_checkbox_blank_circle_outline_grey600_48dp);
+            mMorning.setImageResource(R.drawable.ic_checkbox_marked_circle_grey600_48dp);
+            mOff.setImageResource(R.drawable.ic_checkbox_blank_circle_outline_grey600_48dp);
+        } else {
+
+            mEvening.setImageResource(R.drawable.ic_checkbox_blank_circle_outline_white_48dp);
+            mMorning.setImageResource(R.drawable.ic_checkbox_marked_circle_white_48dp);
+            mOff.setImageResource(R.drawable.ic_checkbox_blank_circle_outline_white_48dp);
+        }
         saveTheme(mTime);
     }
 
@@ -131,9 +161,17 @@ public class SettingsActivity extends AppCompatActivity {
     @OnClick(R.id.eveningCheckbox)
     public void setEvening() {
         mTime = 21;
-        mMorning.setImageResource(R.drawable.ic_checkbox_blank_circle_outline_grey600_48dp);
-        mEvening.setImageResource(R.drawable.ic_checkbox_marked_circle_grey600_48dp);
-        mOff.setImageResource(R.drawable.ic_checkbox_blank_circle_outline_grey600_48dp);
+        if (mTheme.equals("brown")) {
+
+            mMorning.setImageResource(R.drawable.ic_checkbox_blank_circle_outline_grey600_48dp);
+            mEvening.setImageResource(R.drawable.ic_checkbox_marked_circle_grey600_48dp);
+            mOff.setImageResource(R.drawable.ic_checkbox_blank_circle_outline_grey600_48dp);
+        } else {
+
+            mMorning.setImageResource(R.drawable.ic_checkbox_blank_circle_outline_white_48dp);
+            mEvening.setImageResource(R.drawable.ic_checkbox_marked_circle_white_48dp);
+            mOff.setImageResource(R.drawable.ic_checkbox_blank_circle_outline_white_48dp);
+        }
         saveTheme(mTime);
     }
 
@@ -170,33 +208,49 @@ public class SettingsActivity extends AppCompatActivity {
 
     private void setBlueTheme() {
         String white = "#ffffff";
+        String lightBlue = "#90B3E5FC";
         mBackgroundImage.setImageResource(R.drawable.blue_bg);
         //mFadedImage.setImageResource(R.color.bluecolorPrimaryLight);
         mFadedImage.setImageResource(R.color.blueFaded);
         mThemeLabel.setTextColor(Color.parseColor(white));
         mNotificationLabel.setTextColor(Color.parseColor(white));
         mAbout.setTextColor(Color.parseColor(white));
+        mAbout.setBackground(getResources().getDrawable(R.drawable.blue_circle_bg_gradient));
         mThemeBrownLabel.setTextColor(Color.parseColor(white));
         mThemeBlueLabel.setTextColor(Color.parseColor(white));
         mOffLabel.setTextColor(Color.parseColor(white));
         mMorningLabel.setTextColor(Color.parseColor(white));
         mEveningLabel.setTextColor(Color.parseColor(white));
+        mLayout1.setBackgroundColor(Color.parseColor(lightBlue));
+        mLayout2.setBackgroundColor(Color.parseColor(lightBlue));
+        mLayout3.setBackgroundColor(Color.parseColor(lightBlue));
+        mLayout4.setBackgroundColor(Color.parseColor(lightBlue));
+        mLayout5.setBackgroundColor(Color.parseColor(lightBlue));
 
 
     }
 
     private void setBrownTheme() {
         String darkGrey = "#212121";
+        String lightBrown = "#90D7CCC8";
         mBackgroundImage.setImageResource(R.drawable.brown_bg);
         mFadedImage.setImageResource(R.color.colorFaded);
         mThemeLabel.setTextColor(Color.parseColor(darkGrey));
         mNotificationLabel.setTextColor(Color.parseColor(darkGrey));
         mAbout.setTextColor(Color.parseColor(darkGrey));
+        mAbout.setBackground(getResources().getDrawable(R.drawable.circle_bg_gradient));
         mThemeBrownLabel.setTextColor(Color.parseColor(darkGrey));
         mThemeBlueLabel.setTextColor(Color.parseColor(darkGrey));
         mOffLabel.setTextColor(Color.parseColor(darkGrey));
         mMorningLabel.setTextColor(Color.parseColor(darkGrey));
         mEveningLabel.setTextColor(Color.parseColor(darkGrey));
+        mLayout1.setBackgroundColor(Color.parseColor(lightBrown));
+        mLayout2.setBackgroundColor(Color.parseColor(lightBrown));
+        mLayout3.setBackgroundColor(Color.parseColor(lightBrown));
+        mLayout4.setBackgroundColor(Color.parseColor(lightBrown));
+        mLayout5.setBackgroundColor(Color.parseColor(lightBrown));
+        setTheme(R.style.AppTheme);
+
     }
 
 }

@@ -3,6 +3,7 @@
     <color name="colorPrimary">#795548</color>
     <color name="colorPrimaryDark">#5D4037</color>
     <color name="colorPrimaryLight">#D7CCC8</color>
+    <color name="colorPrimaryLighter">#40D7CCC8</color>
     <color name="colorAccent">#9E9E9E</color>
     <color name="colorPrimaryText">#212121</color>
     <color name="colorSecondaryText">#757575</color>
@@ -10,6 +11,7 @@
     <color name="colorIcons">#FFFFFF</color>
     <color name="colorFaded">#60D7CCC8</color>
     <color name="colorDivider">#B6B6B6</color>
+    <color name="bluecolorPrimaryDark">#0288D1</color>
     <color name="bluecolorPrimaryLight">#B3E5FC</color>
     <color name="blueFaded">#60B3E5FC</color>
 </resources>
