@@ -78,14 +78,14 @@ public class SettingsActivity extends AppCompatActivity {
 
         savedTheme = getSharedPreferences(THEME, 0);
         savedTime = getSharedPreferences(TIME, 0);
-        mTheme = savedTheme.getString("ThemeKey", "brown");
-        mTime = savedTime.getInt("TimeKey", 0);
+        mTheme = savedTheme.getString(getString(R.string.themeKey), "brown");
+        mTime = savedTime.getInt(getString(R.string.timeKey), 0);
 
         Intent intent  = getIntent();
-        String leave = intent.getStringExtra("IntentKey");
+        String leave = intent.getStringExtra(getString(R.string.intentKey));
         if(leave.equals("leave")){
             Intent leaveIntent = new Intent(SettingsActivity.this, WelcomeActivity.class);
-            leaveIntent.putExtra("ThemeKey",mTheme);
+            leaveIntent.putExtra(getString(R.string.themeKey),mTheme);
             leaveIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             leaveIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(leaveIntent);
@@ -225,21 +225,23 @@ public class SettingsActivity extends AppCompatActivity {
 
     @OnClick(R.id.aboutButton)
     public void about() {
-        startActivity(new Intent(SettingsActivity.this, AboutActivity.class));
+        Intent intent = new Intent(SettingsActivity.this, AboutActivity.class);
+        intent.putExtra(getString(R.string.themeKey),mTheme);
+        startActivity(intent);
     }
 
 
     private void saveTheme(String theme) {
         savedTheme = getSharedPreferences(THEME, 0);
         SharedPreferences.Editor editorTheme = savedTheme.edit();
-        editorTheme.putString("ThemeKey", theme);
+        editorTheme.putString(getString(R.string.themeKey), theme);
         editorTheme.commit();
     }
 
     private void saveTime(int time) {
         savedTime = getSharedPreferences(TIME, 0);
         SharedPreferences.Editor editorTime = savedTime.edit();
-        editorTime.putInt("TimeKey", time);
+        editorTime.putInt(getString(R.string.timeKey), time);
         editorTime.commit();
     }
 

@@ -50,7 +50,7 @@ public class WelcomeActivity extends AppCompatActivity {
     @Bind(R.id.fadedImage)
     ImageView mFadedImage;
     @Bind(R.id.backgroundImage)
-    ImageView mBackgrounImage;
+    ImageView mBackgroundImage;
 
 
     @Override
@@ -60,7 +60,7 @@ public class WelcomeActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         //Set theme using mTheme passed from the SettingsActivity
-        mTheme = getIntent().getStringExtra("ThemeKey");
+        mTheme = getIntent().getStringExtra(getString(R.string.themeKey));
         setMyTheme(mTheme);
 
         //Get and set UI data
@@ -116,7 +116,7 @@ public class WelcomeActivity extends AppCompatActivity {
     @OnClick(R.id.categoriesButton)
     public void startActivityCategories() {
         Intent intent = new Intent(WelcomeActivity.this, CategoriesActivity.class);
-        intent.putExtra("ThemeKey", mTheme);
+        intent.putExtra(getString(R.string.themeKey), mTheme);
         startActivity(intent);
 
     }
@@ -125,7 +125,7 @@ public class WelcomeActivity extends AppCompatActivity {
     @OnClick(R.id.authorButton)
     public void startActivityPeople() {
         Intent intent = new Intent(WelcomeActivity.this, AuthorActivity.class);
-        intent.putExtra("ThemeKey", mTheme);
+        intent.putExtra(getString(R.string.themeKey), mTheme);
         startActivity(intent);
 
     }
@@ -143,7 +143,7 @@ public class WelcomeActivity extends AppCompatActivity {
     @OnClick(R.id.favouritesLabel)
     public void startActivityFavourites() {
         Intent intent = new Intent(WelcomeActivity.this, FavouritesActivity.class);
-        intent.putExtra("ThemeKey", mTheme);
+        intent.putExtra(getString(R.string.themeKey), mTheme);
         startActivity(intent);
 
     }
@@ -319,7 +319,7 @@ public class WelcomeActivity extends AppCompatActivity {
     private void setMyTheme(String theme) {
         if (theme.equals("brown")) {
             String darkGrey = "#212121";
-            mBackgrounImage.setImageResource(R.drawable.brown_bg);
+            mBackgroundImage.setImageResource(R.drawable.brown_bg);
             mFadedImage.setImageResource(R.color.brownFaded);
             mQuote.setTextColor(Color.parseColor(darkGrey));
             mCategories.setTextColor(Color.parseColor(darkGrey));
@@ -332,7 +332,7 @@ public class WelcomeActivity extends AppCompatActivity {
 
         } else {
             String white = "#ffffff";
-            mBackgrounImage.setImageResource(R.drawable.blue_bg);
+            mBackgroundImage.setImageResource(R.drawable.blue_bg);
             mFadedImage.setImageResource(R.color.blueFaded);
             mQuote.setTextColor(Color.parseColor(white));
             mCategories.setTextColor(Color.parseColor(white));

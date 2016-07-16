@@ -2,12 +2,14 @@ package com.justinmutsito.coolquotes.coolquotes.Categories;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,10 +22,14 @@ import butterknife.OnClick;
 
 public class CategoryActivity extends AppCompatActivity {
     private String[] mQuotes;
+    private String mTheme;
     private int count = 0;
     private DBOpenHelper mDBOpenHelper;
 
-
+    @Bind(R.id.backgroundImage)
+    ImageView mBackgroundImage;
+    @Bind(R.id.fadedImage)
+    ImageView mFadedImage;
     @Bind(R.id.quote1Label)
     TextView mQuote1;
     @Bind(R.id.quote2Label)
@@ -32,6 +38,8 @@ public class CategoryActivity extends AppCompatActivity {
     TextView mQuote3;
     @Bind(R.id.quote4Label)
     TextView mQuote4;
+    @Bind(R.id.layout1)
+    LinearLayout mLayout;
     @Bind(R.id.previousIcon)
     ImageView mPrevious;
     @Bind(R.id.jumpToLabel)
@@ -45,17 +53,16 @@ public class CategoryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_category);
         ButterKnife.bind(this);
-        mDBOpenHelper = new DBOpenHelper(this);
-
 
         Intent intent = getIntent();
         Bundle bundle = intent.getBundleExtra(getString(R.string.bundleKey));
         int position = bundle.getInt(getString(R.string.categoryKey));
-
+        mTheme = intent.getStringExtra(getString(R.string.themeKey));
+        setMyTheme(mTheme);
         getQuotes(position);
         setQuotes(count);
 
-
+        mDBOpenHelper = new DBOpenHelper(this);
     }
 
 
@@ -118,7 +125,7 @@ public class CategoryActivity extends AppCompatActivity {
 
     private void setQuotes(int count) {
 
-        mQuote1.setText(mQuotes[count] );
+        mQuote1.setText(mQuotes[count]);
         mQuote2.setText(mQuotes[count + 1]);
         mQuote3.setText(mQuotes[count + 2]);
         mQuote4.setText(mQuotes[count + 3]);
@@ -198,7 +205,7 @@ public class CategoryActivity extends AppCompatActivity {
                 .setPositiveButton("Go", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        String number =numberText.getText().toString();
+                        String number = numberText.getText().toString();
                         goTo(number);
 
                     }
@@ -251,10 +258,38 @@ public class CategoryActivity extends AppCompatActivity {
 
     private void goTo(String number) {
         int goTo = Integer.parseInt(number);
-        if(goTo< mQuotes.length - 3){
+        if (goTo < mQuotes.length - 3) {
             setQuotes(goTo);
         }
 
+
+    }
+
+    private void setMyTheme(String theme) {
+        if (theme.equals("brown")) {
+            String darkGrey = "#212121";
+            mBackgroundImage.setImageResource(R.drawable.brown_bg);
+            mFadedImage.setImageResource(R.color.brownFaded);
+            mQuote1.setTextColor(Color.parseColor(darkGrey));
+            mQuote2.setTextColor(Color.parseColor(darkGrey));
+            mQuote3.setTextColor(Color.parseColor(darkGrey));
+            mQuote4.setTextColor(Color.parseColor(darkGrey));
+            mJumpTo.setTextColor(Color.parseColor(darkGrey));
+            mPrevious.setImageResource(R.drawable.ic_skip_previous_circle_outline_grey600_48dp);
+            mNext.setImageResource(R.drawable.ic_skip_next_circle_outline_grey600_48dp);
+        } else {
+            String white = "#ffffff";
+
+            mBackgroundImage.setImageResource(R.drawable.blue_bg);
+            mFadedImage.setImageResource(R.color.blueFaded);
+            mQuote1.setTextColor(Color.parseColor(white));
+            mQuote2.setTextColor(Color.parseColor(white));
+            mQuote3.setTextColor(Color.parseColor(white));
+            mQuote4.setTextColor(Color.parseColor(white));
+            mJumpTo.setTextColor(Color.parseColor(white));
+            mPrevious.setImageResource(R.drawable.ic_skip_previous_circle_outline_white_48dp);
+            mNext.setImageResource(R.drawable.ic_skip_next_circle_outline_white_48dp);
+        }
 
     }
 

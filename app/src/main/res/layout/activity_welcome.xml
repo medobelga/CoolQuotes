@@ -13,7 +13,6 @@
         android:layout_height="match_parent"
         android:scaleType="fitXY"
         android:src="@drawable/brown_bg"
-        tools:src="@drawable/blue_bg"
         />
 
     <ImageView
@@ -25,16 +24,17 @@
         android:layout_marginTop="15dp"
         android:scaleType="fitXY"
         android:src="@color/brownFaded"
-        tools:src="@color/blueFaded"/>
+      />
 
     <ImageView
         android:id="@+id/faceImageView"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="170dp"
+        android:layout_height="170dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="37dp"
-        android:src="@drawable/ic_account_circle_grey600_48dp"/>
+        android:src="@drawable/ic_account_circle_grey600_48dp"
+        tools:src="@drawable/enstein_bg"/>
 
     <TextView
         android:id="@+id/quoteLabel"
@@ -47,19 +47,16 @@
         android:padding="5dp"
         android:text="@string/test_text"
         android:textColor="@color/colorPrimaryText"
-        tools:textColor="@android:color/white"
-        android:textSize="15sp"/>
+        android:textSize="14sp"/>
 
     <Button
         android:id="@+id/categoriesButton"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_below="@+id/quoteLabel"
-        tools:textColor="@android:color/white"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="29dp"
         android:background="@drawable/circle_bg_gradient"
-        tools:background="@drawable/blue_circle_bg_gradient"
         android:gravity="fill_vertical"
         android:padding="5dp"
         android:shadowColor="#522e2e"
@@ -81,8 +78,6 @@
         android:text="@string/authors"
         android:textAlignment="center"
         android:textColor="@color/colorPrimaryText"
-        tools:background="@drawable/blue_circle_bg_gradient"
-        tools:textColor="@android:color/white"
 
         />
 
@@ -91,7 +86,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/authorButton"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="35dp"
         android:orientation="horizontal"
         android:weightSum="1">
 
@@ -104,7 +99,6 @@
             android:layout_weight="0.2"
             android:paddingBottom="5dp"
             android:src="@drawable/ic_share_variant_grey600_48dp"
-            tools:src="@drawable/ic_share_white_48dp"
 
 
             />
@@ -120,8 +114,7 @@
             android:text="@string/favourites"
             android:textAlignment="center"
             android:textColor="@color/colorPrimaryText"
-            tools:textColor="@android:color/white"
-            android:textSize="17sp"/>
+            android:textSize="15sp"/>
 
         <ImageView
             android:id="@+id/settingsIcon"
@@ -130,7 +123,6 @@
             android:layout_weight="0.2"
             android:paddingBottom="6dp"
             android:src="@drawable/ic_settings_grey600_48dp"
-            tools:src="@drawable/ic_settings_white_48dp"
             />
 
 

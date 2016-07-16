@@ -3,7 +3,7 @@
     <string name="categories">Categories</string>
     <string name="authors">Authors</string>
     <string name="favourites">Favourites</string>
-    <string name="test_text">Our prayers should be for blessings in general, for God knows best what is good for us. Happiness is unrepentant pleasure. Socrates</string>
+    <string name="test_text">Technological change is like an axe in the hands of a pathological criminal.-Albert Einstein</string>
     <string name="share">Share with ?</string>
     <string name="categoryKey">categoryKey</string>
     <string name="bundleKey">bundleKey</string>
@@ -29,6 +29,9 @@
     <string name="authorsKey">AuthorsKey</string>
     <string name="go_to_number">Go to number?</string>
     <string name="off">Off</string>
+    <string name="themeKey">ThemeKey</string>
+    <string name="timeKey">TimeKey</string>
+    <string name="intentKey">IntentKey</string>
 
 
     <string-array name="quotesOptions">
@@ -177,7 +180,6 @@
         <item>Electricity is actually made up of extremely tiny particles called electrons, that you cannot see with the naked eye unless you have been drinking. ― Dave Barry</item>
         <item>Politicians and diapers have one thing in common. They should both be changed regularly, and for the same reason. ― José Maria de Eça de Queiroz</item>
         <item>Some cause happiness wherever they go; others whenever they go. ― Oscar Wilde</item>
-        <item>When I was a boy of fourteen, my father was so ignorant I could hardly stand to have the old man around. But when I got to be twenty-one, I was astonished at how much he had learned in seven years. ― Mark Twain</item>
         <item>Nothing sucks more than that moment during an argument when you realize you’re wrong. ― Unknown</item>
         <item>My computer beat me at checkers, but I sure beat it at kickboxing. ― Emo Philips </item>
         <item>I don\'t hate you I just don\'t like that you exist. ― Gena Showalter</item>
@@ -380,10 +382,8 @@
         <item>The world is a dangerous place, not because of those who do evil, but because of those who look on and do nothing.-Albert Einstein</item>
         <item>When the solution is simple, God is answering.-Albert Einstein</item>
         <item>The fear of death is the most unjustified of all fears, for there\'s no risk of accident for someone who\'s dead.-Albert Einstein</item>
-        <item>The release of atom power has changed everything except our way of thinking, the solution to this problem lies in the heart of mankind. If only I had known, I should have become a watchmaker.-Albert Einstein</item>
         <item>Not everything that counts can be counted, and not everything that can be counted counts.-Albert Einstein</item>
         <item>Insanity is doing the same thing, over and over again, but expecting different results.-Albert Einstein</item>
-        <item>I am enough of an artist to draw freely upon my imagination. Imagination is more important than knowledge. Knowledge is limited. Imagination encircles the world.-Albert Einstein</item>
         <item>If you can\'t explain it to a six year old, you don\'t understand it yourself.-Albert Einstein</item>
         <item>Logic will get you from A to Z; imagination will get you everywhere.-Albert Einstein</item>
         <item>The most incomprehensible thing about the world is that it is comprehensible.-Albert Einstein</item>
@@ -400,7 +400,6 @@
         <item> A clever person solves a problem. A wise person avoids it.</item>
         <item> If A is a success in life, then A equals x plus y plus z. Work is x; y is play; and z is keeping your mouth shut.-Albert Einstein</item>
         <item> Men marry women with the hope they will never change. Women marry men with the hope they will change. Invariably they are both disappointed.-Albert Einstein</item>
-        <item>It would be possible to describe everything scientifically, but it would make no sense; it would be without meaning, as if you described a Beethoven symphony as a variation of wave pressure.-Albert Einstein</item>
         <item> A ship is always safe at the shore  but that is NOT what it is built for.-Albert Einstein</item>
         <item> If people are good only because they fear punishment, and hope for reward, then we are a sorry lot indeed.-Albert Einstein</item>
         <item>Even on the most solemn occasions I got away without wearing socks and hid that lack of civilization in high boots.-Albert Einstein</item>
@@ -410,9 +409,7 @@
         <item>The only justifiable purpose of political institutions is to ensure the unhindered development of the individual.-Albert Einstein</item>
         <item>Work is the only thing that gives substance to life.</item>
         <item> Never lose a holy curiosity.-Albert Einstein</item>
-        <item>When you look at yourself from a universal standpoint, something inside always reminds or informs you that there are bigger and better things to worry about.-Albert Einstein</item>
         <item>Paper is to write things down that we need to remember.Our brains are used to think.-Albert Einstein</item>
-        <item>Any intelligent fool can make things bigger, more complex, and more violent. It takes a touch of genius and a lot of courage  to move in the opposite direction.-Albert Einstein</item>
         <item> Gravitation is not responsible for people falling in love.-Albert Einstein</item>
         <item>The hardest thing in the world to understand is the income tax. I never think of the future. It comes soon enough.-Albert Einstein</item>
         <item>Science without religion is lame. Religion without science is blind.-Albert Einstein</item>

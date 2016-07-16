@@ -8,6 +8,7 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="windowActionBar">false</item>
         <item name="android:textColorPrimary">@color/colorPrimaryText</item>
+        <item name="android:listDivider">@color/brownFaded</item>
 
     </style>
 
