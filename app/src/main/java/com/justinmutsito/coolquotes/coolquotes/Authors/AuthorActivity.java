@@ -45,7 +45,7 @@ public class AuthorActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_author);
         ButterKnife.bind(this);
-        mDBOpenHelper = new DBOpenHelper(this);
+
 
 
         Intent intent = getIntent();
@@ -54,7 +54,7 @@ public class AuthorActivity extends AppCompatActivity {
         getQuotes(position);
         setQuotes(count);
 
-
+        mDBOpenHelper = new DBOpenHelper(this);
     }
 
 

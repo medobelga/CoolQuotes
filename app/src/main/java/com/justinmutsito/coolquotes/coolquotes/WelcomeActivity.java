@@ -11,7 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.justinmutsito.coolquotes.coolquotes.Authors.AuthorActivity;
+import com.justinmutsito.coolquotes.coolquotes.Authors.AuthorsActivity;
 import com.justinmutsito.coolquotes.coolquotes.Categories.CategoriesActivity;
 import com.justinmutsito.coolquotes.coolquotes.Database.DBOpenHelper;
 import com.justinmutsito.coolquotes.coolquotes.Favourites.FavouritesActivity;
@@ -60,7 +60,7 @@ public class WelcomeActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         //Set theme using mTheme passed from the SettingsActivity
-        mTheme = getIntent().getStringExtra(getString(R.string.themeKey));
+        mTheme = getIntent().getStringExtra("ThemeKey");
         setMyTheme(mTheme);
 
         //Get and set UI data
@@ -124,8 +124,8 @@ public class WelcomeActivity extends AppCompatActivity {
 
     @OnClick(R.id.authorButton)
     public void startActivityPeople() {
-        Intent intent = new Intent(WelcomeActivity.this, AuthorActivity.class);
-        intent.putExtra(getString(R.string.themeKey), mTheme);
+        Intent intent = new Intent(WelcomeActivity.this, AuthorsActivity.class);
+        intent.putExtra("ThemeKey",mTheme);
         startActivity(intent);
 
     }
@@ -143,7 +143,7 @@ public class WelcomeActivity extends AppCompatActivity {
     @OnClick(R.id.favouritesLabel)
     public void startActivityFavourites() {
         Intent intent = new Intent(WelcomeActivity.this, FavouritesActivity.class);
-        intent.putExtra(getString(R.string.themeKey), mTheme);
+        intent.putExtra("ThemeKey", mTheme);
         startActivity(intent);
 
     }
