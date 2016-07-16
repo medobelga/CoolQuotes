@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.justinmutsito.coolquotes.coolquotes.Settings.SettingsActivity;
+
 public class SplashScreenActivity extends AppCompatActivity {
 
     @Override
@@ -15,12 +17,13 @@ public class SplashScreenActivity extends AppCompatActivity {
             Thread timer = new Thread(){
                 public void run(){
                     try {
-                        sleep(2000);
+                        sleep(1500);
                     } catch (InterruptedException e) {
                         //IntentionalLy left blank
                     }
                     finally {
-                        Intent intent = new Intent(SplashScreenActivity.this,WelcomeActivity.class);
+                        Intent intent = new Intent(SplashScreenActivity.this,SettingsActivity.class);
+                        intent.putExtra("IntentKey","leave");
                         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         startActivity(intent);

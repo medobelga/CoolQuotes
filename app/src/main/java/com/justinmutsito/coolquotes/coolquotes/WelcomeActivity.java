@@ -1,7 +1,5 @@
 package com.justinmutsito.coolquotes.coolquotes;
 
-import android.app.AlarmManager;
-import android.app.PendingIntent;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,10 +14,8 @@ import com.justinmutsito.coolquotes.coolquotes.Authors.AuthorsActivity;
 import com.justinmutsito.coolquotes.coolquotes.Categories.CategoriesActivity;
 import com.justinmutsito.coolquotes.coolquotes.Database.DBOpenHelper;
 import com.justinmutsito.coolquotes.coolquotes.Favourites.FavouritesActivity;
-import com.justinmutsito.coolquotes.coolquotes.Notifications.NotificationReceiver;
 import com.justinmutsito.coolquotes.coolquotes.Settings.SettingsActivity;
 
-import java.util.Calendar;
 import java.util.Random;
 
 import butterknife.Bind;
@@ -30,6 +26,7 @@ public class WelcomeActivity extends AppCompatActivity {
 
 
     private String[] mQuotes;
+    private String mTheme;
     private int mPersonNumber;
     private int mPosition;
     private String mCurrentQuote;
@@ -49,13 +46,15 @@ public class WelcomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
         ButterKnife.bind(this);
-        checkSettings();
+
         mDBOpenHelper = new DBOpenHelper(this);
 
         randomQuote();
         getQuotes(mPersonNumber);
         mCurrentQuote = mQuotes[mPosition];
         mQuote.setText(mCurrentQuote);
+        mTheme = getIntent().getStringExtra("ThemeKey");
+        //Set theme using mTheme passed from the SettingsActivity
 
 
     }
@@ -128,7 +127,9 @@ public class WelcomeActivity extends AppCompatActivity {
 
     @OnClick(R.id.settingsIcon)
     public void configSettings() {
-        startActivity(new Intent(WelcomeActivity.this, SettingsActivity.class));
+        Intent intent = new Intent(WelcomeActivity.this, SettingsActivity.class);
+        intent.putExtra("IntentKey","stay");
+        startActivity(intent);
     }
 
     private void randomQuote() {
@@ -292,17 +293,6 @@ public class WelcomeActivity extends AppCompatActivity {
         startActivity(Intent.createChooser(shareIntent, getString(R.string.share)));
     }
 
-
-    private void checkSettings(){
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(Calendar.HOUR_OF_DAY,9);
-        Intent intent = new Intent(getApplicationContext(), NotificationReceiver.class);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(),10,intent,PendingIntent.FLAG_UPDATE_CURRENT);
-        AlarmManager manager = (AlarmManager) getApplicationContext().getSystemService(ALARM_SERVICE);
-        manager.setRepeating(AlarmManager.RTC_WAKEUP,calendar.getTimeInMillis(),AlarmManager.INTERVAL_DAY,pendingIntent );
-
-
-    }
 
     @Override
     protected void onPause() {

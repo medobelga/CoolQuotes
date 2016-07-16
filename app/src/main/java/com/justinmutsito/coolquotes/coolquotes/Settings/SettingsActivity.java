@@ -12,6 +12,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.justinmutsito.coolquotes.coolquotes.R;
+import com.justinmutsito.coolquotes.coolquotes.WelcomeActivity;
 
 import at.markushi.ui.CircleButton;
 import butterknife.Bind;
@@ -74,6 +75,22 @@ public class SettingsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
         ButterKnife.bind(this);
+
+        savedTheme = getSharedPreferences(THEME, 0);
+        savedTime = getSharedPreferences(TIME, 0);
+        mTheme = savedTheme.getString("ThemeKey", "brown");
+        mTime = savedTime.getInt("TimeKey", 0);
+
+        Intent intent  = getIntent();
+        String leave = intent.getStringExtra("IntentKey");
+        if(leave.equals("leave")){
+            Intent leaveIntent = new Intent(SettingsActivity.this, WelcomeActivity.class);
+            leaveIntent.putExtra("ThemeKey",mTheme);
+            leaveIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            leaveIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(leaveIntent);
+        }
+
         myToolbar = (Toolbar) findViewById(R.id.toolbar);
         myToolbar.setTitleTextColor(Color.parseColor("#212121"));
         setSupportActionBar(myToolbar);
@@ -81,15 +98,12 @@ public class SettingsActivity extends AppCompatActivity {
         getSupportActionBar().setHomeButtonEnabled(true);
 
 
-        savedTheme = getSharedPreferences(THEME, 0);
-        savedTime = getSharedPreferences(TIME, 0);
-        mTheme = savedTheme.getString("ThemeKey", "brown");
-        mTime = savedTime.getInt("TimeKey", 0);
+
 
         if (mTheme.equals("brown")) {
-            setBrown();
+            brownTheme();
         } else {
-            setBlue();
+            blueTheme();
 
 
         }
@@ -105,23 +119,35 @@ public class SettingsActivity extends AppCompatActivity {
         saveTheme(mTheme);
         saveTime(mTime);
 
+
+
     }
 
 
     @OnClick(R.id.brownCheckbox)
     public void setBrown() {
+        brownTheme();
+        resetTheme();
+
+
+    }
+
+    private void brownTheme() {
         mTheme = "brown";
         mBlue.setImageResource(R.drawable.ic_checkbox_blank_circle_outline_grey600_48dp);
         mBrown.setImageResource(R.drawable.ic_checkbox_marked_circle_grey600_48dp);
         setBrownTheme();
         setIcons();
         saveTheme(mTheme);
-
-
     }
 
     @OnClick(R.id.blueCheckbox)
     public void setBlue() {
+        blueTheme();
+        resetTheme();
+    }
+
+    private void blueTheme() {
         mTheme = "blue";
         mBrown.setImageResource(R.drawable.ic_checkbox_blank_circle_outline_white_48dp);
         mBlue.setImageResource(R.drawable.ic_checkbox_marked_circle_white_48dp);
@@ -265,5 +291,28 @@ public class SettingsActivity extends AppCompatActivity {
 
 
     }
+
+    private void resetTheme() {
+        Thread timer = new Thread(){
+            public void run(){
+                try{
+                    sleep(2000);
+                }
+                catch (Exception e){
+                    //Intentionally left blank
+                }
+                finally {
+                    Intent leaveIntent = new Intent(SettingsActivity.this, WelcomeActivity.class);
+                    leaveIntent.putExtra("ThemeKey",mTheme);
+                    leaveIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    leaveIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(leaveIntent);
+                }
+
+            }
+        };
+        timer.start();
+    }
+
 
 }
