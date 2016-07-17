@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.justinmutsito.coolquotes.coolquotes.Database.DBOpenHelper;
@@ -15,23 +16,55 @@ import com.justinmutsito.coolquotes.coolquotes.R;
 
 import java.util.ArrayList;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+
 public class FavouritesActivity extends ListActivity {
+    private String mTheme;
     private ArrayList<String> mFavourites;
     private DBOpenHelper mDBOpenHelper;
     private Bundle savedInstanceState;
 
 
+    @Bind(R.id.backgroundImage)
+    ImageView mBackgroundImage;
+    @Bind(R.id.fadedImage) ImageView mFadedImage;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_favourites);
+        ButterKnife.bind(this);
+
+        mTheme = getIntent().getStringExtra(getString(R.string.themeKey));
+        setMyTheme(mTheme);
 
         mFavourites = new ArrayList<>();
         mDBOpenHelper = new DBOpenHelper(FavouritesActivity.this);
         loadUi();
 
+
     }
 
+
+
+    private void setMyTheme(String theme) {
+
+        if (theme.equals("brown")) {
+            String darkGrey = "#212121";
+
+            mBackgroundImage.setImageResource(R.drawable.brown_bg);
+            mFadedImage.setImageResource(R.color.brownFaded);
+
+        } else {
+            String white = "#ffffff";
+            mBackgroundImage.setImageResource(R.drawable.blue_bg);
+            mFadedImage.setImageResource(R.color.blueFaded);
+
+
+
+        }
+    }
     private void loadUi() {
         Cursor cursor = mDBOpenHelper.getFavourites();
         cursor.moveToFirst();

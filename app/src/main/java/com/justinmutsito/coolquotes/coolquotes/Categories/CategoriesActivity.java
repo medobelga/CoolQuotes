@@ -26,7 +26,7 @@ public class CategoriesActivity extends ListActivity {
         setContentView(R.layout.activity_categories);
         ButterKnife.bind(this);
 
-        mTheme = getIntent().getStringExtra("ThemeKey");
+        mTheme = getIntent().getStringExtra(getString(R.string.themeKey));
         setMyTheme(mTheme);
 
 
