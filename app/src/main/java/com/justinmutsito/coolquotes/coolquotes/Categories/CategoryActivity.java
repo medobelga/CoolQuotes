@@ -132,7 +132,7 @@ public class CategoryActivity extends AppCompatActivity {
         mQuote3.setText(mQuotes[count + 2]);
         mQuote4.setText(mQuotes[count + 3]);
 
-        String countDisplay = (count + 4)+ "/" + mQuotes.length;
+        String countDisplay = (count + 4) + "/" + mQuotes.length;
         mQuoteCount.setText(countDisplay);
     }
 
@@ -262,9 +262,16 @@ public class CategoryActivity extends AppCompatActivity {
 
 
     private void goTo(String number) {
-        int goTo = Integer.parseInt(number);
-        if (goTo < mQuotes.length - 3) {
-            setQuotes(goTo);
+        if (number.isEmpty()) {
+            Toast.makeText(CategoryActivity.this, R.string.not_added, Toast.LENGTH_SHORT).show();
+        } else {
+            int goTo = Integer.parseInt(number);
+            if ((goTo < mQuotes.length - 3)) {
+                setQuotes(goTo);
+            } else {
+                Toast.makeText(CategoryActivity.this, R.string.not_added, Toast.LENGTH_SHORT).show();
+            }
+
         }
 
 

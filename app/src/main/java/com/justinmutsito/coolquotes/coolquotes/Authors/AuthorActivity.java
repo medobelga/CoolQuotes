@@ -2,6 +2,7 @@ package com.justinmutsito.coolquotes.coolquotes.Authors;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -20,6 +21,7 @@ import butterknife.OnClick;
 
 public class AuthorActivity extends AppCompatActivity {
     private String[] mQuotes;
+    private String mTheme;
     private int count = 0;
     private DBOpenHelper mDBOpenHelper;
 
@@ -54,12 +56,14 @@ public class AuthorActivity extends AppCompatActivity {
         Intent intent = getIntent();
         Bundle bundle = intent.getBundleExtra(getString(R.string.authorsKey));
         int position = bundle.getInt(getString(R.string.bundleKey));
+        mTheme = intent.getStringExtra(getString(R.string.themeKey));
+
+        setMyTheme(mTheme);
         getQuotes(position);
         setQuotes(count);
 
         mDBOpenHelper = new DBOpenHelper(this);
     }
-
 
     private void getQuotes(int n) {
 
@@ -68,7 +72,7 @@ public class AuthorActivity extends AppCompatActivity {
 
             case 0: {
                 mQuotes = getResources().getStringArray(R.array.Albert_Einstein);
-             break;
+                break;
             }
             case 1: {
                 mQuotes = getResources().getStringArray(R.array.Abraham_Lincoln);
@@ -250,7 +254,7 @@ public class AuthorActivity extends AppCompatActivity {
                 .setPositiveButton("Go", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        String number =numberText.getText().toString();
+                        String number = numberText.getText().toString();
                         goTo(number);
 
                     }
@@ -317,10 +321,49 @@ public class AuthorActivity extends AppCompatActivity {
     }
 
     private void goTo(String number) {
-        int goTo = Integer.parseInt(number);
-        if (goTo < mQuotes.length - 3) {
-            setQuotes(goTo);
+        if (number.isEmpty()) {
+            Toast.makeText(AuthorActivity.this, R.string.not_added, Toast.LENGTH_SHORT).show();
+        } else {
+            int goTo = Integer.parseInt(number);
+            if ((goTo < mQuotes.length - 3)) {
+                setQuotes(goTo);
+            } else {
+                Toast.makeText(AuthorActivity.this, R.string.not_added, Toast.LENGTH_SHORT).show();
+            }
+
         }
+
+    }
+
+
+    private void setMyTheme(String theme) {
+        if (theme.equals("brown")) {
+            String darkGrey = "#212121";
+            mBackgroundImage.setImageResource(R.drawable.brown_bg);
+            mFadedImage.setImageResource(R.color.brownFaded);
+            mQuote1.setTextColor(Color.parseColor(darkGrey));
+            mQuote2.setTextColor(Color.parseColor(darkGrey));
+            mQuote3.setTextColor(Color.parseColor(darkGrey));
+            mQuote4.setTextColor(Color.parseColor(darkGrey));
+            mQuoteCount.setTextColor(Color.parseColor(darkGrey));
+            mJumpTo.setTextColor(Color.parseColor(darkGrey));
+            mPrevious.setImageResource(R.drawable.ic_skip_previous_circle_outline_grey600_48dp);
+            mNext.setImageResource(R.drawable.ic_skip_next_circle_outline_grey600_48dp);
+        } else {
+            String white = "#ffffff";
+
+            mBackgroundImage.setImageResource(R.drawable.blue_bg);
+            mFadedImage.setImageResource(R.color.blueFaded);
+            mQuote1.setTextColor(Color.parseColor(white));
+            mQuote2.setTextColor(Color.parseColor(white));
+            mQuote3.setTextColor(Color.parseColor(white));
+            mQuote4.setTextColor(Color.parseColor(white));
+            mQuoteCount.setTextColor(Color.parseColor(white));
+            mJumpTo.setTextColor(Color.parseColor(white));
+            mPrevious.setImageResource(R.drawable.ic_skip_previous_circle_outline_white_48dp);
+            mNext.setImageResource(R.drawable.ic_skip_next_circle_outline_white_48dp);
+        }
+
     }
 
     @Override

@@ -125,7 +125,7 @@ public class WelcomeActivity extends AppCompatActivity {
     @OnClick(R.id.authorButton)
     public void startActivityPeople() {
         Intent intent = new Intent(WelcomeActivity.this, AuthorsActivity.class);
-        intent.putExtra("ThemeKey",mTheme);
+        intent.putExtra(getString(R.string.themeKey),mTheme);
         startActivity(intent);
 
     }
