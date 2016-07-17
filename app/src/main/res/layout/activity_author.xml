@@ -4,8 +4,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/rectangle_bg_gradient"
     tools:context=".Authors.AuthorActivity">
+
+    <ImageView
+        android:id="@+id/backgroundImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:src="@drawable/brown_bg"
+        />
+
+    <ImageView
+        android:id="@+id/fadedImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_margin="8dp"
+        android:layout_marginTop="15dp"
+        android:scaleType="fitXY"
+        android:src="@color/brownFaded"
+        />
 
     <TextView
         android:id="@+id/quote1Label"
@@ -13,12 +31,11 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:layout_marginTop="32dp"
-        android:background="@color/colorPrimaryLight"
+        android:layout_marginTop="40dp"
         android:gravity="center_vertical|center_horizontal"
         android:padding="5dp"
         android:text="@string/test_text"
-        android:textColor="@color/colorSecondaryText"
+        android:textColor="@color/colorPrimaryText"
         android:textSize="15sp"
         android:layout_centerHorizontal="true"
       />
@@ -30,11 +47,10 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginTop="40dp"
-        android:background="@color/colorPrimaryLight"
         android:gravity="center_vertical|center_horizontal"
         android:padding="5dp"
         android:text="@string/test_text"
-        android:textColor="@color/colorSecondaryText"
+        android:textColor="@color/colorPrimaryText"
         android:textSize="15sp"
         android:layout_below="@+id/quote1Label"
         android:layout_centerHorizontal="true"/>
@@ -43,44 +59,59 @@
         android:id="@+id/quote3Label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimaryLight"
         android:gravity="center_vertical|center_horizontal"
         android:padding="5dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:text="@string/test_text"
-        android:textColor="@color/colorSecondaryText"
+        android:textColor="@color/colorPrimaryText"
         android:textSize="15sp"
-        android:layout_centerVertical="true"
-        android:layout_alignParentStart="true"/>
+        android:layout_below="@+id/quote2Label"
+        android:layout_alignEnd="@+id/fadedImage"
+        android:layout_marginTop="40dp"/>
 
     <TextView
         android:id="@+id/quote4Label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:background="@color/colorPrimaryLight"
         android:gravity="center_vertical|center_horizontal"
         android:padding="5dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:text="@string/test_text"
-        android:textColor="@color/colorSecondaryText"
+        android:textColor="@color/colorPrimaryText"
         android:textSize="15sp"
         android:layout_below="@+id/quote3Label"
         android:layout_alignParentStart="true"/>
 
+
+
+    <TextView
+        android:id="@+id/quoteCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/layout1"
+        android:layout_marginBottom="10dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="@dimen/left_margin"
+        android:layout_marginRight="@dimen/right_margin"
+        android:gravity="center_vertical|center_horizontal"
+        android:padding="5dp"
+        android:text="7/1100"
+        android:textColor="@color/colorPrimaryText"
+        android:textSize="15sp"/>
+
     <LinearLayout
+        android:id="@+id/layout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="10dp"
-        android:background="@color/colorPrimaryLight"
-        android:weightSum="1"
         android:layout_alignParentBottom="true"
-        android:id="@+id/linearLayout">
+        android:layout_marginBottom="50dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:orientation="horizontal"
+        android:weightSum="1">
 
 
         <ImageView
@@ -104,7 +135,7 @@
             android:paddingTop="15dp"
             android:text="@string/jump_to"
             android:textAlignment="center"
-            android:textColor="@color/colorSecondaryText"
+            android:textColor="@color/colorPrimaryText"
             android:textSize="17sp"/>
 
         <ImageView
@@ -119,13 +150,5 @@
 
     </LinearLayout>
 
-    <ImageView
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:id="@+id/faceImageView"
-        android:layout_above="@+id/linearLayout"
-        android:layout_margin="10dp"
-        android:src="@drawable/ic_account_circle_grey600_48dp"
-        android:layout_centerHorizontal="true"/>
 
 </RelativeLayout>

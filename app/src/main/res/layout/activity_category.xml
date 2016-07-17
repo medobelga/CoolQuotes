@@ -32,11 +32,11 @@
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="@dimen/left_margin"
         android:layout_marginRight="@dimen/right_margin"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="40dp"
         android:gravity="center_vertical|center_horizontal"
         android:padding="5dp"
         android:text="@string/test_text"
-        android:textColor="@color/colorSecondaryText"
+        android:textColor="@color/colorPrimaryText"
         android:textSize="15sp"/>
 
     <TextView
@@ -51,21 +51,22 @@
         android:gravity="center_vertical|center_horizontal"
         android:padding="5dp"
         android:text="@string/test_text"
-        android:textColor="@color/colorSecondaryText"
+        android:textColor="@color/colorPrimaryText"
         android:textSize="15sp"/>
 
     <TextView
         android:id="@+id/quote3Label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_centerVertical="true"
+        android:layout_below="@+id/quote2Label"
+        android:layout_centerHorizontal="true"
         android:layout_marginLeft="@dimen/left_margin"
         android:layout_marginRight="@dimen/right_margin"
+        android:layout_marginTop="40dp"
         android:gravity="center_vertical|center_horizontal"
         android:padding="5dp"
         android:text="@string/test_text"
-        android:textColor="@color/colorSecondaryText"
+        android:textColor="@color/colorPrimaryText"
         android:textSize="15sp"/>
 
     <TextView
@@ -80,7 +81,22 @@
         android:gravity="center_vertical|center_horizontal"
         android:padding="5dp"
         android:text="@string/test_text"
-        android:textColor="@color/colorSecondaryText"
+        android:textColor="@color/colorPrimaryText"
+        android:textSize="15sp"/>
+
+    <TextView
+        android:id="@+id/quoteCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/layout1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="@dimen/left_margin"
+        android:layout_marginRight="@dimen/right_margin"
+        android:gravity="center_vertical|center_horizontal"
+        android:padding="5dp"
+        android:text="7/1100"
+        android:textColor="@color/colorPrimaryText"
         android:textSize="15sp"/>
 
     <LinearLayout

@@ -94,8 +94,7 @@ public class SettingsActivity extends AppCompatActivity {
         myToolbar = (Toolbar) findViewById(R.id.toolbar);
         myToolbar.setTitleTextColor(Color.parseColor("#212121"));
         setSupportActionBar(myToolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeButtonEnabled(true);
+
 
 
 
@@ -290,7 +289,6 @@ public class SettingsActivity extends AppCompatActivity {
         mLayout3.setBackgroundColor(Color.parseColor(lightBrown));
         mLayout4.setBackgroundColor(Color.parseColor(lightBrown));
         mLayout5.setBackgroundColor(Color.parseColor(lightBrown));
-
 
     }
 

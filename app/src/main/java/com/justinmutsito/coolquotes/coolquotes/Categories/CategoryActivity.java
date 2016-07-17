@@ -46,6 +46,8 @@ public class CategoryActivity extends AppCompatActivity {
     TextView mJumpTo;
     @Bind(R.id.nextIcon)
     ImageView mNext;
+    @Bind(R.id.quoteCount)
+    TextView mQuoteCount;
 
 
     @Override
@@ -129,6 +131,9 @@ public class CategoryActivity extends AppCompatActivity {
         mQuote2.setText(mQuotes[count + 1]);
         mQuote3.setText(mQuotes[count + 2]);
         mQuote4.setText(mQuotes[count + 3]);
+
+        String countDisplay = (count + 4)+ "/" + mQuotes.length;
+        mQuoteCount.setText(countDisplay);
     }
 
 
@@ -274,6 +279,7 @@ public class CategoryActivity extends AppCompatActivity {
             mQuote2.setTextColor(Color.parseColor(darkGrey));
             mQuote3.setTextColor(Color.parseColor(darkGrey));
             mQuote4.setTextColor(Color.parseColor(darkGrey));
+            mQuoteCount.setTextColor(Color.parseColor(darkGrey));
             mJumpTo.setTextColor(Color.parseColor(darkGrey));
             mPrevious.setImageResource(R.drawable.ic_skip_previous_circle_outline_grey600_48dp);
             mNext.setImageResource(R.drawable.ic_skip_next_circle_outline_grey600_48dp);
@@ -286,6 +292,7 @@ public class CategoryActivity extends AppCompatActivity {
             mQuote2.setTextColor(Color.parseColor(white));
             mQuote3.setTextColor(Color.parseColor(white));
             mQuote4.setTextColor(Color.parseColor(white));
+            mQuoteCount.setTextColor(Color.parseColor(white));
             mJumpTo.setTextColor(Color.parseColor(white));
             mPrevious.setImageResource(R.drawable.ic_skip_previous_circle_outline_white_48dp);
             mNext.setImageResource(R.drawable.ic_skip_next_circle_outline_white_48dp);
