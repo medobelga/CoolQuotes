@@ -1,5 +1,8 @@
 package com.justinmutsito.coolquotes.coolquotes.Settings;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -11,8 +14,11 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.justinmutsito.coolquotes.coolquotes.Notifications.AlarmReceiver;
 import com.justinmutsito.coolquotes.coolquotes.R;
 import com.justinmutsito.coolquotes.coolquotes.WelcomeActivity;
+
+import java.util.Calendar;
 
 import at.markushi.ui.CircleButton;
 import butterknife.Bind;
@@ -27,6 +33,7 @@ public class SettingsActivity extends AppCompatActivity {
     public String mTheme;
     public int mTime;
     private Toolbar myToolbar;
+    private PendingIntent pendingIntent;
 
 
     @Bind(R.id.themeLabel)
@@ -81,11 +88,11 @@ public class SettingsActivity extends AppCompatActivity {
         mTheme = savedTheme.getString(getString(R.string.themeKey), "brown");
         mTime = savedTime.getInt(getString(R.string.timeKey), 0);
 
-        Intent intent  = getIntent();
+        Intent intent = getIntent();
         String leave = intent.getStringExtra(getString(R.string.intentKey));
-        if(leave.equals("leave")){
+        if (leave.equals("leave")) {
             Intent leaveIntent = new Intent(SettingsActivity.this, WelcomeActivity.class);
-            leaveIntent.putExtra(getString(R.string.themeKey),mTheme);
+            leaveIntent.putExtra(getString(R.string.themeKey), mTheme);
             leaveIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             leaveIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(leaveIntent);
@@ -94,9 +101,6 @@ public class SettingsActivity extends AppCompatActivity {
         myToolbar = (Toolbar) findViewById(R.id.toolbar);
         myToolbar.setTitleTextColor(Color.parseColor("#212121"));
         setSupportActionBar(myToolbar);
-
-
-
 
 
         if (mTheme.equals("brown")) {
@@ -119,6 +123,11 @@ public class SettingsActivity extends AppCompatActivity {
         saveTime(mTime);
 
 
+        Intent alarmIntent = new Intent(this, AlarmReceiver.class);
+        pendingIntent = PendingIntent.getBroadcast(SettingsActivity.this, 0, alarmIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        if (mTime != 0) {
+            setNotificationTime(mTime);
+        }
 
     }
 
@@ -156,13 +165,11 @@ public class SettingsActivity extends AppCompatActivity {
     }
 
     private void setIcons() {
-        if(mTime==0){
+        if (mTime == 0) {
             setOff();
-        }
-        else if (mTime==9){
+        } else if (mTime == 9) {
             setMorning();
-        }
-        else{
+        } else {
             setEvening();
         }
 
@@ -185,6 +192,7 @@ public class SettingsActivity extends AppCompatActivity {
             mMorning.setImageResource(R.drawable.ic_checkbox_blank_circle_outline_white_48dp);
         }
         saveTime(mTime);
+        cancel();
     }
 
     @OnClick(R.id.morningCheckbox)
@@ -201,6 +209,7 @@ public class SettingsActivity extends AppCompatActivity {
             mOff.setImageResource(R.drawable.ic_checkbox_blank_circle_outline_white_48dp);
         }
         saveTime(mTime);
+        setNotificationTime(mTime);
     }
 
 
@@ -219,13 +228,14 @@ public class SettingsActivity extends AppCompatActivity {
             mOff.setImageResource(R.drawable.ic_checkbox_blank_circle_outline_white_48dp);
         }
         saveTime(mTime);
+        setNotificationTime(mTime);
     }
 
 
     @OnClick(R.id.aboutButton)
     public void about() {
         Intent intent = new Intent(SettingsActivity.this, AboutActivity.class);
-        intent.putExtra(getString(R.string.themeKey),mTheme);
+        intent.putExtra(getString(R.string.themeKey), mTheme);
         startActivity(intent);
     }
 
@@ -293,17 +303,16 @@ public class SettingsActivity extends AppCompatActivity {
     }
 
     private void resetTheme() {
-        Thread timer = new Thread(){
-            public void run(){
-                try{
+
+        Thread timer = new Thread() {
+            public void run() {
+                try {
                     sleep(2000);
-                }
-                catch (Exception e){
+                } catch (Exception e) {
                     //Intentionally left blank
-                }
-                finally {
+                } finally {
                     Intent leaveIntent = new Intent(SettingsActivity.this, WelcomeActivity.class);
-                    leaveIntent.putExtra("ThemeKey",mTheme);
+                    leaveIntent.putExtra(getString(R.string.themeKey), mTheme);
                     leaveIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     leaveIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(leaveIntent);
@@ -312,7 +321,33 @@ public class SettingsActivity extends AppCompatActivity {
             }
         };
         timer.start();
+
+
     }
 
 
+    private void setNotificationTime(int time) {
+
+        AlarmManager manager = (AlarmManager) SettingsActivity.this.getSystemService(SettingsActivity.this.ALARM_SERVICE);
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(System.currentTimeMillis());
+        calendar.set(Calendar.HOUR_OF_DAY,time);
+        calendar.set(Calendar.MINUTE,0);
+        calendar.set(Calendar.SECOND, 0);
+
+
+        manager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
+                AlarmManager.INTERVAL_DAY, pendingIntent);
+
+    }
+
+
+    public void cancel() {
+        AlarmManager manager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        manager.cancel(pendingIntent);
+    }
 }
+
+
+
+

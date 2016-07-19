@@ -14,14 +14,17 @@ import com.justinmutsito.coolquotes.coolquotes.R;
 /**
  * Created by justin on 7/12/16.
  */
-public class NotificationReceiver extends BroadcastReceiver {
+public class AlarmReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
+
         NotificationManager manager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         Intent repeatingIntent = new Intent(context, NotificationActivity.class);
         repeatingIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        PendingIntent pendingIntent = PendingIntent.getActivity(context, 10, repeatingIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        PendingIntent pendingIntent = PendingIntent.getActivity(context,0, repeatingIntent, 0);
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context);
+
         Uri alarmSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         builder.setContentIntent(pendingIntent)
                 .setSmallIcon(R.mipmap.ic_launcher)
@@ -32,7 +35,7 @@ public class NotificationReceiver extends BroadcastReceiver {
                 .setVibrate(new long[]{1000, 1000, 1000, 1000, 1000})
                 .setAutoCancel(true);
 
-        manager.notify(10, builder.build());
+        manager.notify(0, builder.build());
 
     }
 }

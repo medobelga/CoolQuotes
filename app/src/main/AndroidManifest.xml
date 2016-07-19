@@ -58,7 +58,7 @@
             android:screenOrientation="portrait">
         </activity>
 
-        <receiver android:name=".Notifications.NotificationReceiver"/>
+        <receiver android:name=".Notifications.AlarmReceiver"/>
 
         <activity android:name=".Settings.AboutActivity"
             android:screenOrientation="portrait"

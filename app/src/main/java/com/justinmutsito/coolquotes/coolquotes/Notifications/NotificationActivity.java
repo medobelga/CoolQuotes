@@ -12,7 +12,6 @@ import android.widget.Toast;
 import com.justinmutsito.coolquotes.coolquotes.Database.DBOpenHelper;
 import com.justinmutsito.coolquotes.coolquotes.R;
 
-import java.util.Calendar;
 import java.util.Random;
 
 import butterknife.Bind;
@@ -33,8 +32,7 @@ public class NotificationActivity extends AppCompatActivity {
     ImageView mFace;
     @Bind(R.id.quoteLabel)
     TextView mQuote;
-    @Bind(R.id.greetingLabel)
-    TextView mGreetings;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,19 +46,6 @@ public class NotificationActivity extends AppCompatActivity {
         getQuotes(mPersonNumber);
         mCurrentQuote = mQuotes[mPosition];
         mQuote.setText(mCurrentQuote);
-
-
-
-        Calendar rightNow = Calendar.getInstance();
-        int hour = rightNow.get(Calendar.HOUR_OF_DAY);
-
-        if (hour>=21){
-            mGreetings.setText(R.string.good_evening);
-        }
-
-        else {
-            mGreetings.setText(R.string.good_morning);
-        }
 
 
     }

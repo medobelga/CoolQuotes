@@ -32,6 +32,7 @@
     <string name="themeKey">ThemeKey</string>
     <string name="timeKey">TimeKey</string>
     <string name="intentKey">IntentKey</string>
+    <string name="alarm_canceled">Alarm Canceled</string>
 
 
     <string-array name="quotesOptions">
