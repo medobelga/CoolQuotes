@@ -174,134 +174,134 @@ public class WelcomeActivity extends AppCompatActivity {
 
             case 0: {
                 mQuotes = getResources().getStringArray(R.array.Albert_Einstein);
-                mFace.setImageResource(R.drawable.ic_account_circle_white_48dp);//Put person's face
+                mFace.setImageResource(R.drawable.ic_albert);//Put person's face
                 break;
             }
             case 1: {
                 mQuotes = getResources().getStringArray(R.array.Abraham_Lincoln);
-                mFace.setImageResource(R.drawable.ic_account_circle_white_48dp);//Put person's face
+                mFace.setImageResource(R.drawable.ic_abraham);//Put person's face
                 break;
             }
 
 
             case 2: {
                 mQuotes = getResources().getStringArray(R.array.Benjamin_Franklin);
-                mFace.setImageResource(R.drawable.ic_account_circle_white_48dp);//Put person's face
+                mFace.setImageResource(R.drawable.ic_benjamin);//Put person's face
                 break;
             }
 
             case 3: {
                 mQuotes = getResources().getStringArray(R.array.Bill_Gates);
-                mFace.setImageResource(R.drawable.ic_account_circle_white_48dp);//Put person's face
+                mFace.setImageResource(R.drawable.ic_bill_gates);//Put person's face
                 break;
             }
 
             case 4: {
                 mQuotes = getResources().getStringArray(R.array.Bill_Cosby);
-                mFace.setImageResource(R.drawable.ic_account_circle_white_48dp);//Put person's face
+                mFace.setImageResource(R.drawable.ic_bill_cosby);//Put person's face
                 break;
             }
 
             case 5: {
                 mQuotes = getResources().getStringArray(R.array.Confucius);
-                mFace.setImageResource(R.drawable.ic_account_circle_white_48dp);//Put person's face
+                mFace.setImageResource(R.drawable.ic_confucius);//Put person's face
                 break;
             }
             case 6: {
                 mQuotes = getResources().getStringArray(R.array.Charles_Darwin);
-                mFace.setImageResource(R.drawable.ic_account_circle_white_48dp);//Put person's face
+                mFace.setImageResource(R.drawable.ic_charles_darwin);//Put person's face
                 break;
             }
 
             case 7: {
                 mQuotes = getResources().getStringArray(R.array.Charles_Dickens);
-                mFace.setImageResource(R.drawable.ic_account_circle_white_48dp);//Put person's face
+                mFace.setImageResource(R.drawable.ic_charlse_dickens);//Put person's face
                 break;
             }
 
             case 8: {
                 mQuotes = getResources().getStringArray(R.array.Charlie_Chaplin);
-                mFace.setImageResource(R.drawable.ic_account_circle_white_48dp);//Put person's face
+                mFace.setImageResource(R.drawable.ic_charlie_chaplin);//Put person's face
                 break;
             }
             case 9: {
                 mQuotes = getResources().getStringArray(R.array.Ernest_Hemingway);
-                mFace.setImageResource(R.drawable.ic_account_circle_white_48dp);//Put person's face
+                mFace.setImageResource(R.drawable.ic_ernest_hemingway);//Put person's face
                 break;
             }
 
             case 10: {
                 mQuotes = getResources().getStringArray(R.array.Ernesto_Guevara);
-                mFace.setImageResource(R.drawable.ic_account_circle_white_48dp);//Put person's face
+                mFace.setImageResource(R.drawable.ic_ernesto);//Put person's face
                 break;
             }
 
             case 11: {
                 mQuotes = getResources().getStringArray(R.array.George_Bernard_Shaw);
-                mFace.setImageResource(R.drawable.ic_account_circle_white_48dp);//Put person's face
+                mFace.setImageResource(R.drawable.ic_george_bernard);//Put person's face
                 break;
             }
             case 12: {
                 mQuotes = getResources().getStringArray(R.array.Henry_Ford);
-                mFace.setImageResource(R.drawable.ic_account_circle_white_48dp);//Put person's face
+                mFace.setImageResource(R.drawable.ic_henry_ford);//Put person's face
                 break;
             }
 
             case 13: {
                 mQuotes = getResources().getStringArray(R.array.Julian_Assange);
-                mFace.setImageResource(R.drawable.ic_account_circle_white_48dp);//Put person's face
+                mFace.setImageResource(R.drawable.ic_julian__assange);//Put person's face
                 break;
             }
             case 14: {
                 mQuotes = getResources().getStringArray(R.array.Karl_Marx);
-                mFace.setImageResource(R.drawable.ic_account_circle_white_48dp);//Put person's face
+                mFace.setImageResource(R.drawable.ic_karl_marx_);//Put person's face
                 break;
             }
 
             case 15: {
                 mQuotes = getResources().getStringArray(R.array.Mahatma_Gandhi);
-                mFace.setImageResource(R.drawable.ic_account_circle_white_48dp);//Put person's face
+                mFace.setImageResource(R.drawable.ic_mahatma__gandhi);//Put person's face
                 break;
             }
             case 16: {
                 mQuotes = getResources().getStringArray(R.array.Mother_Teresa);
-                mFace.setImageResource(R.drawable.ic_account_circle_white_48dp);//Put person's face
+                mFace.setImageResource(R.drawable.ic_mother_teresa);//Put person's face
                 break;
             }
 
             case 17: {
                 mQuotes = getResources().getStringArray(R.array.Mark_Twain);
-                mFace.setImageResource(R.drawable.ic_account_circle_white_48dp);//Put person's face
+                mFace.setImageResource(R.drawable.ic_mark_twain);//Put person's face
                 break;
             }
 
             case 18: {
                 mQuotes = getResources().getStringArray(R.array.Oscar_Wilde);
-                mFace.setImageResource(R.drawable.ic_account_circle_white_48dp);//Put person's face
+                mFace.setImageResource(R.drawable.ic_oscar_wilde);//Put person's face
                 break;
             }
 
             case 19: {
                 mQuotes = getResources().getStringArray(R.array.Socrates);
-                mFace.setImageResource(R.drawable.ic_account_circle_white_48dp);//Put person's face
+                mFace.setImageResource(R.drawable.ic_socrates);//Put person's face
                 break;
             }
             case 20: {
                 mQuotes = getResources().getStringArray(R.array.Steven_Jobs);
-                mFace.setImageResource(R.drawable.ic_account_circle_white_48dp);//Put person's face
+                mFace.setImageResource(R.drawable.ic_steve_jobs);//Put person's face
                 break;
             }
 
             case 21: {
                 mQuotes = getResources().getStringArray(R.array.William_Shakespeare);
-                mFace.setImageResource(R.drawable.ic_account_circle_white_48dp);//Put person's face
+                mFace.setImageResource(R.drawable.ic_william_shakespeare);//Put person's face
                 break;
             }
 
 
             default: {
                 mQuotes = getResources().getStringArray(R.array.Warren_Buffett);
-                mFace.setImageResource(R.drawable.ic_account_circle_white_48dp);//Put person's face
+                mFace.setImageResource(R.drawable.ic_warren_buffet);//Put person's face
 
             }
         }
