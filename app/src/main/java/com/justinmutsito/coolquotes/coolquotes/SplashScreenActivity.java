@@ -13,7 +13,7 @@ public class SplashScreenActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
 
-
+//Delay app start for 1.5 seconds while checking the app settings.
             Thread timer = new Thread(){
                 public void run(){
                     try {
@@ -23,7 +23,7 @@ public class SplashScreenActivity extends AppCompatActivity {
                     }
                     finally {
                         Intent intent = new Intent(SplashScreenActivity.this,SettingsActivity.class);
-                        intent.putExtra("IntentKey","leave");
+                        intent.putExtra(getString(R.string.intentKey),"leave");
                         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         startActivity(intent);

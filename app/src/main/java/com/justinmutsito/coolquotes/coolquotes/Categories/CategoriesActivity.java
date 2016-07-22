@@ -46,18 +46,18 @@ public class CategoriesActivity extends ListActivity {
         Bundle bundle = new Bundle();
         bundle.putInt(getString(R.string.categoryKey),position);
         intent.putExtra(getString(R.string.bundleKey),bundle);
-        intent.putExtra("ThemeKey",mTheme);
+        intent.putExtra(getString(R.string.themeKey),mTheme);
         startActivity(intent);
     }
 
     private void setMyTheme(String theme){
         if(theme.equals("brown")){
-            String darkGrey = "#212121";
+
             mBackgroundImage.setImageResource(R.drawable.brown_bg);
             mFadedImage.setImageResource(R.color.brownFaded);
         }
         else{
-            String white = "#ffffff";
+
             mBackgroundImage.setImageResource(R.drawable.blue_bg);
             mFadedImage.setImageResource(R.color.blueFaded);
         }

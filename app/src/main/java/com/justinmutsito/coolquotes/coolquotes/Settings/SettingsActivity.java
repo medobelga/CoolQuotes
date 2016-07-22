@@ -98,21 +98,21 @@ public class SettingsActivity extends AppCompatActivity {
             startActivity(leaveIntent);
         }
 
+
         myToolbar = (Toolbar) findViewById(R.id.toolbar);
         myToolbar.setTitleTextColor(Color.parseColor("#212121"));
         setSupportActionBar(myToolbar);
 
 
         if (mTheme.equals("brown")) {
-            brownTheme();
+            brownTheme(); //Set the theme.
         } else {
             blueTheme();
-
 
         }
 
         if (mTime == 0) {
-            setOff();
+            setOff();//Set notification time.
         } else if (mTime == 9) {
             setMorning();
         } else {
@@ -136,7 +136,6 @@ public class SettingsActivity extends AppCompatActivity {
     public void setBrown() {
         brownTheme();
         resetTheme();
-
 
     }
 
@@ -331,8 +330,8 @@ public class SettingsActivity extends AppCompatActivity {
         AlarmManager manager = (AlarmManager) SettingsActivity.this.getSystemService(SettingsActivity.this.ALARM_SERVICE);
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(System.currentTimeMillis());
-        calendar.set(Calendar.HOUR_OF_DAY,time);
-        calendar.set(Calendar.MINUTE,0);
+        calendar.set(Calendar.HOUR_OF_DAY, time);
+        calendar.set(Calendar.MINUTE, 0);
         calendar.set(Calendar.SECOND, 0);
 
 

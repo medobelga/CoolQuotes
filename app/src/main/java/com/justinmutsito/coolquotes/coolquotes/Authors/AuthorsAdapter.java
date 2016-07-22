@@ -21,8 +21,8 @@ public class AuthorsAdapter extends BaseAdapter {
 
 
     public AuthorsAdapter(AuthorsActivity authorActivity, String[] Authors, int[] AuthorFace) {
-        mAuthors = Authors;
         mContext = authorActivity;
+        mAuthors = Authors;
         mAuthorFace = AuthorFace;
 
     }

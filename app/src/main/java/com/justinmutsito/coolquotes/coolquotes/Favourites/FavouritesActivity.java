@@ -28,44 +28,46 @@ public class FavouritesActivity extends ListActivity {
 
     @Bind(R.id.backgroundImage)
     ImageView mBackgroundImage;
-    @Bind(R.id.fadedImage) ImageView mFadedImage;
+    @Bind(R.id.fadedImage)
+    ImageView mFadedImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_favourites);
         ButterKnife.bind(this);
-
+//Set theme.
         mTheme = getIntent().getStringExtra(getString(R.string.themeKey));
         setMyTheme(mTheme);
-
+//Start database operations.
         mFavourites = new ArrayList<>();
         mDBOpenHelper = new DBOpenHelper(FavouritesActivity.this);
+
+//Load UI.
         loadUi();
 
 
     }
 
 
-
     private void setMyTheme(String theme) {
 
         if (theme.equals("brown")) {
-            String darkGrey = "#212121";
 
             mBackgroundImage.setImageResource(R.drawable.brown_bg);
             mFadedImage.setImageResource(R.color.brownFaded);
 
         } else {
-            String white = "#ffffff";
+
             mBackgroundImage.setImageResource(R.drawable.blue_bg);
             mFadedImage.setImageResource(R.color.blueFaded);
 
 
-
         }
     }
+
     private void loadUi() {
+        //Get favourites quotes from the database and adapt the data for the listview.
         Cursor cursor = mDBOpenHelper.getFavourites();
         cursor.moveToFirst();
 
@@ -89,7 +91,7 @@ public class FavouritesActivity extends ListActivity {
 
 
     private void share(String text) {
-        //Share text
+        //Share quote.
         Intent shareIntent = new Intent(Intent.ACTION_SEND);
         shareIntent.setType("text/plain");
         shareIntent.putExtra(Intent.EXTRA_TEXT, text + ".Shared from " + getString(R.string.app_name) + " .");
