@@ -13,6 +13,7 @@
         android:layout_height="match_parent"
         android:scaleType="fitXY"
         android:src="@drawable/brown_bg"
+        tools:src="@drawable/blue_bg"
         />
 
     <ImageView
@@ -24,6 +25,7 @@
         android:layout_marginTop="15dp"
         android:scaleType="fitXY"
         android:src="@color/brownFaded"
+        tools:src="@color/blueFaded"
       />
 
     <ImageView
@@ -47,6 +49,7 @@
         android:padding="5dp"
         android:text="@string/test_text"
         android:textColor="@color/colorPrimaryText"
+        tools:textColor="@android:color/white"
         android:textSize="14sp"/>
 
     <Button
@@ -57,12 +60,15 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="29dp"
         android:background="@drawable/circle_bg_gradient"
+        tools:background="@drawable/blue_circle_bg_gradient"
+        tools:textColor="@android:color/white"
         android:gravity="fill_vertical"
         android:padding="5dp"
         android:shadowColor="#522e2e"
         android:text="@string/categories"
         android:textAlignment="center"
         android:textColor="@color/colorPrimaryText"
+
         />
 
     <Button
@@ -78,6 +84,8 @@
         android:text="@string/authors"
         android:textAlignment="center"
         android:textColor="@color/colorPrimaryText"
+        tools:background="@drawable/blue_circle_bg_gradient"
+        tools:textColor="@android:color/white"
 
         />
 
@@ -99,6 +107,7 @@
             android:layout_weight="0.2"
             android:paddingBottom="5dp"
             android:src="@drawable/ic_share_variant_grey600_48dp"
+           tools:src="@drawable/ic_share_variant_white_48dp"
 
 
             />
@@ -111,6 +120,7 @@
             android:layout_weight="0.6"
             android:gravity="center"
             android:paddingTop="15dp"
+            tools:textColor="@android:color/white"
             android:text="@string/favourites"
             android:textAlignment="center"
             android:textColor="@color/colorPrimaryText"
@@ -123,6 +133,8 @@
             android:layout_weight="0.2"
             android:paddingBottom="6dp"
             android:src="@drawable/ic_settings_grey600_48dp"
+            tools:src="@drawable/ic_settings_white_48dp"
+
             />
 
 

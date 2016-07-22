@@ -88,8 +88,8 @@ public class SettingsActivity extends AppCompatActivity {
         mTheme = savedTheme.getString(getString(R.string.themeKey), "brown");
         mTime = savedTime.getInt(getString(R.string.timeKey), 0);
 
-        Intent intent = getIntent();
-        String leave = intent.getStringExtra(getString(R.string.intentKey));
+
+        String leave = getIntent().getStringExtra(getString(R.string.intentKey));
         if (leave.equals("leave")) {
             Intent leaveIntent = new Intent(SettingsActivity.this, WelcomeActivity.class);
             leaveIntent.putExtra(getString(R.string.themeKey), mTheme);
@@ -257,12 +257,12 @@ public class SettingsActivity extends AppCompatActivity {
         //Do not merge setBlueTheme and setBrownTheme to one method because in v2 the themes might not have any similar attributes.
         String white = "#ffffff";
         String lightBlue = "#80B3E5FC";
-        String darkGrey = "#212121";
+
         mBackgroundImage.setImageResource(R.drawable.blue_bg);
         mFadedImage.setImageResource(R.color.blueFaded);
-        mThemeLabel.setTextColor(Color.parseColor(darkGrey));
-        mNotificationLabel.setTextColor(Color.parseColor(darkGrey));
-        mAbout.setTextColor(Color.parseColor(darkGrey));
+        mThemeLabel.setTextColor(Color.parseColor(white));
+        mNotificationLabel.setTextColor(Color.parseColor(white));
+        mAbout.setTextColor(Color.parseColor(white));
         mAbout.setBackground(getResources().getDrawable(R.drawable.blue_circle_bg_gradient));
         mThemeBrownLabel.setTextColor(Color.parseColor(white));
         mThemeBlueLabel.setTextColor(Color.parseColor(white));
@@ -274,6 +274,7 @@ public class SettingsActivity extends AppCompatActivity {
         mLayout3.setBackgroundColor(Color.parseColor(lightBlue));
         mLayout4.setBackgroundColor(Color.parseColor(lightBlue));
         mLayout5.setBackgroundColor(Color.parseColor(lightBlue));
+        myToolbar.setTitleTextColor(Color.parseColor(white));
 
     }
 
@@ -298,6 +299,7 @@ public class SettingsActivity extends AppCompatActivity {
         mLayout3.setBackgroundColor(Color.parseColor(lightBrown));
         mLayout4.setBackgroundColor(Color.parseColor(lightBrown));
         mLayout5.setBackgroundColor(Color.parseColor(lightBrown));
+        myToolbar.setTitleTextColor(Color.parseColor(darkGrey));
 
     }
 

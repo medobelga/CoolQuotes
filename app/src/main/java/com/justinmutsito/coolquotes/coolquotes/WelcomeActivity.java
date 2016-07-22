@@ -68,6 +68,7 @@ public class WelcomeActivity extends AppCompatActivity {
         getQuotes(mPersonNumber);
         mCurrentQuote = mQuotes[mPosition];
         mQuote.setText(mCurrentQuote);
+        animateViews();
 
         //Open database for saving
         mDBOpenHelper = new DBOpenHelper(this);
@@ -75,9 +76,8 @@ public class WelcomeActivity extends AppCompatActivity {
 
     }
 
-    @OnClick(R.id.faceImageView)
-    public void animateFace() {
-        //Animate face
+    private void animateViews() {
+
     }
 
 
@@ -125,7 +125,7 @@ public class WelcomeActivity extends AppCompatActivity {
     @OnClick(R.id.authorButton)
     public void startActivityPeople() {
         Intent intent = new Intent(WelcomeActivity.this, AuthorsActivity.class);
-        intent.putExtra(getString(R.string.themeKey),mTheme);
+        intent.putExtra(getString(R.string.themeKey), mTheme);
         startActivity(intent);
 
     }
