@@ -53,12 +53,12 @@ public class CategoriesActivity extends ListActivity {
     private void setMyTheme(String theme){
         if(theme.equals("brown")){
 
-            mBackgroundImage.setImageResource(R.drawable.brown_bg);
+            mBackgroundImage.setImageResource(R.drawable.bg_brown);
             mFadedImage.setImageResource(R.color.brownFaded);
         }
         else{
 
-            mBackgroundImage.setImageResource(R.drawable.blue_bg);
+            mBackgroundImage.setImageResource(R.drawable.bg_blue);
             mFadedImage.setImageResource(R.color.blueFaded);
         }
     }

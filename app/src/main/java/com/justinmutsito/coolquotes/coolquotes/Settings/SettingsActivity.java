@@ -262,12 +262,12 @@ public class SettingsActivity extends AppCompatActivity {
         String white = "#ffffff";
         String lightBlue = "#80B3E5FC";
 
-        mBackgroundImage.setImageResource(R.drawable.blue_bg);
+        mBackgroundImage.setImageResource(R.drawable.bg_blue);
         mFadedImage.setImageResource(R.color.blueFaded);
         mThemeLabel.setTextColor(Color.parseColor(white));
         mNotificationLabel.setTextColor(Color.parseColor(white));
         mAbout.setTextColor(Color.parseColor(white));
-        mAbout.setBackground(getResources().getDrawable(R.drawable.blue_circle_bg_gradient));
+        mAbout.setBackground(getResources().getDrawable(R.drawable.bg_blue_circle_gradient));
         mThemeBrownLabel.setTextColor(Color.parseColor(white));
         mThemeBlueLabel.setTextColor(Color.parseColor(white));
         mOffLabel.setTextColor(Color.parseColor(white));
@@ -287,12 +287,12 @@ public class SettingsActivity extends AppCompatActivity {
         String darkGrey = "#212121";
         String lightGrey = "#757575";
         String lightBrown = "#90D7CCC8";
-        mBackgroundImage.setImageResource(R.drawable.brown_bg);
+        mBackgroundImage.setImageResource(R.drawable.bg_brown);
         mFadedImage.setImageResource(R.color.brownFaded);
         mThemeLabel.setTextColor(Color.parseColor(darkGrey));
         mNotificationLabel.setTextColor(Color.parseColor(darkGrey));
         mAbout.setTextColor(Color.parseColor(darkGrey));
-        mAbout.setBackground(getResources().getDrawable(R.drawable.circle_bg_gradient));
+        mAbout.setBackground(getResources().getDrawable(R.drawable.bg_brown_circle_gradient));
         mThemeBrownLabel.setTextColor(Color.parseColor(lightGrey));
         mThemeBlueLabel.setTextColor(Color.parseColor(lightGrey));
         mOffLabel.setTextColor(Color.parseColor(lightGrey));

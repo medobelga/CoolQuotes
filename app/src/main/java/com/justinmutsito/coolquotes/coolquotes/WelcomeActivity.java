@@ -173,134 +173,134 @@ public class WelcomeActivity extends AppCompatActivity {
 
             case 0: {
                 mQuotes = getResources().getStringArray(R.array.Albert_Einstein);
-                mFace.setImageResource(R.drawable.ic_albert);//Put authors's face
+                mFace.setImageResource(R.drawable.bg_albert);//Put authors's face
                 break;
             }
             case 1: {
                 mQuotes = getResources().getStringArray(R.array.Abraham_Lincoln);
-                mFace.setImageResource(R.drawable.ic_abraham);
+                mFace.setImageResource(R.drawable.bg_abraham);
                 break;
             }
 
 
             case 2: {
                 mQuotes = getResources().getStringArray(R.array.Benjamin_Franklin);
-               mFace.setImageResource(R.drawable.ic_benjamin);
+               mFace.setImageResource(R.drawable.bg_benjamin);
                 break;
             }
 
             case 3: {
                 mQuotes = getResources().getStringArray(R.array.Bill_Gates);
-               mFace.setImageResource(R.drawable.ic_bill_gates);
+               mFace.setImageResource(R.drawable.bg_bill_gates);
                 break;
             }
 
             case 4: {
                 mQuotes = getResources().getStringArray(R.array.Bill_Cosby);
-               mFace.setImageResource(R.drawable.ic_bill_cosby);
+               mFace.setImageResource(R.drawable.bg_bill_cosby);
                 break;
             }
 
             case 5: {
                 mQuotes = getResources().getStringArray(R.array.Confucius);
-               mFace.setImageResource(R.drawable.ic_confucius);
+               mFace.setImageResource(R.drawable.bg_confucius);
                 break;
             }
             case 6: {
                 mQuotes = getResources().getStringArray(R.array.Charles_Darwin);
-                mFace.setImageResource(R.drawable.ic_charles_darwin);
+                mFace.setImageResource(R.drawable.bg_charles_darwin);
                 break;
             }
 
             case 7: {
                 mQuotes = getResources().getStringArray(R.array.Charles_Dickens);
-                mFace.setImageResource(R.drawable.ic_charles_dickens);
+                mFace.setImageResource(R.drawable.bg_charles_dickens);
                 break;
             }
 
             case 8: {
                 mQuotes = getResources().getStringArray(R.array.Charlie_Chaplin);
-                mFace.setImageResource(R.drawable.ic_charlie_chaplin);
+                mFace.setImageResource(R.drawable.bg_charlie_chaplin);
                 break;
             }
             case 9: {
                 mQuotes = getResources().getStringArray(R.array.Ernest_Hemingway);
-               mFace.setImageResource(R.drawable.ic_ernest_hemingway);
+               mFace.setImageResource(R.drawable.bg_ernest_hemingway);
                 break;
             }
 
             case 10: {
                 mQuotes = getResources().getStringArray(R.array.Ernesto_Guevara);
-                mFace.setImageResource(R.drawable.ic_ernesto);
+                mFace.setImageResource(R.drawable.bg_ernesto);
                 break;
             }
 
             case 11: {
                 mQuotes = getResources().getStringArray(R.array.George_Bernard_Shaw);
-                mFace.setImageResource(R.drawable.ic_george_bernard);
+                mFace.setImageResource(R.drawable.bg_george_bernard);
                 break;
             }
             case 12: {
                 mQuotes = getResources().getStringArray(R.array.Henry_Ford);
-                mFace.setImageResource(R.drawable.ic_henry_ford);
+                mFace.setImageResource(R.drawable.bg_henry_ford);
                 break;
             }
 
             case 13: {
                 mQuotes = getResources().getStringArray(R.array.Julian_Assange);
-                mFace.setImageResource(R.drawable.ic_julian__assange);
+                mFace.setImageResource(R.drawable.bg_julian__assange);
                 break;
             }
             case 14: {
                 mQuotes = getResources().getStringArray(R.array.Karl_Marx);
-                mFace.setImageResource(R.drawable.ic_karl_marx);
+                mFace.setImageResource(R.drawable.bg_karl_marx);
                 break;
             }
 
             case 15: {
                 mQuotes = getResources().getStringArray(R.array.Mahatma_Gandhi);
-               mFace.setImageResource(R.drawable.ic_mahatma__gandhi);
+               mFace.setImageResource(R.drawable.bg_mahatma__gandhi);
                 break;
             }
             case 16: {
                 mQuotes = getResources().getStringArray(R.array.Mother_Teresa);
-                mFace.setImageResource(R.drawable.ic_mother_teresa);
+                mFace.setImageResource(R.drawable.bg_mother_teresa);
                 break;
             }
 
             case 17: {
                 mQuotes = getResources().getStringArray(R.array.Mark_Twain);
-               mFace.setImageResource(R.drawable.ic_mark_twain);
+               mFace.setImageResource(R.drawable.bg_mark_twain);
                 break;
             }
 
             case 18: {
                 mQuotes = getResources().getStringArray(R.array.Oscar_Wilde);
-                mFace.setImageResource(R.drawable.ic_oscar_wilde);
+                mFace.setImageResource(R.drawable.bg_oscar_wilde);
                 break;
             }
 
             case 19: {
                 mQuotes = getResources().getStringArray(R.array.Socrates);
-                mFace.setImageResource(R.drawable.ic_socrates);
+                mFace.setImageResource(R.drawable.bg_socrates);
                 break;
             }
             case 20: {
                 mQuotes = getResources().getStringArray(R.array.Steven_Jobs);
-                mFace.setImageResource(R.drawable.ic_steve_jobs);
+                mFace.setImageResource(R.drawable.bg_steve_jobs);
                 break;
             }
 
             case 21: {
                 mQuotes = getResources().getStringArray(R.array.William_Shakespeare);
-               mFace.setImageResource(R.drawable.ic_william_shakespeare);
+               mFace.setImageResource(R.drawable.bg_william_shakespeare);
                 break;
             }
 
 
             default: {
                 mQuotes = getResources().getStringArray(R.array.Warren_Buffett);
-                mFace.setImageResource(R.drawable.ic_warren_buffet);
+                mFace.setImageResource(R.drawable.bg_warren_buffet);
 
             }
         }
@@ -318,26 +318,26 @@ public class WelcomeActivity extends AppCompatActivity {
     private void setMyTheme(String theme) {
         if (theme.equals("brown")) {
             String darkGrey = "#212121";
-            mBackgroundImage.setImageResource(R.drawable.brown_bg);
+            mBackgroundImage.setImageResource(R.drawable.bg_brown);
             mFadedImage.setImageResource(R.color.brownFaded);
             mQuote.setTextColor(Color.parseColor(darkGrey));
             mCategories.setTextColor(Color.parseColor(darkGrey));
-            mCategories.setBackground(getResources().getDrawable(R.drawable.circle_bg_gradient));
+            mCategories.setBackground(getResources().getDrawable(R.drawable.bg_brown_circle_gradient));
             mAuthor.setTextColor(Color.parseColor(darkGrey));
-            mAuthor.setBackground(getResources().getDrawable(R.drawable.circle_bg_gradient));
+            mAuthor.setBackground(getResources().getDrawable(R.drawable.bg_brown_circle_gradient));
             mIconShare.setImageResource(R.drawable.ic_share_variant_grey600_48dp);
             mFavorites.setTextColor(Color.parseColor(darkGrey));
             mIconSettings.setImageResource(R.drawable.ic_settings_grey600_48dp);
 
         } else {
             String white = "#ffffff";
-            mBackgroundImage.setImageResource(R.drawable.blue_bg);
+            mBackgroundImage.setImageResource(R.drawable.bg_blue);
             mFadedImage.setImageResource(R.color.blueFaded);
             mQuote.setTextColor(Color.parseColor(white));
             mCategories.setTextColor(Color.parseColor(white));
-            mCategories.setBackground(getResources().getDrawable(R.drawable.blue_circle_bg_gradient));
+            mCategories.setBackground(getResources().getDrawable(R.drawable.bg_blue_circle_gradient));
             mAuthor.setTextColor(Color.parseColor(white));
-            mAuthor.setBackground(getResources().getDrawable(R.drawable.blue_circle_bg_gradient));
+            mAuthor.setBackground(getResources().getDrawable(R.drawable.bg_blue_circle_gradient));
             mIconShare.setImageResource(R.drawable.ic_share_variant_white_48dp);
             mFavorites.setTextColor(Color.parseColor(white));
             mIconSettings.setImageResource(R.drawable.ic_settings_white_48dp);

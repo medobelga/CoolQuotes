@@ -20,13 +20,13 @@ public class AuthorsActivity extends ListActivity {
     @Bind(R.id.fadedImage)
     ImageView mFadedImage;
 
-    private int[] AuthorFaces = {R.drawable.ic_albert, R.drawable.ic_abraham, R.drawable.ic_benjamin, R.drawable.ic_bill_gates,
-            R.drawable.ic_bill_cosby, R.drawable.ic_confucius, R.drawable.ic_charles_darwin,
-            R.drawable.ic_charles_dickens, R.drawable.ic_charlie_chaplin, R.drawable.ic_ernest_hemingway,
-            R.drawable.ic_ernesto, R.drawable.ic_george_bernard, R.drawable.ic_henry_ford, R.drawable.ic_julian__assange,
-            R.drawable.ic_karl_marx, R.drawable.ic_mahatma__gandhi, R.drawable.ic_mother_teresa, R.drawable.ic_mark_twain,
-            R.drawable.ic_oscar_wilde, R.drawable.ic_socrates, R.drawable.ic_steve_jobs, R.drawable.ic_william_shakespeare,
-            R.drawable.ic_warren_buffet};
+    private int[] AuthorFaces = {R.drawable.bg_albert, R.drawable.bg_abraham, R.drawable.bg_benjamin, R.drawable.bg_bill_gates,
+            R.drawable.bg_bill_cosby, R.drawable.bg_confucius, R.drawable.bg_charles_darwin,
+            R.drawable.bg_charles_dickens, R.drawable.bg_charlie_chaplin, R.drawable.bg_ernest_hemingway,
+            R.drawable.bg_ernesto, R.drawable.bg_george_bernard, R.drawable.bg_henry_ford, R.drawable.bg_julian__assange,
+            R.drawable.bg_karl_marx, R.drawable.bg_mahatma__gandhi, R.drawable.bg_mother_teresa, R.drawable.bg_mark_twain,
+            R.drawable.bg_oscar_wilde, R.drawable.bg_socrates, R.drawable.bg_steve_jobs, R.drawable.bg_william_shakespeare,
+            R.drawable.bg_warren_buffet};
 
 
     @Override
@@ -51,12 +51,12 @@ public class AuthorsActivity extends ListActivity {
 
         if (theme.equals("brown")) {
 
-            mBackgroundImage.setImageResource(R.drawable.brown_bg);
+            mBackgroundImage.setImageResource(R.drawable.bg_brown);
             mFadedImage.setImageResource(R.color.brownFaded);
 
         } else {
 
-            mBackgroundImage.setImageResource(R.drawable.blue_bg);
+            mBackgroundImage.setImageResource(R.drawable.bg_blue);
             mFadedImage.setImageResource(R.color.blueFaded);
 
 

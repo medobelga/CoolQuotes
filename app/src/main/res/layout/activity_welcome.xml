@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="fitXY"
-        android:src="@drawable/brown_bg"
+        android:src="@drawable/bg_brown"
         />
 
     <ImageView
@@ -33,7 +33,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="37dp"
-        android:src="@drawable/ic_charles_dickens"
+        android:src="@drawable/bg_charles_dickens"
         />
 
     <TextView
@@ -56,7 +56,7 @@
         android:layout_below="@+id/quoteLabel"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="29dp"
-        android:background="@drawable/circle_bg_gradient"
+        android:background="@drawable/bg_brown_circle_gradient"
         android:gravity="fill_vertical"
         android:padding="5dp"
         android:shadowColor="#522e2e"
@@ -73,7 +73,7 @@
         android:layout_below="@+id/categoriesButton"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="36dp"
-        android:background="@drawable/circle_bg_gradient"
+        android:background="@drawable/bg_brown_circle_gradient"
         android:gravity="fill_vertical"
         android:padding="5dp"
         android:text="@string/authors"

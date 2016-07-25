@@ -280,7 +280,7 @@ public class CategoryActivity extends AppCompatActivity {
     private void setMyTheme(String theme) {
         if (theme.equals("brown")) {
             String darkGrey = "#212121";
-            mBackgroundImage.setImageResource(R.drawable.brown_bg);
+            mBackgroundImage.setImageResource(R.drawable.bg_brown);
             mFadedImage.setImageResource(R.color.brownFaded);
             mQuote1.setTextColor(Color.parseColor(darkGrey));
             mQuote2.setTextColor(Color.parseColor(darkGrey));
@@ -293,7 +293,7 @@ public class CategoryActivity extends AppCompatActivity {
         } else {
             String white = "#ffffff";
 
-            mBackgroundImage.setImageResource(R.drawable.blue_bg);
+            mBackgroundImage.setImageResource(R.drawable.bg_blue);
             mFadedImage.setImageResource(R.color.blueFaded);
             mQuote1.setTextColor(Color.parseColor(white));
             mQuote2.setTextColor(Color.parseColor(white));

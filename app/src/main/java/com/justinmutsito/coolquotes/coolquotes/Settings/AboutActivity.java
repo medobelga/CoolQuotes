@@ -36,13 +36,13 @@ public class AboutActivity extends AppCompatActivity {
         if (theme.equals("brown")) {
             String darkGrey = "#212121";
 
-            mBackgroundImage.setImageResource(R.drawable.brown_bg);
+            mBackgroundImage.setImageResource(R.drawable.bg_brown);
             mFadedImage.setImageResource(R.color.brownFaded);
             mAboutLabel.setTextColor(Color.parseColor(darkGrey));
 
         } else {
             String white = "#ffffff";
-            mBackgroundImage.setImageResource(R.drawable.blue_bg);
+            mBackgroundImage.setImageResource(R.drawable.bg_blue);
             mFadedImage.setImageResource(R.color.blueFaded);
             mAboutLabel.setTextColor(Color.parseColor(white));
 

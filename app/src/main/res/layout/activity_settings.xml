@@ -13,7 +13,7 @@
         android:layout_height="match_parent"
         android:id="@+id/backgroundImage"
         android:scaleType="fitXY"
-        android:src="@drawable/brown_bg"
+        android:src="@drawable/bg_brown"
         />
 
     <android.support.v7.widget.Toolbar
@@ -256,7 +256,7 @@ android:layout_alignParentEnd="true">
         android:id="@+id/aboutButton"
         android:textColor="@color/colorPrimaryText"
         android:padding="5dp"
-        android:background="@drawable/circle_bg_gradient"
+        android:background="@drawable/bg_brown_circle_gradient"
         android:layout_below="@+id/layout5"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"/>
