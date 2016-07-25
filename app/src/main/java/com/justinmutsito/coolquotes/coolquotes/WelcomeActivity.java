@@ -22,6 +22,7 @@ import java.util.Random;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import cn.pedant.SweetAlert.SweetAlertDialog;
 
 public class WelcomeActivity extends AppCompatActivity {
 
@@ -69,14 +70,11 @@ public class WelcomeActivity extends AppCompatActivity {
         mQuote.setText(mCurrentQuote);
 
 
-
         //Open database for saving
         mDBOpenHelper = new DBOpenHelper(this);
 
 
     }
-
-
 
 
     @OnClick(R.id.quoteLabel)
@@ -95,10 +93,13 @@ public class WelcomeActivity extends AppCompatActivity {
                     //Add to favourites
                     boolean added = mDBOpenHelper.addFavourite(mCurrentQuote);
                     if (added) {
-
                         Toast.makeText(WelcomeActivity.this, R.string.added, Toast.LENGTH_SHORT).show();
+
                     } else {
-                        Toast.makeText(WelcomeActivity.this, R.string.not_added, Toast.LENGTH_SHORT).show();
+                        SweetAlertDialog sweetAlertDialog = new SweetAlertDialog(WelcomeActivity.this);
+                        sweetAlertDialog.setTitleText(getString(R.string.not_added))
+                                .show();
+
                     }
 
                 }
@@ -108,6 +109,8 @@ public class WelcomeActivity extends AppCompatActivity {
 
         AlertDialog dialog = builder.create();
         dialog.show();
+
+
     }
 
 
@@ -185,25 +188,25 @@ public class WelcomeActivity extends AppCompatActivity {
 
             case 2: {
                 mQuotes = getResources().getStringArray(R.array.Benjamin_Franklin);
-               mFace.setImageResource(R.drawable.bg_benjamin);
+                mFace.setImageResource(R.drawable.bg_benjamin);
                 break;
             }
 
             case 3: {
                 mQuotes = getResources().getStringArray(R.array.Bill_Gates);
-               mFace.setImageResource(R.drawable.bg_bill_gates);
+                mFace.setImageResource(R.drawable.bg_bill_gates);
                 break;
             }
 
             case 4: {
                 mQuotes = getResources().getStringArray(R.array.Bill_Cosby);
-               mFace.setImageResource(R.drawable.bg_bill_cosby);
+                mFace.setImageResource(R.drawable.bg_bill_cosby);
                 break;
             }
 
             case 5: {
                 mQuotes = getResources().getStringArray(R.array.Confucius);
-               mFace.setImageResource(R.drawable.bg_confucius);
+                mFace.setImageResource(R.drawable.bg_confucius);
                 break;
             }
             case 6: {
@@ -225,7 +228,7 @@ public class WelcomeActivity extends AppCompatActivity {
             }
             case 9: {
                 mQuotes = getResources().getStringArray(R.array.Ernest_Hemingway);
-               mFace.setImageResource(R.drawable.bg_ernest_hemingway);
+                mFace.setImageResource(R.drawable.bg_ernest_hemingway);
                 break;
             }
 
@@ -259,7 +262,7 @@ public class WelcomeActivity extends AppCompatActivity {
 
             case 15: {
                 mQuotes = getResources().getStringArray(R.array.Mahatma_Gandhi);
-               mFace.setImageResource(R.drawable.bg_mahatma__gandhi);
+                mFace.setImageResource(R.drawable.bg_mahatma__gandhi);
                 break;
             }
             case 16: {
@@ -270,7 +273,7 @@ public class WelcomeActivity extends AppCompatActivity {
 
             case 17: {
                 mQuotes = getResources().getStringArray(R.array.Mark_Twain);
-               mFace.setImageResource(R.drawable.bg_mark_twain);
+                mFace.setImageResource(R.drawable.bg_mark_twain);
                 break;
             }
 
@@ -293,7 +296,7 @@ public class WelcomeActivity extends AppCompatActivity {
 
             case 21: {
                 mQuotes = getResources().getStringArray(R.array.William_Shakespeare);
-               mFace.setImageResource(R.drawable.bg_william_shakespeare);
+                mFace.setImageResource(R.drawable.bg_william_shakespeare);
                 break;
             }
 

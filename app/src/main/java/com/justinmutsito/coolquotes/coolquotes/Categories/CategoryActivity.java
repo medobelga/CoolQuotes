@@ -19,6 +19,7 @@ import com.justinmutsito.coolquotes.coolquotes.R;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import cn.pedant.SweetAlert.SweetAlertDialog;
 
 public class CategoryActivity extends AppCompatActivity {
     private String[] mQuotes;
@@ -221,7 +222,10 @@ public class CategoryActivity extends AppCompatActivity {
     }
 
     private void endOfQuotes() {
-        Toast.makeText(CategoryActivity.this, R.string.end, Toast.LENGTH_SHORT).show();
+        SweetAlertDialog sweetAlertDialog = new SweetAlertDialog(CategoryActivity.this, SweetAlertDialog.ERROR_TYPE);
+        sweetAlertDialog.setTitleText(getString(R.string.Oops))
+                .setContentText(getString(R.string.end))
+                .show();
     }
 
 
@@ -249,7 +253,7 @@ public class CategoryActivity extends AppCompatActivity {
 
                         Toast.makeText(CategoryActivity.this, R.string.added, Toast.LENGTH_SHORT).show();
                     } else {
-                        Toast.makeText(CategoryActivity.this, R.string.not_added, Toast.LENGTH_SHORT).show();
+                        errorDialog();
                     }
                 }
             }
@@ -262,19 +266,26 @@ public class CategoryActivity extends AppCompatActivity {
 
 
     private void goTo(String number) {
-        if (number.isEmpty()) {
-            Toast.makeText(CategoryActivity.this, R.string.not_added, Toast.LENGTH_SHORT).show();
-        } else {
-            int goTo = Integer.parseInt(number);
+        int goTo;
+
+        try {
+            goTo = Integer.parseInt(number);
             if ((goTo < mQuotes.length - 3)) {
                 setQuotes(goTo);
             } else {
-                Toast.makeText(CategoryActivity.this, R.string.not_added, Toast.LENGTH_SHORT).show();
+                errorDialog();
             }
-
+        } catch (Exception e) {
+            errorDialog();
         }
 
+    }
 
+    private void errorDialog() {
+        SweetAlertDialog sweetAlertDialog = new SweetAlertDialog(CategoryActivity.this, SweetAlertDialog.ERROR_TYPE);
+        sweetAlertDialog.setTitleText(getString(R.string.Oops))
+                .setContentText(getString(R.string.try_again))
+                .show();
     }
 
     private void setMyTheme(String theme) {

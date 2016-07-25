@@ -18,6 +18,7 @@ import java.util.ArrayList;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import cn.pedant.SweetAlert.SweetAlertDialog;
 
 public class FavouritesActivity extends ListActivity {
     private String mTheme;
@@ -109,9 +110,19 @@ public class FavouritesActivity extends ListActivity {
                     share(mFavourites.get(location));
                 } else {
                     //Delete
+                    SweetAlertDialog sweetAlertDialog = new SweetAlertDialog(FavouritesActivity.this, SweetAlertDialog.WARNING_TYPE);
+                           sweetAlertDialog.setTitleText("Are you sure?")
+                            .setConfirmText("Yes,delete it!")
+                            .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                                @Override
+                                public void onClick(SweetAlertDialog sDialog) {
+                                    sDialog.dismissWithAnimation();
+                                    mDBOpenHelper.delete(mFavourites.get(location));
+                                    onCreate(savedInstanceState);
+                                }
+                            })
+                            .show();
 
-                    mDBOpenHelper.delete(mFavourites.get(location));
-                    onCreate(savedInstanceState);
 
 
                 }
