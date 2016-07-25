@@ -98,15 +98,15 @@ public class NotificationActivity extends AppCompatActivity {
 
     }
 
-
     private void getQuotes(int n) {
+
 
         //Select which string array of quotes to use
         switch (n) {
 
             case 0: {
                 mQuotes = getResources().getStringArray(R.array.Albert_Einstein);
-                mFace.setImageResource(R.drawable.ic_albert);//Put author's face
+                mFace.setImageResource(R.drawable.ic_albert);//Put authors's face
                 break;
             }
             case 1: {
@@ -147,7 +147,7 @@ public class NotificationActivity extends AppCompatActivity {
 
             case 7: {
                 mQuotes = getResources().getStringArray(R.array.Charles_Dickens);
-                mFace.setImageResource(R.drawable.ic_charlse_dickens);
+                mFace.setImageResource(R.drawable.ic_charles_dickens);
                 break;
             }
 
@@ -186,7 +186,7 @@ public class NotificationActivity extends AppCompatActivity {
             }
             case 14: {
                 mQuotes = getResources().getStringArray(R.array.Karl_Marx);
-                mFace.setImageResource(R.drawable.ic_karl_marx_);
+                mFace.setImageResource(R.drawable.ic_karl_marx);
                 break;
             }
 
@@ -239,6 +239,8 @@ public class NotificationActivity extends AppCompatActivity {
         }
 
     }
+
+
 
 
     private void share(String text) {

@@ -22,9 +22,9 @@ public class AuthorsActivity extends ListActivity {
 
     private int[] AuthorFaces = {R.drawable.ic_albert, R.drawable.ic_abraham, R.drawable.ic_benjamin, R.drawable.ic_bill_gates,
             R.drawable.ic_bill_cosby, R.drawable.ic_confucius, R.drawable.ic_charles_darwin,
-            R.drawable.ic_charlse_dickens, R.drawable.ic_charlie_chaplin, R.drawable.ic_ernest_hemingway,
+            R.drawable.ic_charles_dickens, R.drawable.ic_charlie_chaplin, R.drawable.ic_ernest_hemingway,
             R.drawable.ic_ernesto, R.drawable.ic_george_bernard, R.drawable.ic_henry_ford, R.drawable.ic_julian__assange,
-            R.drawable.ic_karl_marx_, R.drawable.ic_mahatma__gandhi, R.drawable.ic_mother_teresa, R.drawable.ic_mark_twain,
+            R.drawable.ic_karl_marx, R.drawable.ic_mahatma__gandhi, R.drawable.ic_mother_teresa, R.drawable.ic_mark_twain,
             R.drawable.ic_oscar_wilde, R.drawable.ic_socrates, R.drawable.ic_steve_jobs, R.drawable.ic_william_shakespeare,
             R.drawable.ic_warren_buffet};
 
@@ -39,7 +39,7 @@ public class AuthorsActivity extends ListActivity {
         mTheme = getIntent().getStringExtra(getString(R.string.themeKey));
         setMyTheme(mTheme);
 
-        //Get authors data and adapt it for listview.
+        //Get authors data and adapt it for listView.
         String[] Authors = getResources().getStringArray(R.array.authors);
         AuthorsAdapter adapter = new AuthorsAdapter(this, Authors, AuthorFaces);
         setListAdapter(adapter);

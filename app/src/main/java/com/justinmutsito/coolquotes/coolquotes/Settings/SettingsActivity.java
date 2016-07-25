@@ -84,9 +84,10 @@ public class SettingsActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         savedTheme = getSharedPreferences(THEME, 0);
-        savedTime = getSharedPreferences(TIME, 0);
         mTheme = savedTheme.getString(getString(R.string.themeKey), "brown");
-        mTime = savedTime.getInt(getString(R.string.timeKey), 0);
+        if(mTheme.isEmpty()){
+            mTheme="brown";
+        }
 
 
         String leave = getIntent().getStringExtra(getString(R.string.intentKey));
@@ -97,6 +98,9 @@ public class SettingsActivity extends AppCompatActivity {
             leaveIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(leaveIntent);
         }
+
+        savedTime = getSharedPreferences(TIME, 0);
+        mTime = savedTime.getInt(getString(R.string.timeKey), 0);
 
 
         myToolbar = (Toolbar) findViewById(R.id.toolbar);

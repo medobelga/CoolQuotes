@@ -52,7 +52,6 @@ public class WelcomeActivity extends AppCompatActivity {
     @Bind(R.id.backgroundImage)
     ImageView mBackgroundImage;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,7 +67,8 @@ public class WelcomeActivity extends AppCompatActivity {
         getQuotes(mPersonNumber);
         mCurrentQuote = mQuotes[mPosition];
         mQuote.setText(mCurrentQuote);
-        animateViews();
+
+
 
         //Open database for saving
         mDBOpenHelper = new DBOpenHelper(this);
@@ -76,9 +76,7 @@ public class WelcomeActivity extends AppCompatActivity {
 
     }
 
-    private void animateViews() {
 
-    }
 
 
     @OnClick(R.id.quoteLabel)
@@ -187,25 +185,25 @@ public class WelcomeActivity extends AppCompatActivity {
 
             case 2: {
                 mQuotes = getResources().getStringArray(R.array.Benjamin_Franklin);
-                mFace.setImageResource(R.drawable.ic_benjamin);
+               mFace.setImageResource(R.drawable.ic_benjamin);
                 break;
             }
 
             case 3: {
                 mQuotes = getResources().getStringArray(R.array.Bill_Gates);
-                mFace.setImageResource(R.drawable.ic_bill_gates);
+               mFace.setImageResource(R.drawable.ic_bill_gates);
                 break;
             }
 
             case 4: {
                 mQuotes = getResources().getStringArray(R.array.Bill_Cosby);
-                mFace.setImageResource(R.drawable.ic_bill_cosby);
+               mFace.setImageResource(R.drawable.ic_bill_cosby);
                 break;
             }
 
             case 5: {
                 mQuotes = getResources().getStringArray(R.array.Confucius);
-                mFace.setImageResource(R.drawable.ic_confucius);
+               mFace.setImageResource(R.drawable.ic_confucius);
                 break;
             }
             case 6: {
@@ -216,7 +214,7 @@ public class WelcomeActivity extends AppCompatActivity {
 
             case 7: {
                 mQuotes = getResources().getStringArray(R.array.Charles_Dickens);
-                mFace.setImageResource(R.drawable.ic_charlse_dickens);
+                mFace.setImageResource(R.drawable.ic_charles_dickens);
                 break;
             }
 
@@ -227,7 +225,7 @@ public class WelcomeActivity extends AppCompatActivity {
             }
             case 9: {
                 mQuotes = getResources().getStringArray(R.array.Ernest_Hemingway);
-                mFace.setImageResource(R.drawable.ic_ernest_hemingway);
+               mFace.setImageResource(R.drawable.ic_ernest_hemingway);
                 break;
             }
 
@@ -255,13 +253,13 @@ public class WelcomeActivity extends AppCompatActivity {
             }
             case 14: {
                 mQuotes = getResources().getStringArray(R.array.Karl_Marx);
-                mFace.setImageResource(R.drawable.ic_karl_marx_);
+                mFace.setImageResource(R.drawable.ic_karl_marx);
                 break;
             }
 
             case 15: {
                 mQuotes = getResources().getStringArray(R.array.Mahatma_Gandhi);
-                mFace.setImageResource(R.drawable.ic_mahatma__gandhi);
+               mFace.setImageResource(R.drawable.ic_mahatma__gandhi);
                 break;
             }
             case 16: {
@@ -272,7 +270,7 @@ public class WelcomeActivity extends AppCompatActivity {
 
             case 17: {
                 mQuotes = getResources().getStringArray(R.array.Mark_Twain);
-                mFace.setImageResource(R.drawable.ic_mark_twain);
+               mFace.setImageResource(R.drawable.ic_mark_twain);
                 break;
             }
 
@@ -295,7 +293,7 @@ public class WelcomeActivity extends AppCompatActivity {
 
             case 21: {
                 mQuotes = getResources().getStringArray(R.array.William_Shakespeare);
-                mFace.setImageResource(R.drawable.ic_william_shakespeare);
+               mFace.setImageResource(R.drawable.ic_william_shakespeare);
                 break;
             }
 
@@ -340,7 +338,7 @@ public class WelcomeActivity extends AppCompatActivity {
             mCategories.setBackground(getResources().getDrawable(R.drawable.blue_circle_bg_gradient));
             mAuthor.setTextColor(Color.parseColor(white));
             mAuthor.setBackground(getResources().getDrawable(R.drawable.blue_circle_bg_gradient));
-            mIconShare.setImageResource(R.drawable.ic_share_white_48dp);
+            mIconShare.setImageResource(R.drawable.ic_share_variant_white_48dp);
             mFavorites.setTextColor(Color.parseColor(white));
             mIconSettings.setImageResource(R.drawable.ic_settings_white_48dp);
         }

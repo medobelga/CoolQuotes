@@ -28,7 +28,7 @@
     <ImageView
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:src="@drawable/ic_account_circle_grey600_48dp"
+        android:src="@drawable/enstein_bg"
         android:layout_marginTop="120dp"
         android:id="@+id/faceImageView"
         android:layout_centerHorizontal="true"/>
