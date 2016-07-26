@@ -12,6 +12,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.justinmutsito.coolquotes.coolquotes.Database.DBOpenHelper;
 import com.justinmutsito.coolquotes.coolquotes.R;
 
@@ -63,6 +65,8 @@ public class AuthorActivity extends AppCompatActivity {
         setMyTheme(mTheme);
         getQuotes(position);
         setQuotes(count);
+        animateViews();
+
 
         mDBOpenHelper = new DBOpenHelper(this);
     }
@@ -195,6 +199,7 @@ public class AuthorActivity extends AppCompatActivity {
 
         String countDisplay = (count + 4) + "/" + mQuotes.length;
         mQuoteCount.setText(countDisplay);
+
     }
 
 
@@ -215,23 +220,25 @@ public class AuthorActivity extends AppCompatActivity {
         count++;
         if (count + 3 <= mQuotes.length - 1) {
             setQuotes(count);
+            animateViews();
 
         } else if (mQuotes.length - count == 2) {
 
             mQuote1.setText(mQuotes[count]);
             mQuote2.setText(mQuotes[count + 1]);
             mQuote3.setText(mQuotes[count + 2]);
+            animateViews();
             endOfQuotes();
 
         } else if (mQuotes.length - count == 1) {
 
             mQuote1.setText(mQuotes[count]);
             mQuote2.setText(mQuotes[count + 1]);
+            animateViews();
             endOfQuotes();
 
         } else {
             count--;
-            setQuotes(count);
             endOfQuotes();
 
 
@@ -336,7 +343,7 @@ public class AuthorActivity extends AppCompatActivity {
             } else {
                 errorDialog();
             }
-        } catch (Exception e) {
+        } catch (NumberFormatException e) {
             errorDialog();
         }
 
@@ -348,7 +355,6 @@ public class AuthorActivity extends AppCompatActivity {
                 .setContentText(getString(R.string.try_again))
                 .show();
     }
-
 
 
     private void setMyTheme(String theme) {
@@ -381,6 +387,15 @@ public class AuthorActivity extends AppCompatActivity {
 
     }
 
+    private void animateViews() {
+        //Animate views
+        YoYo.with(Techniques.RollIn).duration(1000).playOn(mFadedImage);
+        YoYo.with(Techniques.BounceIn).duration(2000).playOn(mQuote1);
+        YoYo.with(Techniques.BounceIn).duration(2300).playOn(mQuote2);
+        YoYo.with(Techniques.BounceIn).duration(2600).playOn(mQuote3);
+        YoYo.with(Techniques.BounceIn).duration(2900).playOn(mQuote4);
+        YoYo.with(Techniques.Tada).duration(3000).playOn(mQuoteCount);
+    }
     @Override
     protected void onPause() {
         super.onPause();

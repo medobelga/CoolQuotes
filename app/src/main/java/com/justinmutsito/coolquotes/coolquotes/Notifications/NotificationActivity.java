@@ -32,6 +32,8 @@ public class NotificationActivity extends AppCompatActivity {
     ImageView mFace;
     @Bind(R.id.quoteLabel)
     TextView mQuote;
+    @Bind(R.id.dayQuoteLabel)
+    TextView mDayQuote;
 
 
     @Override
@@ -239,8 +241,6 @@ public class NotificationActivity extends AppCompatActivity {
         }
 
     }
-
-
 
 
     private void share(String text) {

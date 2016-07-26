@@ -13,6 +13,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.justinmutsito.coolquotes.coolquotes.Database.DBOpenHelper;
 import com.justinmutsito.coolquotes.coolquotes.R;
 
@@ -26,6 +28,7 @@ public class CategoryActivity extends AppCompatActivity {
     private String mTheme;
     private int count = 0;
     private DBOpenHelper mDBOpenHelper;
+
 
     @Bind(R.id.backgroundImage)
     ImageView mBackgroundImage;
@@ -135,6 +138,9 @@ public class CategoryActivity extends AppCompatActivity {
 
         String countDisplay = (count + 4) + "/" + mQuotes.length;
         mQuoteCount.setText(countDisplay);
+
+        animateViews();
+
     }
 
 
@@ -160,17 +166,19 @@ public class CategoryActivity extends AppCompatActivity {
             mQuote1.setText(mQuotes[count]);
             mQuote2.setText(mQuotes[count + 1]);
             mQuote3.setText(mQuotes[count + 2]);
+            animateViews();
             endOfQuotes();
 
         } else if (mQuotes.length - count == 1) {
 
             mQuote1.setText(mQuotes[count]);
             mQuote2.setText(mQuotes[count + 1]);
+            animateViews();
             endOfQuotes();
 
         } else {
             count--;
-            setQuotes(count);
+            //setQuotes(count);
             endOfQuotes();
 
 
@@ -275,7 +283,7 @@ public class CategoryActivity extends AppCompatActivity {
             } else {
                 errorDialog();
             }
-        } catch (Exception e) {
+        } catch (NumberFormatException e) {
             errorDialog();
         }
 
@@ -316,6 +324,17 @@ public class CategoryActivity extends AppCompatActivity {
             mNext.setImageResource(R.drawable.ic_skip_next_circle_outline_white_48dp);
         }
 
+    }
+
+
+    private void animateViews() {
+        //Animate views
+        YoYo.with(Techniques.RollIn).duration(1000).playOn(mFadedImage);
+        YoYo.with(Techniques.BounceIn).duration(2000).playOn(mQuote1);
+        YoYo.with(Techniques.BounceIn).duration(2300).playOn(mQuote2);
+        YoYo.with(Techniques.BounceIn).duration(2600).playOn(mQuote3);
+        YoYo.with(Techniques.BounceIn).duration(2900).playOn(mQuote4);
+        YoYo.with(Techniques.Tada).duration(3000).playOn(mQuoteCount);
     }
 
     @Override

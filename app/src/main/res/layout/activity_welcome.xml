@@ -24,7 +24,7 @@
         android:layout_marginTop="15dp"
         android:scaleType="fitXY"
         android:src="@color/brownFaded"
-      />
+        />
 
     <ImageView
         android:id="@+id/faceImageView"
@@ -34,6 +34,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="37dp"
         android:src="@drawable/bg_charles_dickens"
+
+
         />
 
     <TextView
@@ -47,7 +49,8 @@
         android:padding="5dp"
         android:text="@string/test_text"
         android:textColor="@color/colorPrimaryText"
-        android:textSize="14sp"/>
+        android:textSize="14sp"
+        />
 
     <Button
         android:id="@+id/categoriesButton"
@@ -64,6 +67,7 @@
         android:textAlignment="center"
         android:textColor="@color/colorPrimaryText"
 
+
         />
 
     <Button
@@ -79,7 +83,6 @@
         android:text="@string/authors"
         android:textAlignment="center"
         android:textColor="@color/colorPrimaryText"
-
 
         />
 

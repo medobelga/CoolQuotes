@@ -11,6 +11,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.justinmutsito.coolquotes.coolquotes.Authors.AuthorsActivity;
 import com.justinmutsito.coolquotes.coolquotes.Categories.CategoriesActivity;
 import com.justinmutsito.coolquotes.coolquotes.Database.DBOpenHelper;
@@ -68,11 +70,24 @@ public class WelcomeActivity extends AppCompatActivity {
         getQuotes(mPersonNumber);
         mCurrentQuote = mQuotes[mPosition];
         mQuote.setText(mCurrentQuote);
-
+        animateViews();
 
         //Open database for saving
         mDBOpenHelper = new DBOpenHelper(this);
 
+
+    }
+
+    private void animateViews() {
+        //Animate views
+        YoYo.with(Techniques.RollIn).duration(1000).playOn(mFadedImage);
+        YoYo.with(Techniques.BounceIn).duration(2000).playOn(mFace);
+        YoYo.with(Techniques.ZoomIn).duration(2000).playOn(mQuote);
+        YoYo.with(Techniques.RollIn).duration(2000).playOn(mCategories);
+        YoYo.with(Techniques.RollIn).duration(2000).playOn(mAuthor);
+        YoYo.with(Techniques.ZoomIn).duration(2000).playOn(mIconShare);
+        YoYo.with(Techniques.Tada).duration(2000).playOn(mFavorites);
+        YoYo.with(Techniques.ZoomIn).duration(2000).playOn(mIconSettings);
 
     }
 
@@ -94,6 +109,7 @@ public class WelcomeActivity extends AppCompatActivity {
                     boolean added = mDBOpenHelper.addFavourite(mCurrentQuote);
                     if (added) {
                         Toast.makeText(WelcomeActivity.this, R.string.added, Toast.LENGTH_SHORT).show();
+
 
                     } else {
                         SweetAlertDialog sweetAlertDialog = new SweetAlertDialog(WelcomeActivity.this);

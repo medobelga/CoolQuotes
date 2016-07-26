@@ -17,7 +17,7 @@ public class SplashScreenActivity extends AppCompatActivity {
             Thread timer = new Thread(){
                 public void run(){
                     try {
-                        sleep(1500);
+                        sleep(1000);
                     } catch (InterruptedException e) {
                         //IntentionalLy left blank
                     }

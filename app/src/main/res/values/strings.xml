@@ -35,6 +35,7 @@
     <string name="alarm_canceled">Alarm Canceled</string>
     <string name="confirm">Are you sure?</string>
     <string name="Oops">Oops...</string>
+    <string name="quote_of_the_day">Quote of the day.</string>
 
 
     <string-array name="quotesOptions">

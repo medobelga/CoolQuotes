@@ -29,7 +29,6 @@ public class CategoriesActivity extends ListActivity {
         mTheme = getIntent().getStringExtra(getString(R.string.themeKey));
         setMyTheme(mTheme);
 
-
         mCategories = getResources().getStringArray(R.array.categories);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,mCategories);
         setListAdapter(adapter);
