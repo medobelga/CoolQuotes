@@ -208,9 +208,11 @@ public class AuthorActivity extends AppCompatActivity {
 
         if (count == 0) {
             setQuotes(count);
+            animateViews();
         } else {
             count--;
             setQuotes(count);
+            animateViews();
         }
     }
 
