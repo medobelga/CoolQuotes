@@ -9,6 +9,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.justinmutsito.coolquotes.coolquotes.Database.DBOpenHelper;
 import com.justinmutsito.coolquotes.coolquotes.R;
 
@@ -34,7 +36,6 @@ public class NotificationActivity extends AppCompatActivity {
     TextView mQuote;
     @Bind(R.id.dayQuoteLabel)
     TextView mDayQuote;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -242,6 +243,14 @@ public class NotificationActivity extends AppCompatActivity {
 
     }
 
+    private void animateViews() {
+        //Animate views
+        YoYo.with(Techniques.Tada).duration(1000).playOn(mDayQuote);
+        YoYo.with(Techniques.BounceIn).duration(2000).playOn(mFace);
+        YoYo.with(Techniques.BounceIn).duration(2300).playOn(mQuote);
+
+
+    }
 
     private void share(String text) {
         //Share text

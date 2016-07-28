@@ -136,7 +136,7 @@ public class CategoryActivity extends AppCompatActivity {
         mQuote3.setText(mQuotes[count + 2]);
         mQuote4.setText(mQuotes[count + 3]);
 
-        String countDisplay = (count + 4) + "/" + mQuotes.length;
+        String countDisplay = (count) + "/" + mQuotes.length;
         mQuoteCount.setText(countDisplay);
 
         animateViews();

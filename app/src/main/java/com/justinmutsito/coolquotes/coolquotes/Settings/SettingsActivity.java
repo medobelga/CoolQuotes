@@ -138,8 +138,11 @@ public class SettingsActivity extends AppCompatActivity {
 
     @OnClick(R.id.brownCheckbox)
     public void setBrown() {
-        brownTheme();
-        resetTheme();
+        if(mTheme.equals("blue")){
+            brownTheme();
+            resetTheme();
+        }
+
 
     }
 
@@ -154,8 +157,11 @@ public class SettingsActivity extends AppCompatActivity {
 
     @OnClick(R.id.blueCheckbox)
     public void setBlue() {
-        blueTheme();
-        resetTheme();
+        if (mTheme.equals("brown")){
+            blueTheme();
+            resetTheme();
+        }
+
     }
 
     private void blueTheme() {
@@ -312,7 +318,7 @@ public class SettingsActivity extends AppCompatActivity {
         Thread timer = new Thread() {
             public void run() {
                 try {
-                    sleep(2000);
+                    sleep(500);
                 } catch (Exception e) {
                     //Intentionally left blank
                 } finally {
