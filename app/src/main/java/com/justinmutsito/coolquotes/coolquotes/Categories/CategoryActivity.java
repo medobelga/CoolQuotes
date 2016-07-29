@@ -160,7 +160,6 @@ public class CategoryActivity extends AppCompatActivity {
 
         count++;
         if (count + 3 <= mQuotes.length - 1) {
-            setQuotes(count);
         } else if (mQuotes.length - count == 2) {
 
             mQuote1.setText(mQuotes[count]);
