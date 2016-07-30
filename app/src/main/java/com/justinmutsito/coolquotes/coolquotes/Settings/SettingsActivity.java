@@ -72,16 +72,16 @@ public class SettingsActivity extends AppCompatActivity {
     LinearLayout mLayout4;
     @Bind(R.id.layout5)
     LinearLayout mLayout5;
+    @Bind(R.id.toolbar)
+    Toolbar mToolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
         ButterKnife.bind(this);
+        setSupportActionBar(mToolbar);
 
-        myToolbar = (Toolbar) findViewById(R.id.toolbar);
-        myToolbar.setTitleTextColor(Color.parseColor("#212121"));
-        setSupportActionBar(myToolbar);
 
         //Get and set current theme.
         mPreferences = new Preferences(this);
@@ -246,7 +246,7 @@ public class SettingsActivity extends AppCompatActivity {
         mLayout3.setBackgroundColor(Color.parseColor(lightBlue));
         mLayout4.setBackgroundColor(Color.parseColor(lightBlue));
         mLayout5.setBackgroundColor(Color.parseColor(lightBlue));
-        myToolbar.setTitleTextColor(Color.parseColor(white));
+        mToolbar.setTitleTextColor(Color.parseColor(white));
 
     }
 
@@ -271,7 +271,7 @@ public class SettingsActivity extends AppCompatActivity {
         mLayout3.setBackgroundColor(Color.parseColor(lightBrown));
         mLayout4.setBackgroundColor(Color.parseColor(lightBrown));
         mLayout5.setBackgroundColor(Color.parseColor(lightBrown));
-        myToolbar.setTitleTextColor(Color.parseColor(darkGrey));
+        mToolbar.setTitleTextColor(Color.parseColor(darkGrey));
 
     }
 
