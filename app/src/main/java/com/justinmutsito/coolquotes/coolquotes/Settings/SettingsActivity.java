@@ -301,24 +301,7 @@ public class SettingsActivity extends AppCompatActivity {
 
     private void resetTheme() {
 
-        Thread timer = new Thread() {
-            public void run() {
-                try {
-                    sleep(500);
-                } catch (Exception e) {
-                    //Intentionally left blank
-                } finally {
-                    Intent leaveIntent = new Intent(SettingsActivity.this, WelcomeActivity.class);
-                    leaveIntent.putExtra(getString(R.string.themeKey), mTheme);
-                    leaveIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    leaveIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                    startActivity(leaveIntent);
-                }
-
-            }
-        };
-        timer.start();
-
+                    startActivity(new Intent(SettingsActivity.this, WelcomeActivity.class));
 
     }
 
