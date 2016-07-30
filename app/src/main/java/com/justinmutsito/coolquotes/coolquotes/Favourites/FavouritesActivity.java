@@ -13,6 +13,7 @@ import android.widget.ListView;
 
 import com.justinmutsito.coolquotes.coolquotes.Database.DBOpenHelper;
 import com.justinmutsito.coolquotes.coolquotes.R;
+import com.justinmutsito.coolquotes.coolquotes.Settings.Preferences;
 
 import java.util.ArrayList;
 
@@ -21,6 +22,7 @@ import butterknife.ButterKnife;
 import cn.pedant.SweetAlert.SweetAlertDialog;
 
 public class FavouritesActivity extends ListActivity {
+    private Preferences mPreferences;
     private String mTheme;
     private ArrayList<String> mFavourites;
     private DBOpenHelper mDBOpenHelper;
@@ -37,14 +39,17 @@ public class FavouritesActivity extends ListActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_favourites);
         ButterKnife.bind(this);
-//Set theme.
-        mTheme = getIntent().getStringExtra(getString(R.string.themeKey));
+
+        //Set theme.
+        mPreferences = new Preferences(this);
+        mTheme = mPreferences.getMyTheme();
         setMyTheme(mTheme);
-//Start database operations.
+
+        //Start database operations.
         mFavourites = new ArrayList<>();
         mDBOpenHelper = new DBOpenHelper(FavouritesActivity.this);
 
-//Load UI.
+        //Load UI.
         loadUi();
 
 
@@ -111,7 +116,7 @@ public class FavouritesActivity extends ListActivity {
                 } else {
                     //Delete
                     SweetAlertDialog sweetAlertDialog = new SweetAlertDialog(FavouritesActivity.this, SweetAlertDialog.WARNING_TYPE);
-                           sweetAlertDialog.setTitleText("Are you sure?")
+                    sweetAlertDialog.setTitleText("Are you sure?")
                             .setConfirmText("Yes,delete it!")
                             .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
                                 @Override
@@ -122,7 +127,6 @@ public class FavouritesActivity extends ListActivity {
                                 }
                             })
                             .show();
-
 
 
                 }

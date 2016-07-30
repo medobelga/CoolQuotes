@@ -4,7 +4,6 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -26,10 +25,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class SettingsActivity extends AppCompatActivity {
-    private static final String THEME = "theme";
-    private static final String TIME = "time";
-    private SharedPreferences savedTheme;
-    private SharedPreferences savedTime;
+    private Preferences mPreferences;
     public String mTheme;
     public int mTime;
     private Toolbar myToolbar;
@@ -83,48 +79,19 @@ public class SettingsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_settings);
         ButterKnife.bind(this);
 
-        savedTheme = getSharedPreferences(THEME, 0);
-        mTheme = savedTheme.getString(getString(R.string.themeKey), "brown");
-        if(mTheme.isEmpty()){
-            mTheme="brown";
-        }
-
-
-        String leave = getIntent().getStringExtra(getString(R.string.intentKey));
-        if (leave.equals("leave")) {
-            Intent leaveIntent = new Intent(SettingsActivity.this, WelcomeActivity.class);
-            leaveIntent.putExtra(getString(R.string.themeKey), mTheme);
-            leaveIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            leaveIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            startActivity(leaveIntent);
-        }
-
-        savedTime = getSharedPreferences(TIME, 0);
-        mTime = savedTime.getInt(getString(R.string.timeKey), 0);
-
-
         myToolbar = (Toolbar) findViewById(R.id.toolbar);
         myToolbar.setTitleTextColor(Color.parseColor("#212121"));
         setSupportActionBar(myToolbar);
 
+        //Get and set current theme.
+        mPreferences = new Preferences(this);
+        mTheme = mPreferences.getMyTheme();
+        setMyTheme(mTheme);
 
-        if (mTheme.equals("brown")) {
-            brownTheme(); //Set the theme.
-        } else {
-            blueTheme();
 
-        }
-
-        if (mTime == 0) {
-            setOff();//Set notification time.
-        } else if (mTime == 9) {
-            setMorning();
-        } else {
-            setEvening();
-        }
-
-        saveTheme(mTheme);
-        saveTime(mTime);
+        //Get and set current notification time.
+        mTime = mPreferences.getNotificationTime();
+        notificationTime(mTime);
 
 
         Intent alarmIntent = new Intent(this, AlarmReceiver.class);
@@ -138,8 +105,9 @@ public class SettingsActivity extends AppCompatActivity {
 
     @OnClick(R.id.brownCheckbox)
     public void setBrown() {
-        if(mTheme.equals("blue")){
+        if (mTheme.equals("blue")) {
             brownTheme();
+            saveTheme("brown");
             resetTheme();
         }
 
@@ -147,30 +115,30 @@ public class SettingsActivity extends AppCompatActivity {
     }
 
     private void brownTheme() {
-        mTheme = "brown";
         mBlue.setImageResource(R.drawable.ic_checkbox_blank_circle_outline_grey600_48dp);
         mBrown.setImageResource(R.drawable.ic_checkbox_marked_circle_grey600_48dp);
         setBrownTheme();
         setIcons();
-        saveTheme(mTheme);
+
     }
 
     @OnClick(R.id.blueCheckbox)
     public void setBlue() {
-        if (mTheme.equals("brown")){
+        if (mTheme.equals("brown")) {
             blueTheme();
+            saveTheme("blue");
             resetTheme();
         }
 
     }
 
     private void blueTheme() {
-        mTheme = "blue";
+
         mBrown.setImageResource(R.drawable.ic_checkbox_blank_circle_outline_white_48dp);
         mBlue.setImageResource(R.drawable.ic_checkbox_marked_circle_white_48dp);
         setBlueTheme();
         setIcons();
-        saveTheme(mTheme);
+
     }
 
     private void setIcons() {
@@ -243,24 +211,18 @@ public class SettingsActivity extends AppCompatActivity {
 
     @OnClick(R.id.aboutButton)
     public void about() {
-        Intent intent = new Intent(SettingsActivity.this, AboutActivity.class);
-        intent.putExtra(getString(R.string.themeKey), mTheme);
-        startActivity(intent);
+
+        startActivity(new Intent(SettingsActivity.this, AboutActivity.class));
     }
 
 
     private void saveTheme(String theme) {
-        savedTheme = getSharedPreferences(THEME, 0);
-        SharedPreferences.Editor editorTheme = savedTheme.edit();
-        editorTheme.putString(getString(R.string.themeKey), theme);
-        editorTheme.commit();
+        mPreferences.saveTheme(theme);
+
     }
 
     private void saveTime(int time) {
-        savedTime = getSharedPreferences(TIME, 0);
-        SharedPreferences.Editor editorTime = savedTime.edit();
-        editorTime.putInt(getString(R.string.timeKey), time);
-        editorTime.commit();
+        mPreferences.saveTime(time);
     }
 
     private void setBlueTheme() {
@@ -311,6 +273,30 @@ public class SettingsActivity extends AppCompatActivity {
         mLayout5.setBackgroundColor(Color.parseColor(lightBrown));
         myToolbar.setTitleTextColor(Color.parseColor(darkGrey));
 
+    }
+
+
+    private void setMyTheme(String theme) {
+
+        if (theme.equals("brown")) {
+            brownTheme();
+        } else {
+            blueTheme();
+
+        }
+
+    }
+
+
+    private void notificationTime(int time) {
+
+        if (time == 0) {
+            setOff();//Set notification time.
+        } else if (time == 9) {
+            setMorning();
+        } else {
+            setEvening();
+        }
     }
 
     private void resetTheme() {

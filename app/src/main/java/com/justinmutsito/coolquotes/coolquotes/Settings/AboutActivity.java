@@ -12,6 +12,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class AboutActivity extends AppCompatActivity {
+    private Preferences mPreferences;
     private String mTheme;
 
     @Bind(R.id.backgroundImage)
@@ -26,7 +27,8 @@ public class AboutActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
         ButterKnife.bind(this);
-        mTheme = getIntent().getStringExtra(getString(R.string.themeKey));
+        mPreferences = new Preferences(this);
+        mTheme = mPreferences.getMyTheme();
         setMyTheme(mTheme);
     }
 

@@ -9,11 +9,13 @@ import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.justinmutsito.coolquotes.coolquotes.R;
+import com.justinmutsito.coolquotes.coolquotes.Settings.Preferences;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class CategoriesActivity extends ListActivity {
+    private Preferences mPreferences;
     private String[] mCategories;
     private String mTheme;
 
@@ -26,7 +28,8 @@ public class CategoriesActivity extends ListActivity {
         setContentView(R.layout.activity_categories);
         ButterKnife.bind(this);
 
-        mTheme = getIntent().getStringExtra(getString(R.string.themeKey));
+        mPreferences =new Preferences(this);
+        mTheme = mPreferences.getMyTheme();
         setMyTheme(mTheme);
 
         mCategories = getResources().getStringArray(R.array.categories);
@@ -45,7 +48,6 @@ public class CategoriesActivity extends ListActivity {
         Bundle bundle = new Bundle();
         bundle.putInt(getString(R.string.categoryKey),position);
         intent.putExtra(getString(R.string.bundleKey),bundle);
-        intent.putExtra(getString(R.string.themeKey),mTheme);
         startActivity(intent);
     }
 

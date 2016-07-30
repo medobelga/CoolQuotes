@@ -17,6 +17,7 @@ import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
 import com.justinmutsito.coolquotes.coolquotes.Database.DBOpenHelper;
 import com.justinmutsito.coolquotes.coolquotes.R;
+import com.justinmutsito.coolquotes.coolquotes.Settings.Preferences;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -24,6 +25,7 @@ import butterknife.OnClick;
 import cn.pedant.SweetAlert.SweetAlertDialog;
 
 public class CategoryActivity extends AppCompatActivity {
+    private Preferences mPreferences;
     private String[] mQuotes;
     private String mTheme;
     private int count = 0;
@@ -60,12 +62,17 @@ public class CategoryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_category);
         ButterKnife.bind(this);
 
+        //Set theme.
+        mPreferences = new Preferences(this);
+        mTheme = mPreferences.getMyTheme();
+        setMyTheme(mTheme);
+
+        //Get position of quotes.
         Intent intent = getIntent();
         Bundle bundle = intent.getBundleExtra(getString(R.string.bundleKey));
         int position = bundle.getInt(getString(R.string.categoryKey));
-        mTheme = intent.getStringExtra(getString(R.string.themeKey));
-        setMyTheme(mTheme);
         getQuotes(position);
+
         setQuotes(count);
 
         mDBOpenHelper = new DBOpenHelper(this);

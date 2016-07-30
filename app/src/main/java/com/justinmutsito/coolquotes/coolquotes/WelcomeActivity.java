@@ -17,6 +17,7 @@ import com.justinmutsito.coolquotes.coolquotes.Authors.AuthorsActivity;
 import com.justinmutsito.coolquotes.coolquotes.Categories.CategoriesActivity;
 import com.justinmutsito.coolquotes.coolquotes.Database.DBOpenHelper;
 import com.justinmutsito.coolquotes.coolquotes.Favourites.FavouritesActivity;
+import com.justinmutsito.coolquotes.coolquotes.Settings.Preferences;
 import com.justinmutsito.coolquotes.coolquotes.Settings.SettingsActivity;
 
 import java.util.Random;
@@ -28,7 +29,7 @@ import cn.pedant.SweetAlert.SweetAlertDialog;
 
 public class WelcomeActivity extends AppCompatActivity {
 
-
+    private Preferences mPreferences;
     private String[] mQuotes;
     private String mTheme;
     private int mPersonNumber;
@@ -62,7 +63,8 @@ public class WelcomeActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         //Set theme using mTheme passed from the SettingsActivity
-        mTheme = getIntent().getStringExtra(getString(R.string.themeKey));
+        mPreferences = new Preferences(this);
+        mTheme = mPreferences.getMyTheme();
         setMyTheme(mTheme);
 
         //Get and set UI data
@@ -132,18 +134,15 @@ public class WelcomeActivity extends AppCompatActivity {
 
     @OnClick(R.id.categoriesButton)
     public void startActivityCategories() {
-        Intent intent = new Intent(WelcomeActivity.this, CategoriesActivity.class);
-        intent.putExtra(getString(R.string.themeKey), mTheme);
-        startActivity(intent);
+
+        startActivity(new Intent(WelcomeActivity.this, CategoriesActivity.class));
 
     }
 
 
     @OnClick(R.id.authorButton)
     public void startActivityPeople() {
-        Intent intent = new Intent(WelcomeActivity.this, AuthorsActivity.class);
-        intent.putExtra(getString(R.string.themeKey), mTheme);
-        startActivity(intent);
+        startActivity(new Intent(WelcomeActivity.this, AuthorsActivity.class));
 
     }
 
@@ -159,17 +158,14 @@ public class WelcomeActivity extends AppCompatActivity {
 
     @OnClick(R.id.favouritesLabel)
     public void startActivityFavourites() {
-        Intent intent = new Intent(WelcomeActivity.this, FavouritesActivity.class);
-        intent.putExtra(getString(R.string.themeKey), mTheme);
-        startActivity(intent);
+        startActivity(new Intent(WelcomeActivity.this, FavouritesActivity.class));
 
     }
 
     @OnClick(R.id.settingsIcon)
     public void configSettings() {
-        Intent intent = new Intent(WelcomeActivity.this, SettingsActivity.class);
-        intent.putExtra(getString(R.string.intentKey), "stay");
-        startActivity(intent);
+
+        startActivity(new Intent(WelcomeActivity.this, SettingsActivity.class));
     }
 
     private void randomQuote() {

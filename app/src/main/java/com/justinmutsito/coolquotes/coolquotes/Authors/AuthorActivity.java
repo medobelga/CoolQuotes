@@ -16,6 +16,7 @@ import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
 import com.justinmutsito.coolquotes.coolquotes.Database.DBOpenHelper;
 import com.justinmutsito.coolquotes.coolquotes.R;
+import com.justinmutsito.coolquotes.coolquotes.Settings.Preferences;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -23,6 +24,7 @@ import butterknife.OnClick;
 import cn.pedant.SweetAlert.SweetAlertDialog;
 
 public class AuthorActivity extends AppCompatActivity {
+    private Preferences mPreferences;
     private String[] mQuotes;
     private String mTheme;
     private int count = 0;
@@ -56,18 +58,24 @@ public class AuthorActivity extends AppCompatActivity {
         setContentView(R.layout.activity_author);
         ButterKnife.bind(this);
 
-//Get and set the current theme.
+       //Get and set the current theme.
+        mPreferences = new Preferences(this);
+        mTheme = mPreferences.getMyTheme();
+        setMyTheme(mTheme);
+
+        //Get quotes.
         Intent intent = getIntent();
         Bundle bundle = intent.getBundleExtra(getString(R.string.authorsKey));
         int position = bundle.getInt(getString(R.string.bundleKey));
-        mTheme = intent.getStringExtra(getString(R.string.themeKey));
-
-        setMyTheme(mTheme);
         getQuotes(position);
+
+        //Set quotes.
         setQuotes(count);
+
+        //Animate views.
         animateViews();
 
-
+        //Open database for related operations.
         mDBOpenHelper = new DBOpenHelper(this);
     }
 

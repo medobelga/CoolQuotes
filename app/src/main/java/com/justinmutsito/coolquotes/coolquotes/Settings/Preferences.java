@@ -17,7 +17,7 @@ public class Preferences {
     private static final String TIME = "time";
     private String mTheme;
     private int mTime;
-    private String mDefault = "#673AB7";
+    private String mDefault = "brown";
     private Context mContext;
 
     public Preferences(Context context) {
@@ -44,7 +44,7 @@ public class Preferences {
         editorTheme.commit();
     }
 
-    private void saveTime(int time) {
+    public void saveTime(int time) {
         mSavedTime = mContext.getSharedPreferences(TIME, 0);
         SharedPreferences.Editor editorTime = mSavedTime.edit();
         editorTime.putInt(mContext.getString(R.string.timeKey), time);

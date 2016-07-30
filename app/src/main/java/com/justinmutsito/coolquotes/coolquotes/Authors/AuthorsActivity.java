@@ -8,11 +8,13 @@ import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.justinmutsito.coolquotes.coolquotes.R;
+import com.justinmutsito.coolquotes.coolquotes.Settings.Preferences;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class AuthorsActivity extends ListActivity {
+    private Preferences mPreferences;
     private String mTheme;
 
     @Bind(R.id.backgroundImage)
@@ -35,8 +37,9 @@ public class AuthorsActivity extends ListActivity {
         setContentView(R.layout.activity_authors);
         ButterKnife.bind(this);
 
-        //Get and set current theme.
-        mTheme = getIntent().getStringExtra(getString(R.string.themeKey));
+        //Get and set current theme.;
+        mPreferences = new Preferences(this);
+        mTheme = mPreferences.getMyTheme();
         setMyTheme(mTheme);
 
         //Get authors data and adapt it for listView.
@@ -76,7 +79,6 @@ public class AuthorsActivity extends ListActivity {
 
         Intent intent = new Intent(AuthorsActivity.this, AuthorActivity.class);
         intent.putExtra(getString(R.string.authorsKey), bundle);
-        intent.putExtra(getString(R.string.themeKey), mTheme);
         startActivity(intent);
 
     }
