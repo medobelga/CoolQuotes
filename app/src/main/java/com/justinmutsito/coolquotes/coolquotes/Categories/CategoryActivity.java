@@ -145,7 +145,7 @@ public class CategoryActivity extends AppCompatActivity {
         mQuote3.setText(mQuotes[count + 2]);
         mQuote4.setText(mQuotes[count + 3]);
 
-        String countDisplay =(count + 4) + "/" + mQuotes.length;
+        String countDisplay = (count + 4) + "/" + mQuotes.length;
         mQuoteCount.setText(countDisplay);
 
     }
@@ -158,7 +158,7 @@ public class CategoryActivity extends AppCompatActivity {
             setQuotes(count);
 
         } else {
-            count-=4;
+            count -= 4;
             setQuotes(count);
             animateViews();
         }
@@ -185,15 +185,14 @@ public class CategoryActivity extends AppCompatActivity {
             animateViews();
 
 
-        }
-        else if (count == mQuotes.length - 1) {
+        } else if (count == mQuotes.length - 1) {
 
             setQuotes(count - 3);
             animateViews();
 
 
         } else {
-            count-=4;
+            count -= 4;
             endOfQuotes();
 
 
@@ -293,12 +292,22 @@ public class CategoryActivity extends AppCompatActivity {
 
         try {
             goTo = Integer.parseInt(number);
-            if ((goTo < mQuotes.length - 3)) {
-                setQuotes(goTo);
+
+            if ((goTo <= mQuotes.length)) {
+
+                if (goTo <= 4) {
+                    setQuotes(goTo);
+                } else {
+                    setQuotes(goTo - 4);
+                }
+
                 animateViews();
+                count = 0; //To avoid next or previous  button ArrayIndexOutOfBoundsException
+
             } else {
                 errorDialog();
             }
+
         } catch (NumberFormatException e) {
             errorDialog();
         }

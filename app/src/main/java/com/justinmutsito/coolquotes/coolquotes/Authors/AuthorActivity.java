@@ -58,7 +58,7 @@ public class AuthorActivity extends AppCompatActivity {
         setContentView(R.layout.activity_author);
         ButterKnife.bind(this);
 
-       //Get and set the current theme.
+        //Get and set the current theme.
         mPreferences = new Preferences(this);
         mTheme = mPreferences.getMyTheme();
         setMyTheme(mTheme);
@@ -216,44 +216,48 @@ public class AuthorActivity extends AppCompatActivity {
 
         if (count == 0) {
             setQuotes(count);
-            animateViews();
+
         } else {
-            count--;
+            count -= 4;
             setQuotes(count);
             animateViews();
         }
     }
-
     @OnClick(R.id.nextIcon)
     public void next() {
 
-        count++;
+        count += 4;
+
         if (count + 3 <= mQuotes.length - 1) {
             setQuotes(count);
             animateViews();
 
-        } else if (mQuotes.length - count == 2) {
 
-            mQuote1.setText(mQuotes[count]);
-            mQuote2.setText(mQuotes[count + 1]);
-            mQuote3.setText(mQuotes[count + 2]);
+        } else if (count + 2 <= mQuotes.length - 1) {
+
+            setQuotes(count - 1);
             animateViews();
-            endOfQuotes();
 
-        } else if (mQuotes.length - count == 1) {
+        } else if (count + 1 <= mQuotes.length - 1) {
 
-            mQuote1.setText(mQuotes[count]);
-            mQuote2.setText(mQuotes[count + 1]);
+            setQuotes(count - 2);
             animateViews();
-            endOfQuotes();
+
+
+        } else if (count == mQuotes.length - 1) {
+
+            setQuotes(count - 3);
+            animateViews();
+
 
         } else {
-            count--;
+            count -= 4;
             endOfQuotes();
 
 
         }
     }
+
 
 
     @OnClick(R.id.quote1Label)
@@ -348,11 +352,22 @@ public class AuthorActivity extends AppCompatActivity {
 
         try {
             goTo = Integer.parseInt(number);
-            if ((goTo < mQuotes.length - 3)) {
-                setQuotes(goTo);
+
+            if ((goTo <= mQuotes.length)) {
+
+                if (goTo <= 4) {
+                    setQuotes(goTo);
+                } else {
+                    setQuotes(goTo - 4);
+                }
+
+                animateViews();
+                count = 0; //To avoid next or previous  button ArrayIndexOutOfBoundsException
+
             } else {
                 errorDialog();
             }
+
         } catch (NumberFormatException e) {
             errorDialog();
         }
@@ -406,6 +421,7 @@ public class AuthorActivity extends AppCompatActivity {
         YoYo.with(Techniques.BounceIn).duration(2900).playOn(mQuote4);
         YoYo.with(Techniques.Tada).duration(3000).playOn(mQuoteCount);
     }
+
     @Override
     protected void onPause() {
         super.onPause();
