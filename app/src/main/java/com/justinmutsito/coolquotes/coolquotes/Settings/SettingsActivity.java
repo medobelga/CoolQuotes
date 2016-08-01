@@ -106,7 +106,6 @@ public class SettingsActivity extends AppCompatActivity {
     @OnClick(R.id.brownCheckbox)
     public void setBrown() {
         if (mTheme.equals("blue")) {
-            brownTheme();
             saveTheme("brown");
             resetTheme();
         }
@@ -125,7 +124,6 @@ public class SettingsActivity extends AppCompatActivity {
     @OnClick(R.id.blueCheckbox)
     public void setBlue() {
         if (mTheme.equals("brown")) {
-            blueTheme();
             saveTheme("blue");
             resetTheme();
         }
@@ -301,8 +299,10 @@ public class SettingsActivity extends AppCompatActivity {
 
     private void resetTheme() {
 
-                    startActivity(new Intent(SettingsActivity.this, WelcomeActivity.class));
-
+        Intent intent = new Intent(SettingsActivity.this, WelcomeActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
     }
 
 

@@ -67,14 +67,16 @@ public class CategoryActivity extends AppCompatActivity {
         mTheme = mPreferences.getMyTheme();
         setMyTheme(mTheme);
 
-        //Get position of quotes.
+        //Get the quotes.
         Intent intent = getIntent();
         Bundle bundle = intent.getBundleExtra(getString(R.string.bundleKey));
         int position = bundle.getInt(getString(R.string.categoryKey));
         getQuotes(position);
 
         setQuotes(count);
+        animateViews();
 
+        //Open database for related operations
         mDBOpenHelper = new DBOpenHelper(this);
     }
 
@@ -143,10 +145,8 @@ public class CategoryActivity extends AppCompatActivity {
         mQuote3.setText(mQuotes[count + 2]);
         mQuote4.setText(mQuotes[count + 3]);
 
-        String countDisplay = (count) + "/" + mQuotes.length;
+        String countDisplay =(count + 4) + "/" + mQuotes.length;
         mQuoteCount.setText(countDisplay);
-
-        animateViews();
 
     }
 
@@ -156,35 +156,44 @@ public class CategoryActivity extends AppCompatActivity {
 
         if (count == 0) {
             setQuotes(count);
+
         } else {
-            count--;
+            count-=4;
             setQuotes(count);
+            animateViews();
         }
     }
 
     @OnClick(R.id.nextIcon)
     public void next() {
 
-        count++;
+        count += 4;
+
         if (count + 3 <= mQuotes.length - 1) {
-        } else if (mQuotes.length - count == 2) {
-
-            mQuote1.setText(mQuotes[count]);
-            mQuote2.setText(mQuotes[count + 1]);
-            mQuote3.setText(mQuotes[count + 2]);
+            setQuotes(count);
             animateViews();
-            endOfQuotes();
 
-        } else if (mQuotes.length - count == 1) {
 
-            mQuote1.setText(mQuotes[count]);
-            mQuote2.setText(mQuotes[count + 1]);
+        } else if (count + 2 <= mQuotes.length - 1) {
+
+            setQuotes(count - 1);
             animateViews();
-            endOfQuotes();
+
+        } else if (count + 1 <= mQuotes.length - 1) {
+
+            setQuotes(count - 2);
+            animateViews();
+
+
+        }
+        else if (count == mQuotes.length - 1) {
+
+            setQuotes(count - 3);
+            animateViews();
+
 
         } else {
-            count--;
-            //setQuotes(count);
+            count-=4;
             endOfQuotes();
 
 
@@ -286,6 +295,7 @@ public class CategoryActivity extends AppCompatActivity {
             goTo = Integer.parseInt(number);
             if ((goTo < mQuotes.length - 3)) {
                 setQuotes(goTo);
+                animateViews();
             } else {
                 errorDialog();
             }
