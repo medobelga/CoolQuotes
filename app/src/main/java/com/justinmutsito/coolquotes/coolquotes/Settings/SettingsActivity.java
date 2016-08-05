@@ -7,11 +7,11 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.justinmutsito.coolquotes.coolquotes.Notifications.AlarmReceiver;
 import com.justinmutsito.coolquotes.coolquotes.R;
@@ -27,8 +27,7 @@ import butterknife.OnClick;
 public class SettingsActivity extends AppCompatActivity {
     private Preferences mPreferences;
     public String mTheme;
-    public int mTime;
-    private Toolbar myToolbar;
+    public String mNotificationTime;
     private PendingIntent pendingIntent;
 
 
@@ -79,24 +78,19 @@ public class SettingsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
         ButterKnife.bind(this);
-
-
-        //Get and set current theme.
         mPreferences = new Preferences(this);
+
+        //Get and set theme and notification time.
         mTheme = mPreferences.getMyTheme();
+        mNotificationTime = mPreferences.getNotificationTime();
         setMyTheme(mTheme);
+        setNotificationTime(mNotificationTime);
 
 
-        //Get and set current notification time.
-        mTime = mPreferences.getNotificationTime();
-        notificationTime(mTime);
+        Toast.makeText(this, "time is : " + mNotificationTime, Toast.LENGTH_LONG).show();
 
 
-        Intent alarmIntent = new Intent(this, AlarmReceiver.class);
-        pendingIntent = PendingIntent.getBroadcast(SettingsActivity.this, 0, alarmIntent, PendingIntent.FLAG_UPDATE_CURRENT);
-        if (mTime != 0) {
-            setNotificationTime(mTime);
-        }
+
 
     }
 
@@ -115,7 +109,7 @@ public class SettingsActivity extends AppCompatActivity {
         mBlue.setImageResource(R.drawable.ic_checkbox_blank_circle_outline_grey600_48dp);
         mBrown.setImageResource(R.drawable.ic_checkbox_marked_circle_grey600_48dp);
         setBrownTheme();
-        setIcons();
+        setIcons(mNotificationTime);
 
     }
 
@@ -133,14 +127,15 @@ public class SettingsActivity extends AppCompatActivity {
         mBrown.setImageResource(R.drawable.ic_checkbox_blank_circle_outline_white_48dp);
         mBlue.setImageResource(R.drawable.ic_checkbox_marked_circle_white_48dp);
         setBlueTheme();
-        setIcons();
+        setIcons(mNotificationTime);
 
     }
 
-    private void setIcons() {
-        if (mTime == 0) {
+    private void setIcons(String notificationTime) {
+
+        if (notificationTime.equals(getString(R.string.no_notifications))) {
             setOff();
-        } else if (mTime == 9) {
+        } else if (notificationTime.equals(getString(R.string.morning))) {
             setMorning();
         } else {
             setEvening();
@@ -150,9 +145,15 @@ public class SettingsActivity extends AppCompatActivity {
     }
 
 
+    private void receiveAlarm() {
+
+        Intent alarmIntent = new Intent(this, AlarmReceiver.class);
+        pendingIntent = PendingIntent.getBroadcast(SettingsActivity.this, 0, alarmIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+    }
+
     @OnClick(R.id.offCheckbox)
     public void setOff() {
-        mTime = 0;
+        mNotificationTime = "off";
         if (mTheme.equals("brown")) {
 
             mOff.setImageResource(R.drawable.ic_checkbox_marked_circle_grey600_48dp);
@@ -164,13 +165,17 @@ public class SettingsActivity extends AppCompatActivity {
             mEvening.setImageResource(R.drawable.ic_checkbox_blank_circle_outline_white_48dp);
             mMorning.setImageResource(R.drawable.ic_checkbox_blank_circle_outline_white_48dp);
         }
-        saveTime(mTime);
         cancel();
+        changeNotificationTime(mNotificationTime);
+        saveTime(mNotificationTime);
+
     }
 
     @OnClick(R.id.morningCheckbox)
     public void setMorning() {
-        mTime = 9;
+        mNotificationTime = "morning";
+
+
         if (mTheme.equals("brown")) {
             mEvening.setImageResource(R.drawable.ic_checkbox_blank_circle_outline_grey600_48dp);
             mMorning.setImageResource(R.drawable.ic_checkbox_marked_circle_grey600_48dp);
@@ -181,14 +186,17 @@ public class SettingsActivity extends AppCompatActivity {
             mMorning.setImageResource(R.drawable.ic_checkbox_marked_circle_white_48dp);
             mOff.setImageResource(R.drawable.ic_checkbox_blank_circle_outline_white_48dp);
         }
-        saveTime(mTime);
-        setNotificationTime(mTime);
+        changeNotificationTime(mNotificationTime);
+        saveTime(mNotificationTime);
+
     }
 
 
     @OnClick(R.id.eveningCheckbox)
     public void setEvening() {
-        mTime = 21;
+        mNotificationTime = getString(R.string.evening);
+
+
         if (mTheme.equals("brown")) {
 
             mMorning.setImageResource(R.drawable.ic_checkbox_blank_circle_outline_grey600_48dp);
@@ -200,8 +208,9 @@ public class SettingsActivity extends AppCompatActivity {
             mEvening.setImageResource(R.drawable.ic_checkbox_marked_circle_white_48dp);
             mOff.setImageResource(R.drawable.ic_checkbox_blank_circle_outline_white_48dp);
         }
-        saveTime(mTime);
-        setNotificationTime(mTime);
+        changeNotificationTime(mNotificationTime);
+        saveTime(mNotificationTime);
+
     }
 
 
@@ -217,8 +226,8 @@ public class SettingsActivity extends AppCompatActivity {
 
     }
 
-    private void saveTime(int time) {
-        mPreferences.saveTime(time);
+    private void saveTime(String notificationTime) {
+        mPreferences.saveTime(notificationTime);
     }
 
     private void setBlueTheme() {
@@ -283,15 +292,14 @@ public class SettingsActivity extends AppCompatActivity {
 
     }
 
-
-    private void notificationTime(int time) {
-
-        if (time == 0) {
-            setOff();//Set notification time.
-        } else if (time == 9) {
+    //Set notification time.
+    private void setNotificationTime(String notificationTime) {
+        if (notificationTime.equals(getString(R.string.morning))) {
             setMorning();
-        } else {
+        } else if (notificationTime.equals(getString(R.string.evening))) {
             setEvening();
+        } else {
+            setOff();
         }
     }
 
@@ -304,8 +312,17 @@ public class SettingsActivity extends AppCompatActivity {
     }
 
 
-    private void setNotificationTime(int time) {
-
+    private void changeNotificationTime(String notificationTime) {
+        int time;
+        if (notificationTime.equals(getString(R.string.morning))) {
+            time = 9;
+        } else if (notificationTime.equals(getString(R.string.evening))) {
+            time = 21;
+        } else {
+            //Cancel notification
+            time=0;
+            cancel();
+        }
         AlarmManager manager = (AlarmManager) SettingsActivity.this.getSystemService(SettingsActivity.this.ALARM_SERVICE);
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(System.currentTimeMillis());

@@ -12,12 +12,9 @@ public class Preferences {
 
 
     private static final String THEME = "theme";
+    private static final String NOTIFICATION_TIME = "time";
     private SharedPreferences mSavedTheme;
     private SharedPreferences mSavedTime;
-    private static final String TIME = "time";
-    private String mTheme;
-    private int mTime;
-    private String mDefault = "brown";
     private Context mContext;
 
     public Preferences(Context context) {
@@ -25,30 +22,30 @@ public class Preferences {
     }
 
     public String getMyTheme() {
+        String defaultTheme = "brown";
         mSavedTheme = mContext.getSharedPreferences(THEME, 0);
-        mTheme = mSavedTheme.getString(mContext.getString(R.string.themeKey), mDefault);
-        return mTheme;
+        return mSavedTheme.getString(mContext.getString(R.string.themeKey), defaultTheme);
     }
 
-    public int getNotificationTime(){
-        mSavedTime = mContext.getSharedPreferences(TIME, 0);
-        mTime = mSavedTime.getInt(mContext.getString(R.string.timeKey), 0);
-        return mTime;
+    public String getNotificationTime() {
+        String defaultNotificationTime = "off";
+        mSavedTime = mContext.getSharedPreferences(NOTIFICATION_TIME, 0);
+        return mSavedTime.getString(mContext.getString(R.string.timeKey), defaultNotificationTime);
     }
 
 
     public void saveTheme(String theme) {
         mSavedTheme = mContext.getSharedPreferences(THEME, 0);
-        SharedPreferences.Editor editorTheme = mSavedTheme.edit();
-        editorTheme.putString(mContext.getString(R.string.themeKey), theme);
-        editorTheme.commit();
+        SharedPreferences.Editor themeEditor = mSavedTheme.edit();
+        themeEditor.putString(mContext.getString(R.string.themeKey), theme);
+        themeEditor.commit();
     }
 
-    public void saveTime(int time) {
-        mSavedTime = mContext.getSharedPreferences(TIME, 0);
-        SharedPreferences.Editor editorTime = mSavedTime.edit();
-        editorTime.putInt(mContext.getString(R.string.timeKey), time);
-        editorTime.commit();
+    public void saveTime(String  notificationTime) {
+        mSavedTime = mContext.getSharedPreferences(NOTIFICATION_TIME, 0);
+        SharedPreferences.Editor timeEditor = mSavedTime.edit();
+        timeEditor.putString(mContext.getString(R.string.timeKey), notificationTime);
+        timeEditor.commit();
     }
 }
 

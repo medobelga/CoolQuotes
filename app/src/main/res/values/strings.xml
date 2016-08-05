@@ -36,6 +36,9 @@
     <string name="confirm">Are you sure?</string>
     <string name="Oops">Oops...</string>
     <string name="quote_of_the_day">Quote of the day.</string>
+    <string name="no_notifications">off</string>
+    <string name="morning">morning</string>
+    <string name="evening">evening</string>
 
 
     <string-array name="quotesOptions">
