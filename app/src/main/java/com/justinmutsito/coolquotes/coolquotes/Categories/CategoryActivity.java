@@ -171,24 +171,21 @@ public class CategoryActivity extends AppCompatActivity {
 
         if (count + 3 <= mQuotes.length - 1) {
             setQuotes(count);
-            animateViews();
 
 
         } else if (count + 2 <= mQuotes.length - 1) {
 
             setQuotes(count - 1);
-            animateViews();
+
 
         } else if (count + 1 <= mQuotes.length - 1) {
 
             setQuotes(count - 2);
-            animateViews();
 
 
         } else if (count == mQuotes.length - 1) {
 
             setQuotes(count - 3);
-            animateViews();
 
 
         } else {
@@ -197,6 +194,7 @@ public class CategoryActivity extends AppCompatActivity {
 
 
         }
+        animateViews();
     }
 
 
@@ -354,7 +352,7 @@ public class CategoryActivity extends AppCompatActivity {
 
     private void animateViews() {
         //Animate views
-        YoYo.with(Techniques.RollIn).duration(1000).playOn(mFadedImage);
+        YoYo.with(Techniques.Bounce).duration(1000).playOn(mFadedImage);
         YoYo.with(Techniques.BounceIn).duration(2000).playOn(mQuote1);
         YoYo.with(Techniques.BounceIn).duration(2300).playOn(mQuote2);
         YoYo.with(Techniques.BounceIn).duration(2600).playOn(mQuote3);
