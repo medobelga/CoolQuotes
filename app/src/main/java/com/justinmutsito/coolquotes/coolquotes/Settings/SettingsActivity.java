@@ -72,15 +72,13 @@ public class SettingsActivity extends AppCompatActivity {
     LinearLayout mLayout4;
     @Bind(R.id.layout5)
     LinearLayout mLayout5;
-    @Bind(R.id.toolbar)
-    Toolbar mToolbar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
         ButterKnife.bind(this);
-        setSupportActionBar(mToolbar);
 
 
         //Get and set current theme.
@@ -244,7 +242,7 @@ public class SettingsActivity extends AppCompatActivity {
         mLayout3.setBackgroundColor(Color.parseColor(lightBlue));
         mLayout4.setBackgroundColor(Color.parseColor(lightBlue));
         mLayout5.setBackgroundColor(Color.parseColor(lightBlue));
-        mToolbar.setTitleTextColor(Color.parseColor(white));
+
 
     }
 
@@ -269,7 +267,7 @@ public class SettingsActivity extends AppCompatActivity {
         mLayout3.setBackgroundColor(Color.parseColor(lightBrown));
         mLayout4.setBackgroundColor(Color.parseColor(lightBrown));
         mLayout5.setBackgroundColor(Color.parseColor(lightBrown));
-        mToolbar.setTitleTextColor(Color.parseColor(darkGrey));
+
 
     }
 
