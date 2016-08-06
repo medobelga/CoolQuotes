@@ -51,8 +51,8 @@ public class WelcomeActivity extends AppCompatActivity {
     TextView mFavorites;
     @Bind(R.id.settingsIcon)
     ImageView mIconSettings;
-    @Bind(R.id.fadedImage)
-    ImageView mFadedImage;
+    @Bind(R.id.fadedImage) ImageView mFadedImage;
+    @Bind(R.id.fadedImage2) ImageView mFadedImage2;
     @Bind(R.id.backgroundImage)
     ImageView mBackgroundImage;
 
@@ -82,7 +82,8 @@ public class WelcomeActivity extends AppCompatActivity {
 
     private void animateViews() {
         //Animate views
-        YoYo.with(Techniques.RollIn).duration(1000).playOn(mFadedImage);
+        YoYo.with(Techniques.Bounce).duration(1000).playOn(mFadedImage);
+        YoYo.with(Techniques.Hinge).duration(3000).playOn(mFadedImage2);
         YoYo.with(Techniques.BounceIn).duration(2000).playOn(mFace);
         YoYo.with(Techniques.ZoomIn).duration(2000).playOn(mQuote);
         YoYo.with(Techniques.RollIn).duration(2000).playOn(mCategories);

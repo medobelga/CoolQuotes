@@ -11,7 +11,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.justinmutsito.coolquotes.coolquotes.Notifications.AlarmReceiver;
 import com.justinmutsito.coolquotes.coolquotes.R;
@@ -86,8 +85,6 @@ public class SettingsActivity extends AppCompatActivity {
         setMyTheme(mTheme);
         setNotificationTime(mNotificationTime);
 
-
-        Toast.makeText(this, "time is : " + mNotificationTime, Toast.LENGTH_LONG).show();
 
 
 
