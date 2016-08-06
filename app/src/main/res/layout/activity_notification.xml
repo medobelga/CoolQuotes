@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="fitXY"
-        android:src="@drawable/bg_notifications"
+        android:src="@drawable/bg_brown"
         />
     <ImageView
         android:id="@+id/fadedImage"
@@ -31,7 +31,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="@string/quote_of_the_day"
         android:id="@+id/dayQuoteLabel"
-        android:layout_marginTop="38dp"
+        android:layout_marginTop="50dp"
         android:layout_alignTop="@+id/fadedImage"
         android:layout_centerHorizontal="true"/>
 
@@ -39,7 +39,7 @@
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:src="@drawable/bg_charles_dickens"
-        android:layout_marginTop="59dp"
+        android:layout_marginTop="50dp"
         android:id="@+id/faceImageView"
         android:padding="5dp"
         android:foregroundGravity="center"
@@ -52,7 +52,7 @@
         android:text="@string/test_text"
         android:id="@+id/quoteLabel"
         android:textAlignment="center"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="50dp"
         android:textColor="@color/colorPrimaryText"
         android:textSize="17sp"
         android:layout_marginLeft="16dp"
