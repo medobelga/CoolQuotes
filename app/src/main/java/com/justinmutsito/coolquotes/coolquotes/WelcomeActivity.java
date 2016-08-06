@@ -169,9 +169,11 @@ public class WelcomeActivity extends AppCompatActivity {
         startActivity(new Intent(WelcomeActivity.this, SettingsActivity.class));
     }
 
+
+    //Sets randomly the person and quote position.
+
     private void randomQuote() {
 
-        //Sets randomly the person and quote position.
 
         int NUMBER_OF_PEOPLE = 23; //Number of people in the people string array
         int MINIMUM_NUMBER_OF_QUOTES = 10; //Minimum number of quotes provided by one person
