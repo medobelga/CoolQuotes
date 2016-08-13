@@ -49,12 +49,8 @@ public class NotificationActivity extends AppCompatActivity {
         getQuotes(mPersonNumber);
         mCurrentQuote = mQuotes[mPosition];
         mQuote.setText(mCurrentQuote);
-        animateView();
+        animateViews();
 
-
-    }
-
-    private void animateView() {
 
     }
 

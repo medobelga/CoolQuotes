@@ -3,7 +3,7 @@
     <string name="categories">Categories</string>
     <string name="authors">Authors</string>
     <string name="favourites">Favourites</string>
-    <string name="test_text">My advice is to never do tomorrow what you can do today. Procrastination is the thief of time.Charles Dickens</string>
+    <string name="test_text">My advice is to never do tomorrow what you can do today. Procrastination is the thief of time. - Charles Dickens</string>
     <string name="share">Share with ?</string>
     <string name="categoryKey">categoryKey</string>
     <string name="bundleKey">bundleKey</string>
@@ -261,7 +261,8 @@
         <item>I have failed over and over again. That is why I succeed. ― Michael Jordan</item>
         <item>Never give up! Failure and rejection are only the first step to succeeding. ― Jimmy Valvano</item>
         <item>Don\'t wish for it.Work for it! ― Anon.</item>
-        <item>He who conquers others is strong. He who conquers himself is mighty. ― Lao Tzu Think BIG! You are going to be thinking anyway, so think BIG! ― Donald Trump</item>
+        <item>He who conquers others is strong. He who conquers himself is mighty. ― Lao Tzu</item>
+        <item> Think BIG!.You are going to be thinking anyway, so think BIG! ― Donald Trump</item>
         <item>People become really quite remarkable when they start thinking that they can do things. When they believe in themselves, they have the first secret of success. ― Norman Vincent Peale</item>
         <item>The day I stop giving is the day I stop receiving. The day I stop learning is the day I stop growing.</item>
         <item>You miss 100% of the shots you don\'t take. ― Wayne Gretzky Be courageous! Have faith! Go forward. ― Thomas A. Edison </item>

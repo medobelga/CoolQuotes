@@ -4,12 +4,14 @@ import android.app.ListActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.justinmutsito.coolquotes.coolquotes.Database.DBOpenHelper;
 import com.justinmutsito.coolquotes.coolquotes.R;
@@ -33,6 +35,8 @@ public class FavouritesActivity extends ListActivity {
     ImageView mBackgroundImage;
     @Bind(R.id.fadedImage)
     ImageView mFadedImage;
+    @Bind(android.R.id.empty)
+    TextView mEmptyLabel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,11 +66,13 @@ public class FavouritesActivity extends ListActivity {
 
             mBackgroundImage.setImageResource(R.drawable.bg_brown);
             mFadedImage.setImageResource(R.color.brownFaded);
+            mEmptyLabel.setTextColor(Color.parseColor("#212121"));
 
         } else {
 
             mBackgroundImage.setImageResource(R.drawable.bg_blue);
             mFadedImage.setImageResource(R.color.blueFaded);
+            mEmptyLabel.setTextColor(Color.parseColor("#ffffff"));
 
 
         }
