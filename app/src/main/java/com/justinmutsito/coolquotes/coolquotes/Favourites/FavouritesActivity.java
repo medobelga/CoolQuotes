@@ -8,7 +8,6 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -90,7 +89,7 @@ public class FavouritesActivity extends ListActivity {
             cursor.moveToNext();
         }
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, mFavourites);
+        FavouritesAdapter adapter = new FavouritesAdapter(FavouritesActivity.this,mFavourites);
         setListAdapter(adapter);
     }
 

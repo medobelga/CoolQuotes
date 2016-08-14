@@ -20,8 +20,8 @@ public class AuthorsAdapter extends BaseAdapter {
     private int[] mAuthorFace;
 
 
-    public AuthorsAdapter(AuthorsActivity authorActivity, String[] Authors, int[] AuthorFace) {
-        mContext = authorActivity;
+    public AuthorsAdapter(Context context, String[] Authors, int[] AuthorFace) {
+        mContext = context;
         mAuthors = Authors;
         mAuthorFace = AuthorFace;
 

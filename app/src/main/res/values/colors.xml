@@ -9,6 +9,7 @@
     <color name="colorSecondaryText">#757575</color>
     <color name="colorSecondaryTet">#D3D3D3</color>
     <color name="colorIcons">#FFFFFF</color>
+    <color name="transparentWhite">#50ffffff</color>
     <color name="brownFaded">#90D7CCC8</color>
     <color name="colorDivider">#B6B6B6</color>
     <color name="bluecolorPrimaryDark">#0288D1</color>
