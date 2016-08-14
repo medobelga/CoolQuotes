@@ -24,9 +24,7 @@ import butterknife.OnClick;
 import cn.pedant.SweetAlert.SweetAlertDialog;
 
 public class AuthorActivity extends AppCompatActivity {
-    private Preferences mPreferences;
     private String[] mQuotes;
-    private String mTheme;
     private int count = 0;
     private DBOpenHelper mDBOpenHelper;
 
@@ -59,9 +57,9 @@ public class AuthorActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         //Get and set the current theme.
-        mPreferences = new Preferences(this);
-        mTheme = mPreferences.getMyTheme();
-        setMyTheme(mTheme);
+        Preferences preferences = new Preferences(this);
+        String theme = preferences.getMyTheme();
+        setMyTheme(theme);
 
         //Get quotes.
         Intent intent = getIntent();
@@ -223,6 +221,7 @@ public class AuthorActivity extends AppCompatActivity {
             animateViews();
         }
     }
+
     @OnClick(R.id.nextIcon)
     public void next() {
 
@@ -232,22 +231,19 @@ public class AuthorActivity extends AppCompatActivity {
             setQuotes(count);
 
 
-
         } else if (count + 2 <= mQuotes.length - 1) {
 
-            setQuotes(count - 1);
+            setQuotes(count -= 1);
 
 
         } else if (count + 1 <= mQuotes.length - 1) {
 
-            setQuotes(count - 2);
-
+            setQuotes(count -= 2);
 
 
         } else if (count == mQuotes.length - 1) {
 
-            setQuotes(count - 3);
-
+            setQuotes(count -= 3);
 
 
         } else {
@@ -259,14 +255,6 @@ public class AuthorActivity extends AppCompatActivity {
         animateViews();
     }
 
-
-
-    @OnClick(R.id.quote1Label)
-    public void useQuote1() {
-        //Share or add quote to favourites
-        quoteOptions(count);
-
-    }
 
     @OnClick(R.id.jumpToLabel)
     public void jumpTo() {
@@ -290,6 +278,13 @@ public class AuthorActivity extends AppCompatActivity {
 
     }
 
+    @OnClick(R.id.quote1Label)
+    public void useQuote1() {
+        //Share or add quote to favourites
+        quoteOptions(count);
+
+    }
+
     @OnClick(R.id.quote2Label)
     public void useQuote2() {
         quoteOptions(count + 1);
@@ -304,6 +299,7 @@ public class AuthorActivity extends AppCompatActivity {
     public void useQuote4() {
         quoteOptions(count + 3);
     }
+
 
     private void endOfQuotes() {
         SweetAlertDialog sweetAlertDialog = new SweetAlertDialog(AuthorActivity.this, SweetAlertDialog.ERROR_TYPE);
@@ -427,5 +423,6 @@ public class AuthorActivity extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
         mDBOpenHelper.close();
+
     }
 }

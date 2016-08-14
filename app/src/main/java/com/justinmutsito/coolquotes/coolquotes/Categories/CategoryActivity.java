@@ -9,7 +9,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,9 +24,7 @@ import butterknife.OnClick;
 import cn.pedant.SweetAlert.SweetAlertDialog;
 
 public class CategoryActivity extends AppCompatActivity {
-    private Preferences mPreferences;
     private String[] mQuotes;
-    private String mTheme;
     private int count = 0;
     private DBOpenHelper mDBOpenHelper;
 
@@ -44,8 +41,6 @@ public class CategoryActivity extends AppCompatActivity {
     TextView mQuote3;
     @Bind(R.id.quote4Label)
     TextView mQuote4;
-    @Bind(R.id.layout1)
-    LinearLayout mLayout;
     @Bind(R.id.previousIcon)
     ImageView mPrevious;
     @Bind(R.id.jumpToLabel)
@@ -63,9 +58,9 @@ public class CategoryActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         //Set theme.
-        mPreferences = new Preferences(this);
-        mTheme = mPreferences.getMyTheme();
-        setMyTheme(mTheme);
+        Preferences preferences = new Preferences(this);
+        String theme = preferences.getMyTheme();
+        setMyTheme(theme);
 
         //Get the quotes.
         Intent intent = getIntent();
@@ -164,6 +159,7 @@ public class CategoryActivity extends AppCompatActivity {
         }
     }
 
+
     @OnClick(R.id.nextIcon)
     public void next() {
 
@@ -175,17 +171,17 @@ public class CategoryActivity extends AppCompatActivity {
 
         } else if (count + 2 <= mQuotes.length - 1) {
 
-            setQuotes(count - 1);
+            setQuotes(count -= 1);
 
 
         } else if (count + 1 <= mQuotes.length - 1) {
 
-            setQuotes(count - 2);
+            setQuotes(count -= 2);
 
 
         } else if (count == mQuotes.length - 1) {
 
-            setQuotes(count - 3);
+            setQuotes(count -= 3);
 
 
         } else {
@@ -196,7 +192,6 @@ public class CategoryActivity extends AppCompatActivity {
         }
         animateViews();
     }
-
 
     @OnClick(R.id.quote1Label)
     public void useQuote1() {
@@ -364,6 +359,7 @@ public class CategoryActivity extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
         mDBOpenHelper.close();
+        count=0;
     }
 }
 
