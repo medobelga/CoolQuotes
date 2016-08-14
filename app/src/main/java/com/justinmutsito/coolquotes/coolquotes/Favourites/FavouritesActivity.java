@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.justinmutsito.coolquotes.coolquotes.Adapters.FavouritesAdapter;
 import com.justinmutsito.coolquotes.coolquotes.Database.DBOpenHelper;
 import com.justinmutsito.coolquotes.coolquotes.R;
 import com.justinmutsito.coolquotes.coolquotes.Settings.Preferences;

@@ -29,9 +29,7 @@ import cn.pedant.SweetAlert.SweetAlertDialog;
 
 public class WelcomeActivity extends AppCompatActivity {
 
-    private Preferences mPreferences;
     private String[] mQuotes;
-    private String mTheme;
     private int mPersonNumber;
     private int mPosition;
     private String mCurrentQuote;
@@ -63,9 +61,9 @@ public class WelcomeActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         //Set theme using mTheme passed from the SettingsActivity
-        mPreferences = new Preferences(this);
-        mTheme = mPreferences.getMyTheme();
-        setMyTheme(mTheme);
+        Preferences preferences = new Preferences(this);
+        String theme = preferences.getMyTheme();
+        setMyTheme(theme);
 
         //Get and set UI data
         randomQuote();

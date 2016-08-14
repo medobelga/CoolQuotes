@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
 
+import com.justinmutsito.coolquotes.coolquotes.Adapters.CategoriesAdapter;
 import com.justinmutsito.coolquotes.coolquotes.R;
 import com.justinmutsito.coolquotes.coolquotes.Settings.Preferences;
 

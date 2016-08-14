@@ -1,4 +1,4 @@
-package com.justinmutsito.coolquotes.coolquotes.Favourites;
+package com.justinmutsito.coolquotes.coolquotes.Adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,30 +9,26 @@ import android.widget.TextView;
 
 import com.justinmutsito.coolquotes.coolquotes.R;
 
-import java.util.ArrayList;
-
 /**
  * Created by justin on 8/14/16.
  */
-public class FavouritesAdapter extends BaseAdapter {
+public class CategoriesAdapter extends BaseAdapter {
     private Context mContext;
-    private ArrayList<String> mQuotes;
+    private String[] mCategories;
 
-    public FavouritesAdapter(Context context,ArrayList<String> quotes) {
-        mContext=context;
-        mQuotes=quotes;
-
+    public CategoriesAdapter(Context context, String[] categories) {
+        mContext = context;
+        mCategories = categories;
     }
-
 
     @Override
     public int getCount() {
-        return mQuotes.size();
+        return mCategories.length;
     }
 
     @Override
     public Object getItem(int position) {
-        return mQuotes.get(position);
+        return mCategories[position];
     }
 
     @Override
@@ -42,29 +38,25 @@ public class FavouritesAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        ViewHolder holder ;
+    ViewHolder holder;
         if(convertView==null){
             holder = new ViewHolder();
-            convertView = LayoutInflater.from(mContext).inflate(R.layout.favourites_layout,null);
-            holder.quote = (TextView) convertView.findViewById(R.id.quoteLabel);
+            convertView = LayoutInflater.from(mContext).inflate(R.layout.categories_layout,null);
+            holder.category = (TextView) convertView.findViewById(R.id.categoryLabel);
             convertView.setTag(holder);
         }
-
-        else{
-            holder= (ViewHolder) convertView.getTag();
+        else {
+            holder = (ViewHolder) convertView.getTag();
         }
 
-
-        holder.quote.setText(mQuotes.get(position));
+        holder.category.setText(mCategories[position]);
 
         return convertView;
     }
 
 
-
-    public  class ViewHolder{
-       public  TextView quote;
+    public class ViewHolder{
+        public TextView category;
     }
-
 
 }
