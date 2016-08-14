@@ -46,8 +46,8 @@ public class AuthorsAdapter extends BaseAdapter {
     }
 
     public class ViewHolder {
-        public TextView mName;
-        public ImageView mIconFace;
+        public TextView name;
+        public ImageView face;
     }
 
     @Override
@@ -59,15 +59,15 @@ public class AuthorsAdapter extends BaseAdapter {
         if (convertView == null) {
             convertView = LayoutInflater.from(mContext).inflate(R.layout.author_layout, null);
             holder = new ViewHolder();
-            holder.mName = (TextView) convertView.findViewById(R.id.nameLabel);
-            holder.mIconFace = (ImageView) convertView.findViewById(R.id.faceImageView);
+            holder.name = (TextView) convertView.findViewById(R.id.nameLabel);
+            holder.face = (ImageView) convertView.findViewById(R.id.faceImageView);
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
 
-        holder.mName.setText(mAuthors[position]);
-        holder.mIconFace.setImageResource(mAuthorFace[position]);
+        holder.name.setText(mAuthors[position]);
+        holder.face.setImageResource(mAuthorFace[position]);
 
         return convertView;
 
