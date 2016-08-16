@@ -22,7 +22,7 @@
     <string name="added">Added to favourites</string>
     <string name="not_added">Oops,please try again.</string>
     <string name="deleted">Deleted</string>
-    <string name="try_again">Try again</string>
+    <string name="try_again">Give me a valid number.</string>
     <string name="good_evening">Good evening.</string>
     <string name="good_morning">Good morning.</string>
     <string name="day_quote">Quote of the day</string>
@@ -39,6 +39,7 @@
     <string name="no_notifications">off</string>
     <string name="morning">morning</string>
     <string name="evening">evening</string>
+    <string name="go">Go</string>
 
 
     <string-array name="quotesOptions">

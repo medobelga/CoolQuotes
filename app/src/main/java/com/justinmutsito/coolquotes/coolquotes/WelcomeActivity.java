@@ -114,7 +114,7 @@ public class WelcomeActivity extends AppCompatActivity {
 
                     } else {
                         SweetAlertDialog sweetAlertDialog = new SweetAlertDialog(WelcomeActivity.this);
-                        sweetAlertDialog.setTitleText(getString(R.string.not_added))
+                        sweetAlertDialog.setTitleText(getString(R.string.try_again))
                                 .show();
 
                     }

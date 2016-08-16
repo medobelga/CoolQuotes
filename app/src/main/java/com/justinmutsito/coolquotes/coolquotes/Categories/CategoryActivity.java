@@ -223,7 +223,7 @@ public class CategoryActivity extends AppCompatActivity {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(CategoryActivity.this);
         builder.setView(dialogView)
-                .setPositiveButton("Go", new DialogInterface.OnClickListener() {
+                .setPositiveButton(getString(R.string.go), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         String number = numberText.getText().toString();
@@ -268,7 +268,7 @@ public class CategoryActivity extends AppCompatActivity {
 
                         Toast.makeText(CategoryActivity.this, R.string.added, Toast.LENGTH_SHORT).show();
                     } else {
-                        errorDialog();
+                        Toast.makeText(CategoryActivity.this, R.string.not_added, Toast.LENGTH_SHORT).show();
                     }
                 }
             }

@@ -264,7 +264,7 @@ public class AuthorActivity extends AppCompatActivity {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(AuthorActivity.this);
         builder.setView(dialogView)
-                .setPositiveButton("Go", new DialogInterface.OnClickListener() {
+                .setPositiveButton(R.string.go, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         String number = numberText.getText().toString();
@@ -333,7 +333,8 @@ public class AuthorActivity extends AppCompatActivity {
 
                         Toast.makeText(AuthorActivity.this, R.string.added, Toast.LENGTH_SHORT).show();
                     } else {
-                        errorDialog();
+                        Toast.makeText(AuthorActivity.this, R.string.not_added, Toast.LENGTH_SHORT).show();
+
                     }
                 }
             }
