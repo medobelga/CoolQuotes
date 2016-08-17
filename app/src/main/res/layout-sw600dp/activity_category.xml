@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <ImageView
+        android:id="@+id/backgroundImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:src="@drawable/bg_brown"
+        />
+
+    <ImageView
+        android:id="@+id/fadedImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_margin="8dp"
+        android:scaleType="fitXY"
+        android:src="@color/brownFaded"
+        />
+
+    <TextView
+        android:id="@+id/quote1Label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="100dp"
+        android:padding="5dp"
+        android:text="Great spirits have always encountered violent opposition from mediocre minds. ― Albert Einstein"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimaryText"
+        android:textSize="15sp"/>
+
+    <TextView
+        android:id="@+id/quote2Label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/quote1Label"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="100dp"
+        android:padding="5dp"
+        android:text="@string/test_text"
+        android:textAlignment="center"
+        android:textSize="15sp"
+
+        />
+
+    <TextView
+        android:id="@+id/quote3Label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/quote2Label"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="100dp"
+        android:padding="5dp"
+        android:text="Think BIG!.You are going to be thinking anyway, so think BIG!.- Donald Trump"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimaryText"
+        android:textSize="15sp"
+        />
+
+    <TextView
+        android:id="@+id/quote4Label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/quote3Label"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="100dp"
+        android:padding="5dp"
+        android:text="Talent wins games, but teamwork and intelligence wins championships. ― Michael Jordan"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimaryText"
+        android:textSize="15sp"
+        />
+
+    <TextView
+        android:id="@+id/quoteCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/layout1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="100dp"
+        android:layout_marginLeft="@dimen/left_margin"
+        android:layout_marginRight="@dimen/right_margin"
+        android:gravity="center_vertical|center_horizontal"
+        android:padding="5dp"
+        android:text="7/1100"
+        android:textColor="@color/colorPrimaryText"
+        android:textSize="15sp"/>
+
+    <LinearLayout
+        android:id="@+id/layout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="80dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+
+        <ImageView
+            android:id="@+id/previousIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_weight="0.2"
+            android:paddingBottom="5dp"
+            android:src="@drawable/ic_skip_previous_circle_outline_grey600_48dp"
+
+            />
+
+
+        <TextView
+            android:id="@+id/jumpToLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.6"
+            android:gravity="center"
+            android:paddingTop="15dp"
+            android:text="@string/jump_to"
+            android:textAlignment="center"
+            android:textColor="@color/colorSecondaryText"
+            android:textSize="17sp"/>
+
+        <ImageView
+            android:id="@+id/nextIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2"
+            android:paddingBottom="6dp"
+            android:src="@drawable/ic_skip_next_circle_outline_grey600_48dp"
+            />
+
+
+    </LinearLayout>
+
+</RelativeLayout>
