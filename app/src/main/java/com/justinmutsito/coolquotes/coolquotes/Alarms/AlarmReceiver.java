@@ -8,7 +8,6 @@ import android.content.Intent;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.support.v7.app.NotificationCompat;
-import android.widget.Toast;
 
 import com.justinmutsito.coolquotes.coolquotes.Notifications.NotificationActivity;
 import com.justinmutsito.coolquotes.coolquotes.R;
@@ -19,7 +18,6 @@ import com.justinmutsito.coolquotes.coolquotes.R;
 public class AlarmReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
-        Toast.makeText(context,"working",Toast.LENGTH_LONG).show();
 
         Uri sound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         PendingIntent pendingIntent = PendingIntent.getActivity(context,10,new Intent(context, NotificationActivity.class),0);

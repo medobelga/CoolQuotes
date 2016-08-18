@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.justinmutsito.coolquotes.coolquotes.Alarms.Alarm;
 import com.justinmutsito.coolquotes.coolquotes.R;
 import com.justinmutsito.coolquotes.coolquotes.WelcomeActivity;
 
@@ -21,6 +22,7 @@ public class SettingsActivity extends AppCompatActivity {
     private Preferences mPreferences;
     private String mTheme;
     private String mNotificationTime;
+    private Alarm mAlarm;
 
 
     @Bind(R.id.themeLabel)
@@ -71,6 +73,7 @@ public class SettingsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_settings);
         ButterKnife.bind(this);
         mPreferences = new Preferences(this);
+        mAlarm = new Alarm(this);
 
         //Get and set theme and notification time.
         mTheme = mPreferences.getMyTheme();
@@ -308,11 +311,13 @@ public class SettingsActivity extends AppCompatActivity {
 
         if (notificationTime.equals(getString(R.string.morning))) {
             //Set Morning
+            mAlarm.setAlarm(9);
         } else if (notificationTime.equals(getString(R.string.evening))) {
             //Set evening
+            mAlarm.setAlarm(21);
         } else {
             //cancel
-
+            mAlarm.cancel();
 
         }
 
