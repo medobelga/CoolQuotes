@@ -7,12 +7,6 @@
     tools:context="com.justinmutsito.coolquotes.coolquotes.Notifications.NotificationActivity"
     >
 
-    <ImageView
-        android:id="@+id/backgroundImage"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="fitXY"
-        android:src="@drawable/bg_brown"
         />
     <ImageView
         android:id="@+id/fadedImage"
@@ -60,7 +54,6 @@
         android:padding="5dp"
         android:layout_below="@+id/faceImageView"
         android:layout_alignParentStart="true"/>
-
 
 
 </RelativeLayout>

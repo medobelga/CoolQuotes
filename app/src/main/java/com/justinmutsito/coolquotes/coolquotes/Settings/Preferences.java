@@ -28,7 +28,7 @@ public class Preferences {
     }
 
     public String getNotificationTime() {
-        String defaultNotificationTime = "off";
+        String defaultNotificationTime = "morning";
         mSavedTime = mContext.getSharedPreferences(NOTIFICATION_TIME, 0);
         return mSavedTime.getString(mContext.getString(R.string.timeKey), defaultNotificationTime);
     }

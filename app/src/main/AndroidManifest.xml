@@ -61,13 +61,16 @@
             android:screenOrientation="portrait">
         </activity>
 
-        <receiver android:name=".Notifications.AlarmReceiver"/>
-
         <activity android:name=".Settings.AboutActivity"
-            android:screenOrientation="portrait"
-            android:parentActivityName=".Settings.SettingsActivity"
-            android:label="About">
+                  android:screenOrientation="portrait"
+                  android:parentActivityName=".Settings.SettingsActivity"
+                  android:label="About">
         </activity>
-    </application>
+
+        <receiver android:name=".Alarms.AlarmReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>    </application>
 
 </manifest>
