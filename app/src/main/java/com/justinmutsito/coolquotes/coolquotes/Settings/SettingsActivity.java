@@ -305,15 +305,17 @@ public class SettingsActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-
+//Cancel old alarm time and set new.
     private void changeNotificationTime(String notificationTime) {
         saveTime(mNotificationTime);
 
         if (notificationTime.equals(getString(R.string.morning))) {
             //Set Morning
+            mAlarm.cancel();
             mAlarm.setAlarm(9);
         } else if (notificationTime.equals(getString(R.string.evening))) {
             //Set evening
+            mAlarm.cancel();
             mAlarm.setAlarm(21);
         } else {
             //cancel

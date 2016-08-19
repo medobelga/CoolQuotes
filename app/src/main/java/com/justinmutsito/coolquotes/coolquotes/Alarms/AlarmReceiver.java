@@ -20,16 +20,16 @@ public class AlarmReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
 
         Uri sound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-        PendingIntent pendingIntent = PendingIntent.getActivity(context,10,new Intent(context, NotificationActivity.class),0);
+        PendingIntent pendingIntent = PendingIntent.getActivity(context, 10, new Intent(context, NotificationActivity.class), 0);
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context);
         builder.setSmallIcon(R.mipmap.ic_launcher);
         builder.setSound(sound);
-        builder.setContentTitle(context.getString(R.string.hello));
+        builder.setContentTitle(context.getString(R.string.app_name));
         builder.setContentText(context.getString(R.string.day_quote));
         builder.setContentIntent(pendingIntent);
 
         NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-        notificationManager.notify(10,builder.build());
+        notificationManager.notify(10, builder.build());
     }
 }
