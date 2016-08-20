@@ -360,6 +360,15 @@ public class WelcomeActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        randomQuote();
+        getQuotes(mPersonNumber);
+        mCurrentQuote = mQuotes[mPosition];
+        mQuote.setText(mCurrentQuote);
+        animateViews();
+    }
 
     @Override
     protected void onPause() {
