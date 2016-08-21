@@ -29,8 +29,8 @@ public class AlarmReceiver extends BroadcastReceiver {
         builder.setSound(sound);
         builder.setContentTitle(context.getString(R.string.app_name));
         builder.setContentText(context.getString(R.string.day_quote));
+        builder.setAutoCancel(true);
         builder.setContentIntent(pendingIntent);
-
         NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         notificationManager.notify(10, builder.build());
     }

@@ -18,9 +18,9 @@ public class FavouritesAdapter extends BaseAdapter {
     private Context mContext;
     private ArrayList<String> mQuotes;
 
-    public FavouritesAdapter(Context context,ArrayList<String> quotes) {
-        mContext=context;
-        mQuotes=quotes;
+    public FavouritesAdapter(Context context, ArrayList<String> quotes) {
+        mContext = context;
+        mQuotes = quotes;
 
     }
 
@@ -42,28 +42,25 @@ public class FavouritesAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        ViewHolder holder ;
-        if(convertView==null){
+        ViewHolder holder;
+        if (convertView == null) {
             holder = new ViewHolder();
-            convertView = LayoutInflater.from(mContext).inflate(R.layout.favourites_layout,null);
+            convertView = LayoutInflater.from(mContext).inflate(R.layout.favourites_layout, null);
             holder.quote = (TextView) convertView.findViewById(R.id.quoteLabel);
             convertView.setTag(holder);
+        } else {
+            holder = (ViewHolder) convertView.getTag();
         }
 
-        else{
-            holder= (ViewHolder) convertView.getTag();
-        }
-
-
-        holder.quote.setText(mQuotes.get(position));
+        String quote = mQuotes.get(position);
+        holder.quote.setText(quote);
 
         return convertView;
     }
 
 
-
-    public  class ViewHolder{
-       public  TextView quote;
+    public class ViewHolder {
+        public TextView quote;
     }
 
 
