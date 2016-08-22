@@ -66,16 +66,20 @@ public class WelcomeActivity extends AppCompatActivity {
         setMyTheme(theme);
 
         //Get and set UI data
-        randomQuote();
-        getQuotes(mPersonNumber);
-        mCurrentQuote = mQuotes[mPosition];
-        mQuote.setText(mCurrentQuote);
+        loadUI();
         animateViews();
 
         //Open database for saving
         mDBOpenHelper = new DBOpenHelper(this);
 
 
+    }
+
+    private void loadUI() {
+        randomQuote();
+        getQuotes(mPersonNumber);
+        mCurrentQuote = mQuotes[mPosition];
+        mQuote.setText(mCurrentQuote);
     }
 
     private void animateViews() {
@@ -363,10 +367,7 @@ public class WelcomeActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        randomQuote();
-        getQuotes(mPersonNumber);
-        mCurrentQuote = mQuotes[mPosition];
-        mQuote.setText(mCurrentQuote);
+        loadUI();
         animateViews();
     }
 
