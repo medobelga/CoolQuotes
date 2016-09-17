@@ -1,4 +1,4 @@
-package com.justinmutsito.coolquotes.coolquotes.Settings;
+package com.justinmutsito.coolquotes.coolquotes.ui;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -7,6 +7,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.justinmutsito.coolquotes.coolquotes.R;
+import com.justinmutsito.coolquotes.coolquotes.preferences.Preferences;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;

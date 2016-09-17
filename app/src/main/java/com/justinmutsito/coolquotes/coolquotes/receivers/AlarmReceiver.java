@@ -1,4 +1,4 @@
-package com.justinmutsito.coolquotes.coolquotes.Alarms;
+package com.justinmutsito.coolquotes.coolquotes.receivers;
 
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -9,7 +9,7 @@ import android.media.RingtoneManager;
 import android.net.Uri;
 import android.support.v7.app.NotificationCompat;
 
-import com.justinmutsito.coolquotes.coolquotes.Notifications.NotificationActivity;
+import com.justinmutsito.coolquotes.coolquotes.ui.NotificationActivity;
 import com.justinmutsito.coolquotes.coolquotes.R;
 
 /**

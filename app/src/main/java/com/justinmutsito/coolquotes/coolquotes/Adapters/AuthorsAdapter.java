@@ -1,4 +1,4 @@
-package com.justinmutsito.coolquotes.coolquotes.Adapters;
+package com.justinmutsito.coolquotes.coolquotes.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;

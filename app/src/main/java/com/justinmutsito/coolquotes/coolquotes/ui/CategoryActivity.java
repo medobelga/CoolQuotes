@@ -1,4 +1,4 @@
-package com.justinmutsito.coolquotes.coolquotes.Authors;
+package com.justinmutsito.coolquotes.coolquotes.ui;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -14,19 +14,20 @@ import android.widget.Toast;
 
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
-import com.justinmutsito.coolquotes.coolquotes.Database.DBOpenHelper;
+import com.justinmutsito.coolquotes.coolquotes.database.DBOpenHelper;
 import com.justinmutsito.coolquotes.coolquotes.R;
-import com.justinmutsito.coolquotes.coolquotes.Settings.Preferences;
+import com.justinmutsito.coolquotes.coolquotes.preferences.Preferences;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import cn.pedant.SweetAlert.SweetAlertDialog;
 
-public class AuthorActivity extends AppCompatActivity {
+public class CategoryActivity extends AppCompatActivity {
     private String[] mQuotes;
     private int count = 0;
     private DBOpenHelper mDBOpenHelper;
+
 
     @Bind(R.id.backgroundImage)
     ImageView mBackgroundImage;
@@ -53,151 +54,87 @@ public class AuthorActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_author);
+        setContentView(R.layout.activity_category);
         ButterKnife.bind(this);
 
-        //Get and set the current theme.
+        //Set theme.
         Preferences preferences = new Preferences(this);
         String theme = preferences.getMyTheme();
         setMyTheme(theme);
 
-        //Get quotes.
+        //Get the quotes.
         Intent intent = getIntent();
-        Bundle bundle = intent.getBundleExtra(getString(R.string.authorsKey));
-        int position = bundle.getInt(getString(R.string.bundleKey));
+        Bundle bundle = intent.getBundleExtra(getString(R.string.bundleKey));
+        int position = bundle.getInt(getString(R.string.categoryKey));
         getQuotes(position);
 
-        //Set quotes.
         setQuotes(count);
-
-        //Animate views.
         animateViews();
 
-        //Open database for related operations.
+        //Open database for related operations
         mDBOpenHelper = new DBOpenHelper(this);
     }
 
-    private void getQuotes(int n) {
+
+    private void getQuotes(int position) {
 
         //Select which string array of quotes to use
-        switch (n) {
+        switch (position) {
 
             case 0: {
-                mQuotes = getResources().getStringArray(R.array.Albert_Einstein);
+                mQuotes = getResources().getStringArray(R.array.Books);
                 break;
             }
+
             case 1: {
-                mQuotes = getResources().getStringArray(R.array.Abraham_Lincoln);
+                mQuotes = getResources().getStringArray(R.array.Business);
                 break;
             }
 
 
             case 2: {
-                mQuotes = getResources().getStringArray(R.array.Benjamin_Franklin);
+                mQuotes = getResources().getStringArray(R.array.Dreams);
                 break;
             }
 
             case 3: {
-                mQuotes = getResources().getStringArray(R.array.Bill_Gates);
+                mQuotes = getResources().getStringArray(R.array.Funny);
                 break;
             }
 
             case 4: {
-                mQuotes = getResources().getStringArray(R.array.Bill_Cosby);
+                mQuotes = getResources().getStringArray(R.array.Humour);
                 break;
             }
 
             case 5: {
-                mQuotes = getResources().getStringArray(R.array.Confucius);
+                mQuotes = getResources().getStringArray(R.array.Humanity);
                 break;
             }
             case 6: {
-                mQuotes = getResources().getStringArray(R.array.Charles_Darwin);
+                mQuotes = getResources().getStringArray(R.array.Inspiration);
                 break;
             }
 
             case 7: {
-                mQuotes = getResources().getStringArray(R.array.Charles_Dickens);
+                mQuotes = getResources().getStringArray(R.array.Success);
                 break;
             }
-
             case 8: {
-                mQuotes = getResources().getStringArray(R.array.Charlie_Chaplin);
+                mQuotes = getResources().getStringArray(R.array.Teamwork);
                 break;
             }
-            case 9: {
-                mQuotes = getResources().getStringArray(R.array.Ernest_Hemingway);
-                break;
-            }
-
-            case 10: {
-                mQuotes = getResources().getStringArray(R.array.Ernesto_Guevara);
-                break;
-            }
-
-            case 11: {
-                mQuotes = getResources().getStringArray(R.array.George_Bernard_Shaw);
-                break;
-            }
-            case 12: {
-                mQuotes = getResources().getStringArray(R.array.Henry_Ford);
-                break;
-            }
-
-            case 13: {
-                mQuotes = getResources().getStringArray(R.array.Julian_Assange);
-                break;
-            }
-            case 14: {
-                mQuotes = getResources().getStringArray(R.array.Karl_Marx);
-                break;
-            }
-
-            case 15: {
-                mQuotes = getResources().getStringArray(R.array.Mahatma_Gandhi);
-                break;
-            }
-            case 16: {
-                mQuotes = getResources().getStringArray(R.array.Mother_Teresa);
-                break;
-            }
-
-            case 17: {
-                mQuotes = getResources().getStringArray(R.array.Mark_Twain);
-                break;
-            }
-
-            case 18: {
-                mQuotes = getResources().getStringArray(R.array.Oscar_Wilde);
-                break;
-            }
-
-            case 19: {
-                mQuotes = getResources().getStringArray(R.array.Socrates);
-                break;
-            }
-            case 20: {
-                mQuotes = getResources().getStringArray(R.array.Steven_Jobs);
-                break;
-            }
-
-            case 21: {
-                mQuotes = getResources().getStringArray(R.array.William_Shakespeare);
-                break;
-            }
-
 
             default: {
-                mQuotes = getResources().getStringArray(R.array.Warren_Buffett);
-
+                mQuotes = getResources().getStringArray(R.array.Love);
             }
         }
 
+
     }
 
-
     private void setQuotes(int count) {
-        //Set all the TextViews
+
         mQuote1.setText(mQuotes[count]);
         mQuote2.setText(mQuotes[count + 1]);
         mQuote3.setText(mQuotes[count + 2]);
@@ -221,6 +158,7 @@ public class AuthorActivity extends AppCompatActivity {
             animateViews();
         }
     }
+
 
     @OnClick(R.id.nextIcon)
     public void next() {
@@ -255,29 +193,6 @@ public class AuthorActivity extends AppCompatActivity {
         animateViews();
     }
 
-
-    @OnClick(R.id.jumpToLabel)
-    public void jumpTo() {
-        //Jump to quote number
-        View dialogView = getLayoutInflater().inflate(R.layout.jump_to_layout, null);
-        final EditText numberText = (EditText) dialogView.findViewById(R.id.numberField);
-
-        AlertDialog.Builder builder = new AlertDialog.Builder(AuthorActivity.this);
-        builder.setView(dialogView)
-                .setPositiveButton(R.string.go, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        String number = numberText.getText().toString();
-                        goTo(number);
-
-                    }
-                }).setCancelable(true);
-
-        AlertDialog dialog = builder.create();
-        dialog.show();
-
-    }
-
     @OnClick(R.id.quote1Label)
     public void useQuote1() {
         //Share or add quote to favourites
@@ -300,9 +215,29 @@ public class AuthorActivity extends AppCompatActivity {
         quoteOptions(count + 3);
     }
 
+    @OnClick(R.id.jumpToLabel)
+    public void jumpTo() {
+        //Jump to quote number
+        View dialogView = getLayoutInflater().inflate(R.layout.jump_to_layout, null);
+        final EditText numberText = (EditText) dialogView.findViewById(R.id.numberField);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(CategoryActivity.this);
+        builder.setView(dialogView)
+                .setPositiveButton(getString(R.string.go), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        String number = numberText.getText().toString();
+                        goTo(number);
+
+                    }
+                }).setCancelable(true);
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
 
     private void endOfQuotes() {
-        SweetAlertDialog sweetAlertDialog = new SweetAlertDialog(AuthorActivity.this, SweetAlertDialog.ERROR_TYPE);
+        SweetAlertDialog sweetAlertDialog = new SweetAlertDialog(CategoryActivity.this, SweetAlertDialog.ERROR_TYPE);
         sweetAlertDialog.setTitleText(getString(R.string.Oops))
                 .setContentText(getString(R.string.end))
                 .show();
@@ -318,7 +253,7 @@ public class AuthorActivity extends AppCompatActivity {
     }
 
     private void quoteOptions(final int location) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(AuthorActivity.this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(CategoryActivity.this);
 
         builder.setItems(R.array.quotesOptions, new DialogInterface.OnClickListener() {
             @Override
@@ -331,10 +266,9 @@ public class AuthorActivity extends AppCompatActivity {
                     boolean added = mDBOpenHelper.addFavourite(mQuotes[location]);
                     if (added) {
 
-                        Toast.makeText(AuthorActivity.this, R.string.added, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(CategoryActivity.this, R.string.added, Toast.LENGTH_SHORT).show();
                     } else {
-                        Toast.makeText(AuthorActivity.this, R.string.not_added, Toast.LENGTH_SHORT).show();
-
+                        Toast.makeText(CategoryActivity.this, R.string.not_added, Toast.LENGTH_SHORT).show();
                     }
                 }
             }
@@ -344,6 +278,7 @@ public class AuthorActivity extends AppCompatActivity {
         AlertDialog dialog = builder.create();
         dialog.show();
     }
+
 
     private void goTo(String number) {
         int goTo;
@@ -373,12 +308,11 @@ public class AuthorActivity extends AppCompatActivity {
     }
 
     private void errorDialog() {
-        SweetAlertDialog sweetAlertDialog = new SweetAlertDialog(AuthorActivity.this, SweetAlertDialog.ERROR_TYPE);
+        SweetAlertDialog sweetAlertDialog = new SweetAlertDialog(CategoryActivity.this, SweetAlertDialog.ERROR_TYPE);
         sweetAlertDialog.setTitleText(getString(R.string.Oops))
                 .setContentText(getString(R.string.try_again))
                 .show();
     }
-
 
     private void setMyTheme(String theme) {
         if (theme.equals("brown")) {
@@ -410,6 +344,7 @@ public class AuthorActivity extends AppCompatActivity {
 
     }
 
+
     private void animateViews() {
         //Animate views
         YoYo.with(Techniques.Bounce).duration(1000).playOn(mFadedImage);
@@ -424,6 +359,7 @@ public class AuthorActivity extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
         mDBOpenHelper.close();
-
+        count=0;
     }
 }
+

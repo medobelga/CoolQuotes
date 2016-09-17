@@ -1,4 +1,4 @@
-package com.justinmutsito.coolquotes.coolquotes.Categories;
+package com.justinmutsito.coolquotes.coolquotes.ui;
 
 import android.app.ListActivity;
 import android.content.Intent;
@@ -7,9 +7,9 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
 
-import com.justinmutsito.coolquotes.coolquotes.Adapters.CategoriesAdapter;
+import com.justinmutsito.coolquotes.coolquotes.adapters.CategoriesAdapter;
 import com.justinmutsito.coolquotes.coolquotes.R;
-import com.justinmutsito.coolquotes.coolquotes.Settings.Preferences;
+import com.justinmutsito.coolquotes.coolquotes.preferences.Preferences;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;

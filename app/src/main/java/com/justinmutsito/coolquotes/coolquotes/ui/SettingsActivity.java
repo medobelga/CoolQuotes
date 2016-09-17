@@ -1,4 +1,4 @@
-package com.justinmutsito.coolquotes.coolquotes.Settings;
+package com.justinmutsito.coolquotes.coolquotes.ui;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -9,9 +9,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.justinmutsito.coolquotes.coolquotes.Alarms.Alarm;
+import com.justinmutsito.coolquotes.coolquotes.alarms.Alarm;
 import com.justinmutsito.coolquotes.coolquotes.R;
-import com.justinmutsito.coolquotes.coolquotes.WelcomeActivity;
+import com.justinmutsito.coolquotes.coolquotes.preferences.Preferences;
 
 import at.markushi.ui.CircleButton;
 import butterknife.Bind;

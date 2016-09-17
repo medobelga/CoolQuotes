@@ -1,4 +1,4 @@
-package com.justinmutsito.coolquotes.coolquotes.Settings;
+package com.justinmutsito.coolquotes.coolquotes.preferences;
 
 import android.content.Context;
 import android.content.SharedPreferences;

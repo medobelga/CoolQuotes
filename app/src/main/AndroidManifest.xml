@@ -17,7 +17,7 @@
         tools:replace="android:icon">
 
         <activity
-            android:name=".SplashScreenActivity"
+            android:name=".ui.SplashScreenActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -26,50 +26,50 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".WelcomeActivity"
+            android:name=".ui.WelcomeActivity"
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".Categories.CategoriesActivity"
+            android:name=".ui.CategoriesActivity"
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".Authors.AuthorsActivity"
+            android:name=".ui.AuthorsActivity"
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".Favourites.FavouritesActivity"
+            android:name=".ui.FavouritesActivity"
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".Settings.SettingsActivity"
+            android:name=".ui.SettingsActivity"
             android:label="@string/settings"
-            android:parentActivityName=".WelcomeActivity"
+            android:parentActivityName=".ui.WelcomeActivity"
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".Categories.CategoryActivity"
+            android:name=".ui.CategoryActivity"
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".Authors.AuthorActivity"
-            android:parentActivityName=".Authors.AuthorsActivity"
+            android:name=".ui.AuthorActivity"
+            android:parentActivityName=".ui.AuthorsActivity"
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".Notifications.NotificationActivity"
-            android:parentActivityName=".WelcomeActivity"
+            android:name=".ui.NotificationActivity"
+            android:parentActivityName=".ui.WelcomeActivity"
             android:screenOrientation="portrait">
         </activity>
 
         <activity
-            android:name=".Settings.AboutActivity"
+            android:name=".ui.AboutActivity"
             android:label="About"
-            android:parentActivityName=".Settings.SettingsActivity"
+            android:parentActivityName=".ui.SettingsActivity"
             android:screenOrientation="portrait">
         </activity>
 
-        <receiver android:name=".Alarms.AlarmReceiver"/>
+        <receiver android:name=".receivers.AlarmReceiver"/>
     </application>
 
 </manifest>

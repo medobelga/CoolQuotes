@@ -1,4 +1,4 @@
-package com.justinmutsito.coolquotes.coolquotes.Notifications;
+package com.justinmutsito.coolquotes.coolquotes.ui;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
-import com.justinmutsito.coolquotes.coolquotes.Database.DBOpenHelper;
+import com.justinmutsito.coolquotes.coolquotes.database.DBOpenHelper;
 import com.justinmutsito.coolquotes.coolquotes.R;
 
 import java.util.Random;

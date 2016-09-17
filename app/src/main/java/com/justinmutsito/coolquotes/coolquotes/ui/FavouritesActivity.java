@@ -1,4 +1,4 @@
-package com.justinmutsito.coolquotes.coolquotes.Favourites;
+package com.justinmutsito.coolquotes.coolquotes.ui;
 
 import android.app.ListActivity;
 import android.content.DialogInterface;
@@ -12,10 +12,10 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.justinmutsito.coolquotes.coolquotes.Adapters.FavouritesAdapter;
-import com.justinmutsito.coolquotes.coolquotes.Database.DBOpenHelper;
+import com.justinmutsito.coolquotes.coolquotes.adapters.FavouritesAdapter;
+import com.justinmutsito.coolquotes.coolquotes.database.DBOpenHelper;
 import com.justinmutsito.coolquotes.coolquotes.R;
-import com.justinmutsito.coolquotes.coolquotes.Settings.Preferences;
+import com.justinmutsito.coolquotes.coolquotes.preferences.Preferences;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package com.justinmutsito.coolquotes.coolquotes;
+package com.justinmutsito.coolquotes.coolquotes.ui;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -13,12 +13,9 @@ import android.widget.Toast;
 
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
-import com.justinmutsito.coolquotes.coolquotes.Authors.AuthorsActivity;
-import com.justinmutsito.coolquotes.coolquotes.Categories.CategoriesActivity;
-import com.justinmutsito.coolquotes.coolquotes.Database.DBOpenHelper;
-import com.justinmutsito.coolquotes.coolquotes.Favourites.FavouritesActivity;
-import com.justinmutsito.coolquotes.coolquotes.Settings.Preferences;
-import com.justinmutsito.coolquotes.coolquotes.Settings.SettingsActivity;
+import com.justinmutsito.coolquotes.coolquotes.R;
+import com.justinmutsito.coolquotes.coolquotes.database.DBOpenHelper;
+import com.justinmutsito.coolquotes.coolquotes.preferences.Preferences;
 
 import java.util.Random;
 

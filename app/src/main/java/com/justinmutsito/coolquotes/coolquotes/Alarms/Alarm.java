@@ -1,9 +1,11 @@
-package com.justinmutsito.coolquotes.coolquotes.Alarms;
+package com.justinmutsito.coolquotes.coolquotes.alarms;
 
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+
+import com.justinmutsito.coolquotes.coolquotes.receivers.AlarmReceiver;
 
 import java.util.Calendar;
 

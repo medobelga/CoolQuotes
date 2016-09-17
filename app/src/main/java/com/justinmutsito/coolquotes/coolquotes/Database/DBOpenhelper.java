@@ -1,4 +1,4 @@
-package com.justinmutsito.coolquotes.coolquotes.Database;
+package com.justinmutsito.coolquotes.coolquotes.database;
 
 import android.content.ContentValues;
 import android.content.Context;
