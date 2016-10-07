@@ -24,8 +24,6 @@ import butterknife.ButterKnife;
 import cn.pedant.SweetAlert.SweetAlertDialog;
 
 public class FavouritesActivity extends ListActivity {
-    private Preferences mPreferences;
-    private String mTheme;
     private ArrayList<String> mFavourites;
     private DBOpenHelper mDBOpenHelper;
     private Bundle savedInstanceState;
@@ -44,24 +42,23 @@ public class FavouritesActivity extends ListActivity {
         setContentView(R.layout.activity_favourites);
         ButterKnife.bind(this);
 
-        //Set theme.
-        mPreferences = new Preferences(this);
-        mTheme = mPreferences.getMyTheme();
-        setMyTheme(mTheme);
+        setMyTheme();
 
         //Start database operations.
         mFavourites = new ArrayList<>();
         mDBOpenHelper = new DBOpenHelper(FavouritesActivity.this);
 
         //Load UI.
-        loadUi();
+        initUi();
 
 
     }
 
 
-    private void setMyTheme(String theme) {
-
+    private void setMyTheme() {
+        //Set theme.
+        Preferences preferences = new Preferences(this);
+        String theme = preferences.getMyTheme();
         if (theme.equals("brown")) {
 
             mBackgroundImage.setImageResource(R.drawable.bg_brown);
@@ -78,7 +75,7 @@ public class FavouritesActivity extends ListActivity {
         }
     }
 
-    private void loadUi() {
+    private void initUi() {
         //Get favourites quotes from the database and adapt the data for the listview.
         Cursor cursor = mDBOpenHelper.getFavourites();
         cursor.moveToFirst();

@@ -72,10 +72,11 @@ public class SettingsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
         ButterKnife.bind(this);
+
         mPreferences = new Preferences(this);
         mAlarm = new Alarm(this);
 
-        //Get and set theme and notification time.
+        //Get theme and notification time, set theme..
         mTheme = mPreferences.getMyTheme();
         mNotificationTime = mPreferences.getNotificationTime();
         setMyTheme(mTheme);
@@ -286,7 +287,6 @@ public class SettingsActivity extends AppCompatActivity {
 
     }
 
-    //Set notification time.
     private void setNotificationTime(String notificationTime) {
         if (notificationTime.equals(getString(R.string.morning))) {
             setMorning();
@@ -298,7 +298,6 @@ public class SettingsActivity extends AppCompatActivity {
     }
 
     private void resetTheme() {
-
         Intent intent = new Intent(SettingsActivity.this, WelcomeActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);

@@ -25,7 +25,7 @@ import cn.pedant.SweetAlert.SweetAlertDialog;
 
 public class CategoryActivity extends AppCompatActivity {
     private String[] mQuotes;
-    private int count = 0;
+    private int mQuotePosition = 0;
     private DBOpenHelper mDBOpenHelper;
 
 
@@ -57,10 +57,8 @@ public class CategoryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_category);
         ButterKnife.bind(this);
 
-        //Set theme.
-        Preferences preferences = new Preferences(this);
-        String theme = preferences.getMyTheme();
-        setMyTheme(theme);
+
+        setMyTheme();
 
         //Get the quotes.
         Intent intent = getIntent();
@@ -68,7 +66,7 @@ public class CategoryActivity extends AppCompatActivity {
         int position = bundle.getInt(getString(R.string.categoryKey));
         getQuotes(position);
 
-        setQuotes(count);
+        setQuotes(mQuotePosition);
         animateViews();
 
         //Open database for related operations
@@ -149,12 +147,12 @@ public class CategoryActivity extends AppCompatActivity {
     @OnClick(R.id.previousIcon)
     public void previous() {
 
-        if (count == 0) {
-            setQuotes(count);
+        if (mQuotePosition == 0) {
+            setQuotes(mQuotePosition);
 
         } else {
-            count -= 4;
-            setQuotes(count);
+            mQuotePosition -= 4;
+            setQuotes(mQuotePosition);
             animateViews();
         }
     }
@@ -163,29 +161,29 @@ public class CategoryActivity extends AppCompatActivity {
     @OnClick(R.id.nextIcon)
     public void next() {
 
-        count += 4;
+        mQuotePosition += 4;
 
-        if (count + 3 <= mQuotes.length - 1) {
-            setQuotes(count);
-
-
-        } else if (count + 2 <= mQuotes.length - 1) {
-
-            setQuotes(count -= 1);
+        if (mQuotePosition + 3 <= mQuotes.length - 1) {
+            setQuotes(mQuotePosition);
 
 
-        } else if (count + 1 <= mQuotes.length - 1) {
+        } else if (mQuotePosition + 2 <= mQuotes.length - 1) {
 
-            setQuotes(count -= 2);
+            setQuotes(mQuotePosition -= 1);
 
 
-        } else if (count == mQuotes.length - 1) {
+        } else if (mQuotePosition + 1 <= mQuotes.length - 1) {
 
-            setQuotes(count -= 3);
+            setQuotes(mQuotePosition -= 2);
+
+
+        } else if (mQuotePosition == mQuotes.length - 1) {
+
+            setQuotes(mQuotePosition -= 3);
 
 
         } else {
-            count -= 4;
+            mQuotePosition -= 4;
             endOfQuotes();
 
 
@@ -196,23 +194,23 @@ public class CategoryActivity extends AppCompatActivity {
     @OnClick(R.id.quote1Label)
     public void useQuote1() {
         //Share or add quote to favourites
-        quoteOptions(count);
+        quoteOptions(mQuotePosition);
 
     }
 
     @OnClick(R.id.quote2Label)
     public void useQuote2() {
-        quoteOptions(count + 1);
+        quoteOptions(mQuotePosition + 1);
     }
 
     @OnClick(R.id.quote3Label)
     public void useQuote3() {
-        quoteOptions(count + 2);
+        quoteOptions(mQuotePosition + 2);
     }
 
     @OnClick(R.id.quote4Label)
     public void useQuote4() {
-        quoteOptions(count + 3);
+        quoteOptions(mQuotePosition + 3);
     }
 
     @OnClick(R.id.jumpToLabel)
@@ -295,7 +293,7 @@ public class CategoryActivity extends AppCompatActivity {
                 }
 
                 animateViews();
-                count = 0; //To avoid next or previous  button ArrayIndexOutOfBoundsException
+                mQuotePosition = 0; //To avoid next or previous  button ArrayIndexOutOfBoundsException
 
             } else {
                 errorDialog();
@@ -310,11 +308,15 @@ public class CategoryActivity extends AppCompatActivity {
     private void errorDialog() {
         SweetAlertDialog sweetAlertDialog = new SweetAlertDialog(CategoryActivity.this, SweetAlertDialog.ERROR_TYPE);
         sweetAlertDialog.setTitleText(getString(R.string.Oops))
-                .setContentText(getString(R.string.try_again))
+                .setContentText(getString(R.string.valid_number))
                 .show();
     }
 
-    private void setMyTheme(String theme) {
+    private void setMyTheme() {
+
+        Preferences preferences = new Preferences(this);
+        String theme = preferences.getMyTheme();
+
         if (theme.equals("brown")) {
             String darkGrey = "#212121";
             mBackgroundImage.setImageResource(R.drawable.bg_brown);
@@ -359,7 +361,7 @@ public class CategoryActivity extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
         mDBOpenHelper.close();
-        count=0;
+        mQuotePosition = 0;
     }
 }
 

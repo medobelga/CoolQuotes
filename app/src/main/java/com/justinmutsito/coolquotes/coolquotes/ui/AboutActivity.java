@@ -13,8 +13,6 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class AboutActivity extends AppCompatActivity {
-    private Preferences mPreferences;
-    private String mTheme;
 
     @Bind(R.id.backgroundImage)
     ImageView mBackgroundImage;
@@ -28,14 +26,13 @@ public class AboutActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
         ButterKnife.bind(this);
-        mPreferences = new Preferences(this);
-        mTheme = mPreferences.getMyTheme();
-        setMyTheme(mTheme);
+        setMyTheme();
     }
 
 
-    private void setMyTheme(String theme) {
-
+    private void setMyTheme() {
+        Preferences preferences = new Preferences(this);
+        String theme = preferences.getMyTheme();
         if (theme.equals("brown")) {
             String darkGrey = "#212121";
 

@@ -11,6 +11,7 @@
         <item name="android:listDivider">@color/brownFaded</item>
 
 
+
     </style>
 
     <style name="BlueTheme" parent="Theme.AppCompat.Light.DarkActionBar">
@@ -18,7 +19,7 @@
         <item name="colorPrimary">@color/bluecolorPrimaryLight</item>
         <item name="colorPrimaryDark">#0288D1</item>
         <item name="colorAccent">#607D8B</item>
-
+        <item name="android:textAllCaps">false</item>
 
     </style>
 

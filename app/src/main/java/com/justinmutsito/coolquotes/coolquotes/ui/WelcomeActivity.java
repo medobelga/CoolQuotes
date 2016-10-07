@@ -46,8 +46,10 @@ public class WelcomeActivity extends AppCompatActivity {
     TextView mFavorites;
     @Bind(R.id.settingsIcon)
     ImageView mIconSettings;
-    @Bind(R.id.fadedImage) ImageView mFadedImage;
-    @Bind(R.id.fadedImage2) ImageView mFadedImage2;
+    @Bind(R.id.fadedImage)
+    ImageView mFadedImage;
+    @Bind(R.id.fadedImage2)
+    ImageView mFadedImage2;
     @Bind(R.id.backgroundImage)
     ImageView mBackgroundImage;
 
@@ -57,22 +59,19 @@ public class WelcomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_welcome);
         ButterKnife.bind(this);
 
-        //Set theme using mTheme passed from the SettingsActivity
-        Preferences preferences = new Preferences(this);
-        String theme = preferences.getMyTheme();
-        setMyTheme(theme);
+        setMyTheme();
 
         //Get and set UI data
-        loadUI();
+        initUi();
         animateViews();
 
-        //Open database for saving
+        //Open database for saving favourites quotes.
         mDBOpenHelper = new DBOpenHelper(this);
 
 
     }
 
-    private void loadUI() {
+    private void initUi() {
         randomQuote();
         getQuotes(mPersonNumber);
         mCurrentQuote = mQuotes[mPosition];
@@ -96,7 +95,7 @@ public class WelcomeActivity extends AppCompatActivity {
 
     @OnClick(R.id.quoteLabel)
     public void getQuote() {
-        //Share or add quote to favourites
+        //Share or add quote to favourites.
 
         AlertDialog.Builder builder = new AlertDialog.Builder(WelcomeActivity.this);
 
@@ -104,16 +103,17 @@ public class WelcomeActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int position) {
                 if (position == 0) {
-                    //Share
+                    //Share.
                     share(mCurrentQuote);
                 } else {
-                    //Add to favourites
+                    //Add to favourites.
                     boolean added = mDBOpenHelper.addFavourite(mCurrentQuote);
                     if (added) {
                         Toast.makeText(WelcomeActivity.this, R.string.added, Toast.LENGTH_SHORT).show();
 
 
                     } else {
+                        //Pop error Dialog.
                         SweetAlertDialog sweetAlertDialog = new SweetAlertDialog(WelcomeActivity.this);
                         sweetAlertDialog.setTitleText(getString(R.string.try_again))
                                 .show();
@@ -148,8 +148,8 @@ public class WelcomeActivity extends AppCompatActivity {
 
     @OnClick(R.id.shareIcon)
     public void shareAppDetails() {
-        //Share app with friends by sending a its link to the app store
 
+        //Share app with friends by sending it's link from the app store.
         String url = "https://play.google.com/store/apps/details?id=com.justinmutsito.standoutqoutes";
         String message = "Check out this cool app " + url;
         share(message);
@@ -169,10 +169,9 @@ public class WelcomeActivity extends AppCompatActivity {
     }
 
 
-    //Sets randomly the person and quote position.
-
     private void randomQuote() {
 
+        //Sets randomly the person and quote position.
 
         int NUMBER_OF_PEOPLE = 23; //Number of people in the people string array
         int MINIMUM_NUMBER_OF_QUOTES = 10; //Minimum number of quotes provided by one person
@@ -325,14 +324,19 @@ public class WelcomeActivity extends AppCompatActivity {
     }
 
     private void share(String text) {
-        //Share text
+        //Share quote.
         Intent shareIntent = new Intent(Intent.ACTION_SEND);
         shareIntent.setType("text/plain");
         shareIntent.putExtra(Intent.EXTRA_TEXT, text + ".Shared from " + getString(R.string.app_name) + " .");
         startActivity(Intent.createChooser(shareIntent, getString(R.string.share)));
     }
 
-    private void setMyTheme(String theme) {
+    private void setMyTheme() {
+
+        //Set theme using mTheme passed from the SettingsActivity
+        Preferences preferences = new Preferences(this);
+
+        String theme = preferences.getMyTheme();
         if (theme.equals("brown")) {
             String darkGrey = "#212121";
             mBackgroundImage.setImageResource(R.drawable.bg_brown);
@@ -364,7 +368,7 @@ public class WelcomeActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        loadUI();
+        initUi();
         animateViews();
     }
 

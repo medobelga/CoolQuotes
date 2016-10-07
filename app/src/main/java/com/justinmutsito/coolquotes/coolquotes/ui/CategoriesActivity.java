@@ -15,9 +15,6 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class CategoriesActivity extends ListActivity {
-    private Preferences mPreferences;
-    private String[] mCategories;
-    private String mTheme;
 
     @Bind(R.id.backgroundImage)
     ImageView mBackgroundImage;
@@ -30,12 +27,10 @@ public class CategoriesActivity extends ListActivity {
         setContentView(R.layout.activity_categories);
         ButterKnife.bind(this);
 
-        mPreferences = new Preferences(this);
-        mTheme = mPreferences.getMyTheme();
-        setMyTheme(mTheme);
+        setMyTheme();
 
-        mCategories = getResources().getStringArray(R.array.categories);
-        CategoriesAdapter adapter = new CategoriesAdapter(this, mCategories);
+        String[] categories = getResources().getStringArray(R.array.categories);
+        CategoriesAdapter adapter = new CategoriesAdapter(this, categories);
         setListAdapter(adapter);
     }
 
@@ -53,7 +48,10 @@ public class CategoriesActivity extends ListActivity {
         startActivity(intent);
     }
 
-    private void setMyTheme(String theme) {
+    private void setMyTheme() {
+        Preferences preferences = new Preferences(this);
+        String theme = preferences.getMyTheme();
+
         if (theme.equals("brown")) {
 
             mBackgroundImage.setImageResource(R.drawable.bg_brown);

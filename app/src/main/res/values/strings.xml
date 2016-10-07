@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Cool Quotes</string>
-    <string name="categories">Categories</string>
-    <string name="authors">Authors</string>
+    <string name="categories">Category</string>
+    <string name="authors">Author</string>
     <string name="favourites">Favourites</string>
     <string name="test_text">My advice is to never do tomorrow what you can do today. Procrastination is the thief of time. - Charles Dickens</string>
     <string name="share">Share with ?</string>
@@ -22,7 +22,8 @@
     <string name="added">Added to favourites</string>
     <string name="not_added">Oops,please try again.</string>
     <string name="deleted">Deleted</string>
-    <string name="try_again">Give me a valid number.</string>
+    <string name="try_again">Oops try again..</string>
+    <string name="valid_number">Give me a valid number.</string>
     <string name="hello">Hello.</string>
     <string name="day_quote">Quote of the day</string>
     <string name="authorsKey">AuthorsKey</string>

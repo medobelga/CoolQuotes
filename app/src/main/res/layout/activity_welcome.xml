@@ -63,7 +63,7 @@
         tools:textColor="@android:color/white"/>
 
     <Button
-        android:id="@+id/categoriesButton"
+        android:id="@+id/authorButton"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_below="@+id/quoteLabel"
@@ -72,25 +72,27 @@
         android:background="@drawable/bg_brown_circle_gradient"
         android:gravity="fill_vertical"
         android:padding="5dp"
+        android:text="@string/authors"
         android:shadowColor="#522e2e"
-        android:text="@string/categories"
         android:textAlignment="center"
         android:textColor="@color/colorPrimaryText"
+        android:textAllCaps="false"
         tools:background="@drawable/bg_blue_circle_gradient"
         tools:textColor="@android:color/white"/>
 
     <Button
-        android:id="@+id/authorButton"
+        android:id="@+id/categoriesButton"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:layout_below="@+id/categoriesButton"
+        android:layout_below="@+id/authorButton"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="10dp"
+        android:text="@string/categories"
         android:layout_marginTop="30dp"
         android:background="@drawable/bg_brown_circle_gradient"
         android:gravity="fill_vertical"
         android:padding="5dp"
-        android:text="@string/authors"
+        android:textAllCaps="false"
         android:textAlignment="center"
         android:textColor="@color/colorPrimaryText"
         tools:background="@drawable/bg_blue_circle_gradient"
@@ -132,6 +134,7 @@
             android:paddingTop="15dp"
             android:text="@string/favourites"
             android:textAlignment="center"
+            android:textAllCaps="false"
             android:textColor="@color/colorPrimaryText"
             android:textSize="15sp"/>
 

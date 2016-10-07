@@ -15,8 +15,6 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class AuthorsActivity extends ListActivity {
-    private Preferences mPreferences;
-    private String mTheme;
 
     @Bind(R.id.backgroundImage)
     ImageView mBackgroundImage;
@@ -38,10 +36,7 @@ public class AuthorsActivity extends ListActivity {
         setContentView(R.layout.activity_authors);
         ButterKnife.bind(this);
 
-        //Get and set current theme.;
-        mPreferences = new Preferences(this);
-        mTheme = mPreferences.getMyTheme();
-        setMyTheme(mTheme);
+        setMyTheme();
 
         //Get authors data and adapt it for listView.
         String[] Authors = getResources().getStringArray(R.array.authors);
@@ -51,8 +46,11 @@ public class AuthorsActivity extends ListActivity {
 
     }
 
-    private void setMyTheme(String theme) {
+    private void setMyTheme() {
 
+        //Get and set current theme.;
+        Preferences preferences = new Preferences(this);
+        String theme = preferences.getMyTheme();
         if (theme.equals("brown")) {
 
             mBackgroundImage.setImageResource(R.drawable.bg_brown);
