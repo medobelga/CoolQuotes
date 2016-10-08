@@ -212,7 +212,8 @@ public class AuthorActivity extends AppCompatActivity {
     @OnClick(R.id.previousIcon)
     public void previous() {
 
-        if (mQuotePosition == 0) {
+        if (mQuotePosition < 3) {
+            mQuotePosition=0;
             setQuotes(mQuotePosition);
 
         } else {

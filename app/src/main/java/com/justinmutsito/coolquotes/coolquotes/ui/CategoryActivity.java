@@ -147,15 +147,17 @@ public class CategoryActivity extends AppCompatActivity {
     @OnClick(R.id.previousIcon)
     public void previous() {
 
-        if (mQuotePosition == 0) {
+        if (mQuotePosition < 3) {
+            mQuotePosition=0;
             setQuotes(mQuotePosition);
-
         } else {
             mQuotePosition -= 4;
             setQuotes(mQuotePosition);
             animateViews();
         }
     }
+
+
 
 
     @OnClick(R.id.nextIcon)
