@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -276,6 +277,9 @@ public class AuthorActivity extends AppCompatActivity {
 
         AlertDialog dialog = builder.create();
         dialog.show();
+        Button positiveButton = dialog.getButton(DialogInterface.BUTTON_POSITIVE);
+        positiveButton.setTextColor(Color.parseColor("#50D7CCC8"));
+        positiveButton.setAllCaps(false);
 
     }
 
