@@ -6,11 +6,10 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.justinmutsito.coolquotes.coolquotes.alarms.Alarm;
 import com.justinmutsito.coolquotes.coolquotes.R;
+import com.justinmutsito.coolquotes.coolquotes.alarms.Alarm;
 import com.justinmutsito.coolquotes.coolquotes.preferences.Preferences;
 
 import at.markushi.ui.CircleButton;
@@ -33,12 +32,7 @@ public class SettingsActivity extends AppCompatActivity {
     CircleButton mBrown;
     @Bind(R.id.blueCheckbox)
     CircleButton mBlue;
-    @Bind(R.id.offCheckbox)
-    CircleButton mOff;
-    @Bind(R.id.morningCheckbox)
-    CircleButton mMorning;
-    @Bind(R.id.eveningCheckbox)
-    CircleButton mEvening;
+
     @Bind(R.id.aboutButton)
     Button mAbout;
     @Bind(R.id.backgroundImage)
@@ -49,22 +43,7 @@ public class SettingsActivity extends AppCompatActivity {
     TextView mThemeBrownLabel;
     @Bind(R.id.cBlueLabel)
     TextView mThemeBlueLabel;
-    @Bind(R.id.offLabel)
-    TextView mOffLabel;
-    @Bind(R.id.morningLabel)
-    TextView mMorningLabel;
-    @Bind(R.id.eveningLabel)
-    TextView mEveningLabel;
-    @Bind(R.id.layout1)
-    LinearLayout mLayout1;
-    @Bind(R.id.layout2)
-    LinearLayout mLayout2;
-    @Bind(R.id.layout3)
-    LinearLayout mLayout3;
-    @Bind(R.id.layout4)
-    LinearLayout mLayout4;
-    @Bind(R.id.layout5)
-    LinearLayout mLayout5;
+
 
 
     @Override
@@ -135,76 +114,40 @@ public class SettingsActivity extends AppCompatActivity {
     }
 
 
-    @OnClick(R.id.offCheckbox)
-    public void setOff() {
-        notificationsOff();
-        changeNotificationTime(mNotificationTime);
-
-
-    }
 
     private void notificationsOff() {
         mNotificationTime = "off";
         if (mTheme.equals("brown")) {
 
-            mOff.setImageResource(R.drawable.ic_checkbox_marked_circle_grey600_48dp);
-            mEvening.setImageResource(R.drawable.ic_checkbox_blank_circle_outline_grey600_48dp);
-            mMorning.setImageResource(R.drawable.ic_checkbox_blank_circle_outline_grey600_48dp);
+
         } else {
 
-            mOff.setImageResource(R.drawable.ic_checkbox_marked_circle_white_48dp);
-            mEvening.setImageResource(R.drawable.ic_checkbox_blank_circle_outline_white_48dp);
-            mMorning.setImageResource(R.drawable.ic_checkbox_blank_circle_outline_white_48dp);
         }
     }
 
-    @OnClick(R.id.morningCheckbox)
-    public void setMorning() {
-        notificationsOnMorning();
-        changeNotificationTime(mNotificationTime);
-
-
-    }
 
     private void notificationsOnMorning() {
-        mNotificationTime = "morning";
 
 
         if (mTheme.equals("brown")) {
-            mEvening.setImageResource(R.drawable.ic_checkbox_blank_circle_outline_grey600_48dp);
-            mMorning.setImageResource(R.drawable.ic_checkbox_marked_circle_grey600_48dp);
-            mOff.setImageResource(R.drawable.ic_checkbox_blank_circle_outline_grey600_48dp);
+
         } else {
 
-            mEvening.setImageResource(R.drawable.ic_checkbox_blank_circle_outline_white_48dp);
-            mMorning.setImageResource(R.drawable.ic_checkbox_marked_circle_white_48dp);
-            mOff.setImageResource(R.drawable.ic_checkbox_blank_circle_outline_white_48dp);
+
         }
     }
 
 
-    @OnClick(R.id.eveningCheckbox)
-    public void setEvening() {
-        notificationsOnEvening();
-        changeNotificationTime(mNotificationTime);
 
-
-    }
 
     private void notificationsOnEvening() {
-        mNotificationTime = getString(R.string.evening);
+
 
 
         if (mTheme.equals("brown")) {
 
-            mMorning.setImageResource(R.drawable.ic_checkbox_blank_circle_outline_grey600_48dp);
-            mEvening.setImageResource(R.drawable.ic_checkbox_marked_circle_grey600_48dp);
-            mOff.setImageResource(R.drawable.ic_checkbox_blank_circle_outline_grey600_48dp);
         } else {
 
-            mMorning.setImageResource(R.drawable.ic_checkbox_blank_circle_outline_white_48dp);
-            mEvening.setImageResource(R.drawable.ic_checkbox_marked_circle_white_48dp);
-            mOff.setImageResource(R.drawable.ic_checkbox_blank_circle_outline_white_48dp);
         }
     }
 
@@ -238,14 +181,7 @@ public class SettingsActivity extends AppCompatActivity {
         mAbout.setBackground(getResources().getDrawable(R.drawable.bg_blue_circle_gradient));
         mThemeBrownLabel.setTextColor(Color.parseColor(white));
         mThemeBlueLabel.setTextColor(Color.parseColor(white));
-        mOffLabel.setTextColor(Color.parseColor(white));
-        mMorningLabel.setTextColor(Color.parseColor(white));
-        mEveningLabel.setTextColor(Color.parseColor(white));
-        mLayout1.setBackgroundColor(Color.parseColor(lightBlue));
-        mLayout2.setBackgroundColor(Color.parseColor(lightBlue));
-        mLayout3.setBackgroundColor(Color.parseColor(lightBlue));
-        mLayout4.setBackgroundColor(Color.parseColor(lightBlue));
-        mLayout5.setBackgroundColor(Color.parseColor(lightBlue));
+
 
 
     }
@@ -263,14 +199,7 @@ public class SettingsActivity extends AppCompatActivity {
         mAbout.setBackground(getResources().getDrawable(R.drawable.bg_brown_circle_gradient));
         mThemeBrownLabel.setTextColor(Color.parseColor(lightGrey));
         mThemeBlueLabel.setTextColor(Color.parseColor(lightGrey));
-        mOffLabel.setTextColor(Color.parseColor(lightGrey));
-        mMorningLabel.setTextColor(Color.parseColor(lightGrey));
-        mEveningLabel.setTextColor(Color.parseColor(lightGrey));
-        mLayout1.setBackgroundColor(Color.parseColor(lightBrown));
-        mLayout2.setBackgroundColor(Color.parseColor(lightBrown));
-        mLayout3.setBackgroundColor(Color.parseColor(lightBrown));
-        mLayout4.setBackgroundColor(Color.parseColor(lightBrown));
-        mLayout5.setBackgroundColor(Color.parseColor(lightBrown));
+
 
 
     }
@@ -288,13 +217,7 @@ public class SettingsActivity extends AppCompatActivity {
     }
 
     private void setNotificationTime(String notificationTime) {
-        if (notificationTime.equals(getString(R.string.morning))) {
-            setMorning();
-        } else if (notificationTime.equals(getString(R.string.evening))) {
-            setEvening();
-        } else {
-            setOff();
-        }
+
     }
 
     private void resetTheme() {
