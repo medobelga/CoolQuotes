@@ -40,6 +40,9 @@
     <string name="morning">morning</string>
     <string name="evening">evening</string>
     <string name="go">Go</string>
+    <string name="on">On</string>
+    <string name="about">About</string>
+    <string name="set">Set</string>
 
 
     <string-array name="quotesOptions">

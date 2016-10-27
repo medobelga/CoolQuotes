@@ -27,24 +27,24 @@ public class Preferences {
         return mSavedTheme.getString(mContext.getString(R.string.themeKey), defaultTheme);
     }
 
-    public String getNotificationTime() {
-        String defaultNotificationTime = "off";
+    public int getNotificationTime() {
+       int defaultNotificationTime = 0;
         mSavedTime = mContext.getSharedPreferences(NOTIFICATION_TIME, 0);
-        return mSavedTime.getString(mContext.getString(R.string.timeKey), defaultNotificationTime);
+        return mSavedTime.getInt(mContext.getString(R.string.timeKey), defaultNotificationTime);
     }
 
 
-    public void saveTheme(String theme) {
+    public void setTheme(String theme) {
         mSavedTheme = mContext.getSharedPreferences(THEME, 0);
         SharedPreferences.Editor themeEditor = mSavedTheme.edit();
         themeEditor.putString(mContext.getString(R.string.themeKey), theme);
         themeEditor.commit();
     }
 
-    public void saveTime(String  notificationTime) {
+    public void setNotificationTime(int time) {
         mSavedTime = mContext.getSharedPreferences(NOTIFICATION_TIME, 0);
         SharedPreferences.Editor timeEditor = mSavedTime.edit();
-        timeEditor.putString(mContext.getString(R.string.timeKey), notificationTime);
+        timeEditor.putInt(mContext.getString(R.string.timeKey), time);
         timeEditor.commit();
     }
 }

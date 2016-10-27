@@ -1,0 +1,28 @@
+<shape
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval"
+    >
+
+    <size
+        android:width="50dp"
+        android:height="50dp"
+        />
+
+
+    <gradient
+        android:startColor="@color/colorPrimaryLight"
+        android:endColor="@color/colorPrimaryLight"
+        android:angle="0"
+        android:type="linear"
+        />
+
+    <stroke
+        android:width="2dp"
+        android:color="@color/colorSecondaryText"
+        />
+
+
+
+
+
+</shape>

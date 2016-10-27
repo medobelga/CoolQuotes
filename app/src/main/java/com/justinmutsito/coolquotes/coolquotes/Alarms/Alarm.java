@@ -25,11 +25,12 @@ public class Alarm {
         alarmIntent = PendingIntent.getBroadcast(mContext, 0, intent, 0);
     }
 
-    public void setAlarm(int time) {
+    public void setAlarm(int hour,int minute) {
 
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(System.currentTimeMillis());
-        calendar.set(Calendar.HOUR_OF_DAY, time);
+        calendar.set(Calendar.HOUR_OF_DAY, hour);
+        calendar.set(Calendar.MINUTE, minute);
 
 
         alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY, alarmIntent);
