@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.justinmutsito.coolquotes.coolquotes.R;
@@ -22,6 +23,7 @@ import butterknife.OnClick;
 public class SettingsActivity extends AppCompatActivity {
     private Preferences mPreferences;
     private String mTheme;
+    private Alarm mAlarm;
     private int mNotificationTime;
 
 
@@ -33,6 +35,15 @@ public class SettingsActivity extends AppCompatActivity {
     CircleButton mBrown;
     @Bind(R.id.blueCheckbox)
     CircleButton mBlue;
+    @Bind(R.id.offCheckbox)
+    CircleButton mOff;
+    @Bind(R.id.onCheckbox)
+    CircleButton mOn;
+
+    @Bind(R.id.offLabel)
+    TextView mOffLabel;
+    @Bind(R.id.onLabel)
+    TextView mOnLabel;
 
     @Bind(R.id.aboutButton)
     Button mAbout;
@@ -44,11 +55,14 @@ public class SettingsActivity extends AppCompatActivity {
     TextView mThemeBrownLabel;
     @Bind(R.id.cBlueLabel)
     TextView mThemeBlueLabel;
-
-    @Bind(R.id.notificationsOffButton)
-    Button mNotificationOff;
-    @Bind(R.id.notificationsOnButton)
-    Button mNotificationOn;
+    @Bind(R.id.layout1)
+    LinearLayout mLayout1;
+    @Bind(R.id.layout2)
+    LinearLayout mLayout2;
+    @Bind(R.id.layout3)
+    LinearLayout mLayout3;
+    @Bind(R.id.layout4)
+    LinearLayout mLayout4;
 
 
     @Override
@@ -63,6 +77,7 @@ public class SettingsActivity extends AppCompatActivity {
         //Get theme and notification time, set theme..
         mTheme = mPreferences.getMyTheme();
         mNotificationTime = mPreferences.getNotificationTime();
+        mAlarm = new Alarm(SettingsActivity.this);
         setMyTheme(mTheme);
 
 
@@ -83,6 +98,7 @@ public class SettingsActivity extends AppCompatActivity {
         mBlue.setImageResource(R.drawable.ic_checkbox_blank_circle_outline_grey600_48dp);
         mBrown.setImageResource(R.drawable.ic_checkbox_marked_circle_grey600_48dp);
         setBrownTheme();
+        setIcons(mNotificationTime);
 
     }
 
@@ -100,22 +116,41 @@ public class SettingsActivity extends AppCompatActivity {
         mBrown.setImageResource(R.drawable.ic_checkbox_blank_circle_outline_white_48dp);
         mBlue.setImageResource(R.drawable.ic_checkbox_marked_circle_white_48dp);
         setBlueTheme();
+        setIcons(mNotificationTime);
 
 
     }
 
 
-
-    @OnClick(R.id.notificationsOffButton)
+    @OnClick(R.id.offCheckbox)
     public void setNotificationOff() {
+        mAlarm.cancel();
         mPreferences.setNotificationTime(0);
-        mNotificationOff.setBackground(getResources().getDrawable(R.drawable.bg_notification_choice_gradient));
-        mNotificationOn.setBackground(getResources().getDrawable(R.drawable.bg_brown_circle_gradient));
+
+        if (mTheme.equals("brown")) {
+            mOn.setImageResource(R.drawable.ic_checkbox_blank_circle_outline_grey600_48dp);
+            mOff.setImageResource(R.drawable.ic_checkbox_marked_circle_grey600_48dp);
+
+        } else {
+
+            mOn.setImageResource(R.drawable.ic_checkbox_blank_circle_outline_white_48dp);
+            mOff.setImageResource(R.drawable.ic_checkbox_marked_circle_white_48dp);
+        }
 
     }
 
-    @OnClick(R.id.notificationsOnButton)
+    @OnClick(R.id.onCheckbox)
     public void setNotificationOn() {
+
+        if (mTheme.equals("brown")) {
+            mOff.setImageResource(R.drawable.ic_checkbox_blank_circle_outline_grey600_48dp);
+            mOn.setImageResource(R.drawable.ic_checkbox_marked_circle_grey600_48dp);
+
+        } else {
+
+            mOff.setImageResource(R.drawable.ic_checkbox_blank_circle_outline_white_48dp);
+            mOn.setImageResource(R.drawable.ic_checkbox_marked_circle_white_48dp);
+        }
 
         final TimePickerDialog dialog = new TimePickerDialog(SettingsActivity.this);
         dialog.positiveAction(getString(R.string.set));
@@ -126,14 +161,12 @@ public class SettingsActivity extends AppCompatActivity {
                 int minute = dialog.getMinute();
                 int time = (hour * 3600) + (minute * 60);
                 mPreferences.setNotificationTime(time);
-                Alarm alarm= new Alarm(SettingsActivity.this);
-                alarm.setAlarm(hour,minute);
+                mAlarm.cancel();
+                mAlarm.setAlarm(hour, minute);
                 dialog.dismiss();
             }
         });
         dialog.show();
-        mNotificationOn.setBackground(getResources().getDrawable(R.drawable.bg_notification_choice_gradient));
-        mNotificationOff.setBackground(getResources().getDrawable(R.drawable.bg_brown_circle_gradient));
 
 
     }
@@ -145,7 +178,43 @@ public class SettingsActivity extends AppCompatActivity {
         startActivity(new Intent(SettingsActivity.this, AboutActivity.class));
     }
 
+    private void setIcons(int notificationTime) {
 
+        if (notificationTime != 0) {
+            notificationsOn();
+        } else {
+            notificationsOff();
+        }
+
+
+    }
+
+    private void notificationsOff() {
+        if (mTheme.equals("brown")) {
+            mOn.setImageResource(R.drawable.ic_checkbox_blank_circle_outline_grey600_48dp);
+            mOff.setImageResource(R.drawable.ic_checkbox_marked_circle_grey600_48dp);
+
+        } else {
+
+            mOn.setImageResource(R.drawable.ic_checkbox_blank_circle_outline_white_48dp);
+            mOff.setImageResource(R.drawable.ic_checkbox_marked_circle_white_48dp);
+        }
+
+
+    }
+
+    private void notificationsOn() {
+        if (mTheme.equals("brown")) {
+            mOff.setImageResource(R.drawable.ic_checkbox_blank_circle_outline_grey600_48dp);
+            mOn.setImageResource(R.drawable.ic_checkbox_marked_circle_grey600_48dp);
+
+        } else {
+
+            mOff.setImageResource(R.drawable.ic_checkbox_blank_circle_outline_white_48dp);
+            mOn.setImageResource(R.drawable.ic_checkbox_marked_circle_white_48dp);
+        }
+
+    }
 
 
     private void setBlueTheme() {
@@ -161,6 +230,12 @@ public class SettingsActivity extends AppCompatActivity {
         mAbout.setBackground(getResources().getDrawable(R.drawable.bg_blue_circle_gradient));
         mThemeBrownLabel.setTextColor(Color.parseColor(white));
         mThemeBlueLabel.setTextColor(Color.parseColor(white));
+        mOffLabel.setTextColor(Color.parseColor(white));
+        mOnLabel.setTextColor(Color.parseColor(white));
+        mLayout1.setBackgroundColor(Color.parseColor(lightBlue));
+        mLayout2.setBackgroundColor(Color.parseColor(lightBlue));
+        mLayout3.setBackgroundColor(Color.parseColor(lightBlue));
+        mLayout4.setBackgroundColor(Color.parseColor(lightBlue));
 
 
     }
@@ -178,6 +253,12 @@ public class SettingsActivity extends AppCompatActivity {
         mAbout.setBackground(getResources().getDrawable(R.drawable.bg_brown_circle_gradient));
         mThemeBrownLabel.setTextColor(Color.parseColor(lightGrey));
         mThemeBlueLabel.setTextColor(Color.parseColor(lightGrey));
+        mOffLabel.setTextColor(Color.parseColor(lightGrey));
+        mOnLabel.setTextColor(Color.parseColor(lightGrey));
+        mLayout1.setBackgroundColor(Color.parseColor(lightBrown));
+        mLayout2.setBackgroundColor(Color.parseColor(lightBrown));
+        mLayout3.setBackgroundColor(Color.parseColor(lightBrown));
+        mLayout4.setBackgroundColor(Color.parseColor(lightBrown));
 
 
     }
@@ -189,8 +270,8 @@ public class SettingsActivity extends AppCompatActivity {
             brownTheme();
         } else {
             blueTheme();
-
         }
+
 
     }
 

@@ -125,31 +125,79 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="@color/colorPrimaryText"/>
 
-
-    <Button
-        android:id="@+id/notificationsOffButton"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/notificationsLabel"
-        android:layout_centerHorizontal="true"
-        android:layout_margin="10dp"
-        android:background="@drawable/bg_notification_choice_gradient"
+        android:id="@+id/layout3"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:orientation="horizontal"
+        android:background="@color/colorPrimaryLight"
         android:padding="5dp"
-        android:text="@string/off"
-        android:textColor="@color/colorPrimaryText"/>
+        android:weightSum="1"
+        android:layout_alignParentEnd="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/off"
+            android:textSize="15sp"
+            android:id="@+id/offLabel"
+            android:padding="5dp"
+            android:layout_weight=".97"
+
+            />
+
+        <at.markushi.ui.CircleButton
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:id="@+id/offCheckbox"
+            android:src="@drawable/ic_checkbox_marked_circle_grey600_48dp"
+            app:cb_color="#50ffffff"
+            app:cb_pressedRingWidth="8dip" />
+    </LinearLayout>
 
 
-    <Button
-        android:id="@+id/notificationsOnButton"
-        android:layout_width="55dp"
-        android:layout_height="55dp"
-        android:layout_below="@+id/notificationsOffButton"
-        android:layout_toEndOf="@+id/themeLabel"
-        android:background="@drawable/bg_brown_circle_gradient"
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_below="@+id/layout3"
+        android:id="@+id/layout4"
+        android:orientation="horizontal"
+        android:background="@color/colorPrimaryLight"
         android:padding="5dp"
-        android:text="@string/on"
-        android:layout_margin="10dp"
-        android:textColor="@color/colorPrimaryText"/>
+        android:weightSum="1"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/onLabel"
+            android:text="@string/on"
+            android:textSize="15sp"
+            android:padding="5dp"
+            android:layout_weight=".97"
+
+            />
+
+
+        <at.markushi.ui.CircleButton
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:id="@+id/onCheckbox"
+            android:src="@drawable/ic_checkbox_blank_circle_outline_grey600_48dp"
+            app:cb_color="#50ffffff"
+            app:cb_pressedRingWidth="8dip" />
+
+    </LinearLayout>
+
 
     <Button
         android:id="@+id/aboutButton"
@@ -159,9 +207,10 @@
         android:background="@drawable/bg_notification_choice_gradient"
         android:padding="5dp"
         android:text="@string/about"
+        android:layout_centerHorizontal="true"
         android:textColor="@color/colorPrimaryText"
-        android:layout_below="@+id/notificationsOnButton"
-        android:layout_alignEnd="@+id/notificationsLabel"/>
+        android:layout_below="@id/layout4"
+        />
 
 
 </RelativeLayout>
