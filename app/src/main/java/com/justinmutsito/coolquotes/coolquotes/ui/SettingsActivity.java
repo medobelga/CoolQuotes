@@ -250,7 +250,7 @@ public class SettingsActivity extends AppCompatActivity {
         mThemeLabel.setTextColor(Color.parseColor(darkGrey));
         mNotificationLabel.setTextColor(Color.parseColor(darkGrey));
         mAbout.setTextColor(Color.parseColor(darkGrey));
-        mAbout.setBackground(getResources().getDrawable(R.drawable.bg_brown_circle_gradient));
+        mAbout.setBackground(getResources().getDrawable(R.drawable.bg_brown_settings_gradient));
         mThemeBrownLabel.setTextColor(Color.parseColor(lightGrey));
         mThemeBlueLabel.setTextColor(Color.parseColor(lightGrey));
         mOffLabel.setTextColor(Color.parseColor(lightGrey));
