@@ -79,7 +79,6 @@
     <string-array name="Books">
         <item>Only the very weak-minded refuse to be influenced by literature and poetry. ― Cassandra Clare</item>
         <item>Books are like mirrors: if a fool looks in, you cannot expect a genius to look out. ― J.K Rowling </item>
-        <item>We are of opinion that instead of letting books grow moldy behind an iron grating, far from the vulgar gaze, it is better to let them wear out by being read. ― Jules Verne</item>
         <item>A book must be the axe for the frozen sea within us. ― Franz Kafka</item>
         <item>Without words, without writing and without books there would be no history, there could be no concept of humanity. ― Hermann Hesse</item>
         <item>A classic is a book that has never finished saying what it has to say. ― Italo Calvino </item>
@@ -87,11 +86,9 @@
         <item>Never lend books, for no one ever returns them; the only books I have in my library are books that other folks have lent me. ― Anatole France</item>
         <item>Anyone who says they have only one life to live must not know how to read a book. ― Anon</item>
         <item>A house without books is like a room without windows. ― Horace Mann</item>
-        <item>Books are the compass and telescopes and sextants and charts which other men have prepared to help us navigate the dangerous seas of human life. ― Jesse Lee Bennett </item>
         <item>Whenever you read a good book, somewhere in the world a door opens to allow in more light. ― Vera Nazarian</item>
         <item>A room without books is like a body without a soul. ― Marcus Tullius Cicero</item>
         <item>The person, be it gentleman or lady, who has not pleasure in a good novel, must be intolerably stupid. ― Jane Austen</item>
-        <item> Good friends, good books, and a sleepy conscience: this is the ideal life.― Mark Twain I have always imagined that Paradise will be a kind of library. ― Jorge Luis Borges</item>
         <item> I find television very educating. Every time somebody turns on the set, I go into the other room and read a book. ― Groucho Marx</item>
         <item>Never trust anyone who has not brought a book with them. ― Lemony Snicket Classic</item>
         <item>The books that the world calls immoral are books that show the world its own shame. ― Oscar Wilde</item>
@@ -117,7 +114,7 @@
         <item>The secret to success in business, and in life, is to serve others. Put others first in all you do. ― Kevin Stirtz</item>
         <item>We are what we repeatedly do. Excellence then, is not a single act, but a habit.  Aristotle</item>
         <item>In business, three things are necessary: knowledge, temper, and time. ― Owen Fellt</item>
-        <item>And while the law of competition may be sometimes hard for the individual, it is best for the race, because it ensures the survival of the fittest in every department. ― Andrew Carnegie</item>
+
         <item>An economist is an expert who will know tomorrow why the things he predicted yesterday didn\'t happen today. ― Laurence J. Peter</item>
         <item>The golden rule for every business man is this: “Put yourself in your customer’s place.  Orison Swett Marden </item>
         <item>Business opportunities are like buses, there\’s always another one coming. ― Richard Branson</item>
@@ -129,7 +126,6 @@
         <item>Out there in some garage is an entrepreneur who\’s forging a bullet with your company\’s name on it. ― Gary Hamel</item>
         <item>I am a man of fixed and unbending principles, the first of which is to be flexible at all times. ― Senator Everett Dirksen</item>
         <item>￼Confidence is contagious; so is lack of confidence. ― Vince Lombard</item>
-        <item>Business people are like sharks, not just because we\'re gray and slightly oily, or because our teeth trail the innards of those we have eviscerated, but because we must move forward or die. ― Stanley Bing</item>
         <item>Drive your business. Let not your business drive you. ― Benjamin Franklin</item>
         <item>The secret of business is to know something that nobody else knows. ― Aristotle</item>
         <item>No enterprise is more likely to succeed than one concealed from the enemy until it is ripe for execution. ― Niccolo Machiavelli</item>
@@ -138,11 +134,9 @@
 
     <string-array name="Dreams">
         <item> You are never too old to set another goal or to dream a new dream. ― C.S. Lewis</item>
-        <item>Twenty years from now you will be more disappointed by the things that you didn\'t do than by the ones you did do. So throw off the bowlines. Sail away from the safe harbor.</item>
         <item> A dream you dream alone is only a dream. A dream you dream together is reality. ― John Lennon</item>
         <item> I don\'t dream at night, I dream all day,I dream for a living. ― Steven Spielberg</item>
         <item> The future belongs to those who believe in the beauty of their dreams. ― Eleanor Roosevelt</item>
-        <item> The key to realizing a dream is to focus not on success but significance - and then even the small steps and little victories along your path will take on greater meaning. ― Oprah Winfrey</item>
         <item> The whole life is a succession of dreams. My ambition is to be a conscious dreamer, that is all. ― Swami Vivekanada</item>
         <item> Hold fast to dreams for if dreams die, life is a broken-winged bird that cannot fly. ― Langston Hughes</item>
         <item> Ideologies separate us. Dreams and anguish bring us together. ― Eugene Ionesco</item>
@@ -152,13 +146,10 @@
         <item> All our dreams can come true, if we have the courage to pursue them. ― Walt Disney</item>
         <item>Catch the trade winds in your sails. Explore. Dream. Discover. ― Mark Twain No dreamer is ever too small; no dream is ever too big. ― Anon.</item>
         <item>A goal is a dream with a deadline. ― Napolean Hill</item>
-        <item> Yes: I am a dreamer. For a dreamer is one who can only find his way by moonlight, and his punishment is that he sees the dawn before the rest of the world. ― Oscar Wilde</item>
         <item> I think we dream so we don’t have to be apart for so long. If we’re in each other’s dreams, we can be together all the time. ― A.A. Milne</item>
         <item> Dare to live the life you have dreamed for yourself. Go forward and make your dreams come true. ― Ralph Waldo Emerson</item>
         <item> If you can dream it, you can do it. Always remember that this whole thing was started with a dream and a mouse. ― Walt Disney</item>
-        <item> At first dreams seem impossible, then improbable, then inevitable. ― Chris Reeve Don’t be afraid of the space between your dreams and reality. If you can dream it, you can make it so. ― Belva Davis</item>
         <item> Great dreams of great dreamers are always transcended. ― Abdul Kalam</item>
-        <item> Commitment leads to action. Action brings your dream closer. ― Marcia Wieder You see things and you say ‘Why?’ But I dream things that never were and I say ‘Why not?’ ― George Bernard Shaw</item>
         <item> Champions aren ́t made in the gyms. Champions are made from something they have deep inside them –a desire, a dream and a vision. ― Muhammad Ali</item>
         <item>Stand often in the company of dreamers. They believe you can achieve impossiblethings. ― Mary Anne Radmacher</item>
         <item>A dream is not something that you wake up from, but something that wakes you up. ― Charlie Hedges</item>
@@ -182,12 +173,12 @@
         <item>I do not know the American gentleman, God forgive me for putting two such words together. ― Charles Dickens</item>
         <item>What a kid I got, I told him about the birds and the bees and he told me about the butcher and my wife. ― Rodney Dangerfield</item>
         <item>A stockbroker urged me to buy a stock that would triple its value every year. I told him, "At my age, I don't even buy green bananas." ― Claude Pepper</item>
-        <item>When you are courting a nice girl an hour seems like a second. When you sit on a red-hot cinder a second seems like an hour. That\'s relativity. ― Albert Einstein</item>
+
         <item>A committee is a group that keeps minutes and loses hours. ― Milton Berle</item>
         <item>A successful man is one who makes more money than his wife can spend.A successful woman is one who can find such a man. ― Lana Turner</item>
         <item>My grandmother started walking five miles a day when she was sixty. She\'s ninety seven now, and we don\'t know where the hell she is. ― Ellen DeGeneres</item>
         <item>I can tell if two people are in love by how they hold each other’s hands, and how thick their sanitation gloves are. ― Jarod Kintz</item>
-        <item>You know, sometimes kids get bad grades in school because the class moves too slow ￼for them. Einstein got D\'s in school. Well guess what, I get F\'s!!! ― Bill Watter</item>
+
         <item>Electricity is actually made up of extremely tiny particles called electrons, that you cannot see with the naked eye unless you have been drinking. ― Dave Barry</item>
         <item>Politicians and diapers have one thing in common. They should both be changed regularly, and for the same reason. ― José Maria de Eça de Queiroz</item>
         <item>Some cause happiness wherever they go; others whenever they go. ― Oscar Wilde</item>
@@ -196,7 +187,7 @@
         <item>I don\'t hate you I just don\'t like that you exist. ― Gena Showalter</item>
         <item>Anyone who says he can see through women is missing a lot. ― Groucho Marx</item>
         <item>I found there was only one way to look thin: hang out with fat people. ― Rodney Dangerfield</item>
-        <item>A sure cure for seasickness is to sit under a tree. ― Spike Milligan I haven\'t spoken to my wife in years. I didn\'t want to interrupt her. Rodney Dangerfield</item>
+
         <item>The secret to staying young is to live honestly, eat slowly, and lie about your age.Lucille</item>
         <item>Ball I couldn\’t repair your brakes, so I made your horn louder. ― Steven Wright</item>
 
@@ -206,7 +197,6 @@
         <item> Beauty is in the eye of the beholder and it may be necessary from time to time to give a stupid or misinformed beholder a black eye. ― Jim Henson</item>
         <item>The difference between genius and stupidity is; genius has its limits. ― Albert Einstein </item>
         <item> along and trying to put things in it. ― Terry Pratchett</item>
-        <item> The statistics on sanity are that one out of every four people is suffering from a mental illness. Look at your 3 best friends. If they\'re ok, then it\'s you. ― Rita Mae Brown</item>
         <item> A person without a sense of humor is like a wagon without springs. It\'s jolted by every pebble on the road. ― Henry Ward Beecher</item>
         <item>A well-developed sense of humor is the pole that adds balance to your steps as you walk the tightrope of life. ― William Arthur Ward</item>
         <item> You can turn painful situations around through laughter. If you can find humor in anything, even poverty, you can survive it. ― Bill Cosby</item>
@@ -216,7 +206,6 @@
         <item> The secret to humor is surprise. ― </item>
         <item>I think the next best thing to solving a problem is finding some humor in it.― Frank Howard Clark</item>
         <item>The satirist shoots to kill while the humorist brings his prey back alive and eventually releases him again for another chance. ― Peter De Vries</item>
-        <item>I like work: it fascinates me. I can sit and look at it for hours. ― Jerome K. Jerome Reader, suppose you were an idiot. And suppose you were a member of Congress. But I repeat myself. ― Mark Twain</item>
         <item>There are two motives for reading a book; one, that you enjoy it; the other, that you can boast about it. ― Bertrand Russell</item>
         <item>Humor is laughing at what you haven\'t got when you ought to have it. ― Langston Hughes</item>
         <item> Humor is a rubber sword - it allows you to make a point without drawing blood. ― Mary Hirsch</item>
@@ -231,7 +220,6 @@
         <item> If we have no peace, it is because we have forgotten that we belong to each other. ― Mother Teresa </item>
         <item>A feminist is anyone who recognizes the equality and full humanity of women and men. ― Gloria Steinem</item>
         <item> I love Humanity but I hate humans ― Albert Einstein</item>
-        <item> I know there’s evil in the world, and there always has been. But you don’t need to believe in Satan or demons to explain it. Human beings are perfectly capable of evil all by themselves. ― Tess Gerritsen</item>
         <item> I have no country to fight for; my country is the earth; I am a citizen of the world.― Eugene Victor Debs</item>
         <item>Humanity does not ask us to be happy. It merely asks us to be brilliant on its behalf.― Orson Scott Card</item>
         <item>The next evolutionary step for humankind is to move from human to kind. ― Anon.</item>
@@ -245,7 +233,6 @@
         <item>If your actions inspire others to dream more, learn more, do more and become more, you are a leader. ― John Quincy Adams</item>
         <item>Our greatest glory is not in never falling but in rising every time we fall. ― Confucius</item>
         <item>The unhappiest nd  unsuccessful people in this world, are those who care the most about what other people think. ― C. JoyBell</item>
-        <item>The ultimate measure of a man is not where he stands in moments of comfort and convenience, but where he stands at times of challenge and controversy. ― Martin Luther King, Jr.</item>
         <item>I am not bound to win, but I am bound to be true. I am not bound to succeed, but I am bound to live up to what light I have. ― Abraham Linclon</item>
         <item>Take time to deliberate, but when the time for action has arrived stop thinking and go in. ― Napoleon Bonaparte</item>
         <item>You just can ́t beat the person who never gives up. ― Babe Ruth</item>
@@ -267,7 +254,7 @@
         <item>Don\'t wish for it.Work for it! ― Anon.</item>
         <item>He who conquers others is strong. He who conquers himself is mighty. ― Lao Tzu</item>
         <item> Think BIG!.You are going to be thinking anyway, so think BIG! ― Donald Trump</item>
-        <item>People become really quite remarkable when they start thinking that they can do things. When they believe in themselves, they have the first secret of success. ― Norman Vincent Peale</item>
+
         <item>The day I stop giving is the day I stop receiving. The day I stop learning is the day I stop growing.</item>
         <item>You miss 100% of the shots you don\'t take. ― Wayne Gretzky Be courageous! Have faith! Go forward. ― Thomas A. Edison </item>
         <item>I am a great believer in luck, and I find that the harder I work the more luck I have. ― Thomas Jefferson</item>
@@ -292,7 +279,6 @@
         <item>The secret of getting ahead is getting started. ― Mark Twain</item>
         <item>For true success ask yourself these four questions: Why? Why not? Why not me?</item>
         <item>Why not now? ― James Allen</item>
-        <item>Impossible is a word to be found only in the dictionary of fools. ― Napoleon Bonaparte It is hard to fail, but it is worse never to have tried to succeed. ― Theodore Roosevelt</item>
         <item>I cannot give you the formula for success, but I can give you the formula for failure</item>
         <item>Put your heart, mind, intellect and soul even to your smallest acts. That is the secret to success. ― Swami Sivananda</item>
         <item>Success is a journey, not a destination. ― Ben Sweetland</item>
@@ -314,7 +300,7 @@
     <string-array name="Teamwork">
 
         <item>Teamwork divides the task and multiplies the success. ― Anon</item>
-        <item>Contrary to popular belief, there most certainly is an "I" in "team." It is the same "I" that appears three times in responsibility. ―AmberHarding</item>
+
         <item>Remember upon the conduct of each depends the fate of all. ― Alexander the Great</item>
         <item>Finding good players is easy. Getting them to play as a team is another story. ― Casey Stengel</item>
         <item>The achievements of an organization are the results of the combined effort of each individual. ― Vince Lombardi</item>
@@ -341,7 +327,7 @@
 
     <string-array name="Love">
         <item>We waste time looking for the perfect lover instead of creating the perfect love.</item>
-        <item>People were created to be loved. Things were created to be used. The reason why the world in chaos, is because things are being loved and people are being used.</item>
+
         <item>They say it takes a minute to find a special person, an hour to appreciate them, a day to love them, but an entire lifetime to forget them.</item>
         <item>The greatest thing you’ll ever learn is just to love and be loved in return.</item>
         <item>￼Love should not be a secret. If you love someone, tell them. You will always regret if you don\'t.</item>
@@ -442,7 +428,6 @@
         <item>Truth is generally the best vindication against slander.Abraham Lincoln</item>
         <item>In this sad world of ours, sorrow comes to all; and, to the young, it comes with bitterest agony, because it takes them unawares.Abraham Lincoln</item>
         <item>Public sentiment is everything. With public sentiment, nothing can fail; without it nothing can succeed.Abraham Lincoln</item>
-        <item>I am rather inclined to silence, and whether that be wise or not, it is at least more unusual nowadays to find a man who can hold his tongue than to find one who cannot.Abraham Lincoln</item>
         <item>Plainly, the central idea of secession, is the essence of anarchy.Abraham Lincoln</item>
         <item>Every blade of grass is a study; and to produce two, where there was but one, is both a profit and a pleasure.Abraham Lincoln</item>
         <item>It\'s my experience that folks who have no vices have generally very few virtues.Abraham Lincoln</item>
@@ -450,14 +435,12 @@
         <item>That some achieve great success is proof to all that others can achieve it as well.Abraham Lincoln</item>
         <item>The best way to predict your future is to create it.Abraham Lincoln</item>
         <item>It is better to remain silent and be thought a fool, than to open your mouth and remove all doubts.Abraham Lincoln</item>
-        <item>Upon the subject of education, not presuming to dictate any plan or system respecting it, I can only say that I view it as the most important subject which we as a people can be engaged in.Abraham Lincoln</item>
         <item>The ballot is stronger than the bullet.Abraham Lincoln</item>
     </string-array>
 
     <string-array name="Benjamin_Franklin">
         <item>Guests, like fish, begin to smell after three days.Benjamin Franklin</item>
         <item>A countryman between two lawyers is like a fish between two cats.Benjamin Franklin</item>
-        <item>A life of leisure and a life of laziness are two things. There will be sleeping enough in the grave. A man wrapped up in himself makes a very small bundle.Benjamin Franklin</item>
         <item>A penny saved is a penny earned.Benjamin Franklin</item>
         <item>At twenty years of age the will reigns; at thirty, the wit; and at forty, the judgment. Three can keep a secret, if two of them are dead.Benjamin Franklin</item>
         <item>Eat to please thyself, but dress to please others.Benjamin Franklin</item>
@@ -486,13 +469,9 @@
         <item>Flipping burgers is not beneath your dignity. Your Grandparents had a different word for burger flipping they called it opportunity. Bill Gates</item>
         <item>It\'s fine to celebrate success, but it is more important to heed the lessons of failure. Bill Gates </item>
         <item>Television is NOT real life. In real life people actually have to leave the coffee shop and go to jobs. Bill Gates</item>
-        <item>Life is not divided into semesters. You don\'t get summers off and very few employers are interested in helping you FIND YOURSELF. Do that on your own time. Patience is a key element of success. Bill Gates</item>
-        <item>No one is less happy than I am with the performance of Microsoft stock! I\'ve lost tens of billions of dollars this year if you check, you\'ll see that\'s more than most people make in a lifetime!. Bill Gates</item>
         <item>Technology is just a tool. In terms of getting the kids working together and motivating them, the teacher is the most important. Bill Gates</item>
         <item>If I\'d had some set idea of a finish line, don\'t you think I would have crossed it years ago?. Bill Gates</item>
-        <item>The first rule of any technology used in a business is that automation applied to an efficient operation will magnify the efficiency. The second is that automation applied to an inefficient operation will magnify the inefficiency. Bill Gates</item>
         <item>The Internet is becoming the town square for the global village of tomorrow. Bill Gates</item>
-        <item>I think it\'s fair to say that personal computers have become the most empowering tool we\'ve ever created. They\'re tools of communication, they\'re tools of creativity,and they can be shaped by their user. Bill Gates</item>
         <item>Intellectual property has the shelf life of a banana. Bill Gates</item>
         <item>Well private money can take risks in a way that government money often isn\'t willing to. Bill Gates</item>
     </string-array>
@@ -502,16 +481,12 @@
         <item>Is the glass half full, or half empty? It depends on whether you\'re pouring, or drinking. Bill Cosby</item>
         <item>Sex education may be a good idea in the schools, but I don\'t believe the kids should be given homework. Bill Cosby</item>
         <item>I guess the real reason that my wife and I had children is the same reason that Napoleon had for invading Russia: it seemed like a good idea at the time. Bill Cosby</item>
-        <item>No matter how calmly you try to referee, parenting will eventually produce bizarre behavior, and I\'m not talking about the kids. Their behavior is always normal. Bill Cosby</item>
         <item>A grandchild is God\'s reward for raising a child. Bill Cosby</item>
-        <item>In spite of the seven thousand books of expert advice, the right way to disciplne a child is still a mystery to most fathers and mothers. Only your grandmother and Genghis Khan know how to do it. Bill Cosby</item>
         <item>A sail boat that sails backwards can never see the sun rise. Bill Cosby</item>
         <item>When you become senile, you won\'t know it. All Children Have Brain Damage!. Bill Cosby</item>
         <item>There is hope for the future because God has a sense of humor and we are funny to God.</item>
-        <item>Sigmund Freud once said, "What do women want?" The only thing I have learned in fifty-two years is that women want men to stop asking dumb questions like that. Bill Cosby</item>
         <item>Men and women belong to different species and communications between them is still in its infancy. Bill Cosby</item>
         <item>When you introduce competition into the public school system, most studies show that schools start to do better when they are competing for students. Bill Cosby</item>
-        <item>If the new American father feels bewildered and even defeated, let him take comfort from the fact that whatever he does in any fathering situation has a fifty percent chance of being right. Bill Cosby</item>
         <item>You know the only people who are always sure about the proper way to raise children? Those who\'ve never had any. Bill Cosby</item>
         <item>Human beings are the only creatures on earth that allow their children to come back home. Bill Cosby</item>
         <item>The worst thing to do is to die while reading LIFE magazine. Bill Cosby</item>
@@ -526,16 +501,14 @@
         <item>Attack the evil that is within yourself, rather than attacking the evil that is in others. Confucius</item>
         <item>The gem cannot be polished without friction, nor man perfected without trials. Confucius</item>
         <item>When you see a good person, think of becoming like her/him. When you see someone not so good, reflect on your own weak points. Confucius</item>
-        <item>The hardest thing of all is to find a black cat in a dark room, especially if there is no cat. Don\’t complain about the snow on your neighbor\’s roof when your own doorstep is unclean. Confucius</item>
+        <item></item>
         <item>The beginning of wisdom is to call things by their proper name. Confucius</item>
         ￼￼￼￼￼￼￼￼
-        <item>By three methods we may learn wisdom: First, by reflection, which is noblest.Second, by imitation, which is easiest; and third by experience, which is the bitterest. Confucius</item>
         <item>Everything has beauty, but not everyone sees it.Confucius</item>
         <item>Only the wisest and stupidest of men never change. Confucius</item>
         <item>Our greatest glory is not in never falling, but in rising every time we fall. Confucius</item>
         <item>Never give a sword to a man who can\'t dance. Confucius</item>
         <item>Be not ashamed of mistakes and thus make them crimes. Confucius</item>
-        <item>It is easy to hate and it is difficult to love. This is how the whole scheme of things works. All good things are difficult to achieve; and bad things are very easy to get. Confucius</item>
         <item>The noble-minded are calm and steady. Little people are forever fussing and fretting. Confucius</item>
         <item>The will to win, the desire to succeed, the urge to reach your full potential,these are the keys that will unlock the door to personal excellence. Confucius</item>
         <item>When anger rises, think of the consequences. Confucius</item>
@@ -550,7 +523,6 @@
         <item>The mystery of the beginning of all things is insoluble by us and I for one must be content to remain an agnostic. Charles Darwin</item>
         <item>If I had my life to live over again, I would have made a rule to read some poetry and listen to some music at least once a week. Charles Darwin</item>
         <item>The highest possible stage in moral culture is when we recognise that we ought to control our thoughts. Charles Darwin</item>
-        <item>The fact of evolution is the backbone of biology, and biology is thus in the peculiar position of being a science founded on an improved theory, is it then a science or faith?. Charles Darwin</item>
         <item>Even in the worm that crawls in the earth there glows a divine spark. When you slaughter a creature, you slaughter God. Charles Darwin</item>
         <item>An American Monkey after getting drunk on Brandy would never touch it again, and thus is much wiser than most men. Charles Darwin</item>
         <item>Besides love and sympathy, animals exhibit other qualities connected with the social instincts which in us would be called moral. Charles Darwin</item>
@@ -564,12 +536,10 @@
         <item>There are books of which the backs and covers are by far the best parts.Charles Dickens</item>
         <item>Have a heart that never hardens, and a temper that never tires, and a touch that never hurts.Charles Dickens</item>
         <item>Heaven knows we need never be ashamed of our tears, for they are rain upon the blinding dust of earth, overlying our hard hearts.Charles Dickens</item>
-        <item>Suffering has been stronger than all other teaching, and has taught me to understand what your heart used to be. I have been bent and broken, but I hope into a better shape.Charles Dickens</item>
         <item>No one is useless in this world who lightens the burdens of another.Charles Dickens</item>
         <item>There is nothing in the world so irresistibly contagious as laughter and good humor.Charles Dickens</item>
         <item>Charity begins at home, and justice begins next door. To a young heart everything is fun.Charles Dickens</item>
         <item>My advice is to never do tomorrow what you can do today. Procrastination is the thief of time.Charles Dickens</item>
-        <item>Although a skillful flatterer is a most delightful companion if you have him all to yourself, his taste becomes very doubtful when he takes to complimenting other people.Charles Dickens</item>
         <item>I do not know the American gentleman, God forgive me for putting two such words together.Charles Dickens</item>
         <item>For it is good to be children sometimes, and never better than at Christmas, when its mighty Founder was a child Himself.Charles Dickens</item>
         <item>It\'s my old girl that advises. She has the head. But I never own to it before her. Discipline must be maintained.Charles Dickens</item>
@@ -597,7 +567,6 @@
         <item> The hard part about writing a novel is finishing it. Ernest Hemingway</item>
         <item>An intelligent man is sometimes forced to be drunk to spend time with his fools. In order to write about life first you must live it. Ernest Hemingway</item>
         <item>When you start to live outside yourself, it\'s all dangerous. Ernest Hemingway</item>
-        <item>Intelligence is so damn rare and the people who have it often have such a bad time with it that they get bitter or propagandistic and then it\'s not much use.Ernest Hemingway</item>
         <item>Death is like an old whore in a bar.I\'ll buy her a drink but I won\'t go upstairs with her. Wine is the most civilized thing in the world. Ernest Hemingway</item>
         <item>Being against evil doesn\'t make you good. Ernest Hemingway</item>
         <item>Life isn\'t hard to manage when you\'ve nothing to lose. Ernest Hemingway</item>
@@ -608,7 +577,6 @@
     <string-array name="Ernesto_Guevara">
         ￼
         <item>It is better to die standing than to live on your knees.Ernesto Guevara</item>
-        <item>We cannot be sure of having something to live for unless we are willing to die for it. I am not a liberator. Liberators do not exist. The people liberate themselves. Ernesto Guevara</item>
         <item>The first duty of a revolutionary is to be educated. Ernesto Guevara</item>
         <item>The revolution is not an apple that falls when ripe. You have to make it fall.Ernesto Guevara</item>
         <item>Cruel leaders are replaced only to have new leaders turn cruel!.Ernesto Guevara</item>
@@ -617,7 +585,6 @@
         <item>To send men to the firing squad, judicial proof is unnecessary.These procedures are an archaic bourgeois detail. This is a revolution!.Ernesto Guevara</item>
         <item>If any person has a good word for the previous government that is good enough for me to have him shot.Ernesto Guevara</item>
         <item>There is no other definition of socialism valid for us than that of the abolition of the exploitation of man by man.Ernesto Guevara</item>
-        <item>Many will call me an adventurer, and that I am only one of a different sort: one who risks his skin to prove his truths. Homeland or death! We will triumph!.Ernesto Guevara</item>
         <item>Every day People straighten up the hair, why not the heart?.Ernesto Guevara</item>
         <item>Above all, always be capable of feeling deeply any injustice committed against anyone, anywhere in the world.Ernesto Guevara</item>
 
@@ -638,7 +605,6 @@
         <item>Success does not consist in never making mistakes but in never making the same one a second time. George Bernard Shaw</item>
         <item>War does not decide who is right but who is left. George Bernard Shaw</item>
         <item>When a man wants to murder a tiger he calls it sport; when a tiger wants to murder him he calls it ferocity. George Bernard Shaw</item>
-        <item>A Native American elder once described his own inner struggles in this manner: Inside of me there are two dogs. One of the dogs is mean and evil. The other dog is good. The mean dog fights the good dog all the time. When asked which dog wins, he reflected for a moment and replied, The one I feed the most. George Bernard Shaw</item>
         <item>As long as I have a want, I have a reason for living. Satisfaction is death. George Bernard Shaw</item>
         <item>Both optimists and pessimists contribute to society. The optimist invents the aeroplane, the pessimist the parachute. George Bernard Shaw</item>
         <item>Liberty means responsibility. That is why most men dread it. George Bernard Shaw</item>
@@ -716,7 +682,6 @@
         <item>All I know is that I am not a Marxist. Karl Marx</item>
         <item>Workers of the world unite! You have nothing to lose but your chains.Karl Marx</item>
         <item>It is not the consciousness of men that determines their being, but, on the contrary,their social being that determines their consciousness. Karl Marx</item>
-        <item>Surround yourself with people who make you happy. People who make you laugh, who help you when you’re in need. People who genuinely care. They are the ones worth keeping in your life. Everyone else is just passing through. Karl Marx</item>
 
     </string-array>
 
@@ -726,7 +691,6 @@
         <item>An eye for an eye only ends up making the whole world blind. Mahatma Gandhi</item>
         <item>A man is but the product of his thoughts what he thinks, he becomes. Mahatma Gandhi</item>
         <item>You must be the change you wish to see in the world. Mahatma Gandhi</item>
-        <item>A man who was completely innocent, offered himself as a sacrifice for the good of others, including his enemies, and became the ransom of the world. It was a perfect act. Mahatma Gandhi</item>
         <item>I\’m a lover of my own liberty, and so I would do nothing to restrict yours. I simply want to please my own conscience, which is God. Mahatma Gandhi</item>
         <item>A coward is incapable of exhibiting love; it is the prerogative of the brave. Mahatma Gandhi</item>
         <item>All compromise is based on give and take, but there can be no give and take on fundamentals. Mahatma Gandhi</item>
@@ -747,7 +711,6 @@
         <item>A weak man is just by accident. A strong but non-violent man is unjust by accident. Mahatma Gandhi</item>
         <item>A nation\'s culture resides in the hearts and in the soul of its people. Mahatma Gandhi</item>
         <item>Man should forget his anger before he lies down to sleep. Mahatma Gandhi</item>
-        <item>It is difficult, but not impossible, to conduct strictly honest business. I believe in equality for everyone, except reporters and photographers. Honest disagreement is often a good sign of progress. Mahatma Gandhi</item>
         <item>Live as if you were to die tomorrow. Learn as if you were to live forever. Mahatma Gandhi</item>
 
     </string-array>
@@ -763,7 +726,6 @@
         <item>I alone cannot change the world, but I can cast a stone across the waters to create many ripples. Mother Teresa</item>
         <item>One of the greatest diseases is to be nobody to anybody. Mother Teresa</item>
         <item>The hunger for love is much more difficult to remove than the hunger for bread. Mother Teresa</item>
-        <item>The greatest destroyer of peace is abortion because if a mother can kill her own child, what is left for me to kill you and you to kill me? There is nothing between. Mother Teresa</item>
         <item>If we have no peace, it is because we have forgotten that we belong to each other. Mother Teresa</item>
         <item>When you have nothing left but God,you have more than enough to start over again. Mother Teresa</item>
         <item>Spread love everywhere you go. Let no one ever come to you without leaving happier. Mother Teresa</item>
@@ -817,7 +779,6 @@
         <item>If you want to tell people the truth, make them laugh, otherwise they\’ll kill you. Oscar Wilde</item>
         <item>No great artist ever sees things as they really are. If he did, he would cease to be an artist. Oscar Wilde</item>
         <item>Between men and women there is no friendship possible. There is passion, enmity, worship, love, but no friendship. Oscar Wilde</item>
-        <item>It is better to be beautiful than to be good. But. it is better to be good than to be ugly. To expect the unexpected shows a thoroughly modern intellect. Oscar Wilde</item>
     </string-array>
 
     <string-array name="Socrates">
@@ -833,7 +794,6 @@
         <item>I am not an Athenian nor a Greek, but a citizen of the world. Socrates</item>
         <item>Be as you wish to seem. Socrates</item>
         <item>False words are not only evil in themselves, but they infect the soul with evil. Socrates</item>
-        <item>No man undertakes a trade he has not learned, even the meanest; yet every one thinks himself sufficiently qualified for the hardest of all trades - that of government. Socrates</item>
         <item>True wisdom comes to each of us when we realize how little we understand about life, ourselves, and the world around us. Socrates</item>
         <item>Remember, no human condition is ever permanent. Then you will not be overjoyed in good fortune nor too scornful in misfortune. Socrates</item>
         <item>The hour of departure has arrived and we go our ways; I to die, and you to live. Which is better? Only God knows. Socrates</item>
@@ -847,7 +807,6 @@
         <item>The secret of happiness, you see, is not found in seeking more, but in developing the capacity to enjoy less. Socrates</item>
         <item>When the debate is lost, slander becomes the tool of the loser. Socrates</item>
         <item>Employ your time in improving yourself by other men\'s writings so that you shall come easily by what others have labored hard for. Socrates</item>
-        <item>The greatest way to live with honor in this world is to be what we pretend to be. He is richest who is content with the least, for content is the wealth of nature. Socrates</item>
         <item>To move the world we must move ourselves. Socrates</item>
         <item>Life contains but two tragedies. One is not to get your heart’s desire; the other is to get it. Socrates</item>
 
@@ -861,10 +820,8 @@
         <item>It\'s really hard to design products by focus groups. A lot of times, people don\'t know what they want until you show it to them. Steven Jobs</item>
         <item>My job is not to be easy on people. My job is to make them better. Steven Jobs</item>
         <item>I\'m actually as proud of the things we haven\'t done as the things I have done. Innovation is saying no to 1,000 things. Steven Jobs</item>
-        <item>I am saddened, not by Microsoft\’s success — I have no problem with their success. They\’ve earned their success, for the most part. I have a problem with the fact that they just make really third-rate products. Steven Jobs</item>
         <item>It\'s not a faith in technology. It\'s faith in people. Steven Jobs</item>
         <item>My favorite things in life don\'t cost any money. It\'s really clear that the most precious resource we all have is time. Steven Jobs</item>
-        <item>Pretty much, Apple and Dell are the only ones in this industry making money. They make it by being WalMart. We make it by innovation. Sometimes life hits you in the head with a brick. Don\'t lose faith. Steven Jobs</item>
         <item>To turn really interesting ideas and fledgling technologies into a company that can continue to innovate for years, it requires a lot of disciplines. Steven Jobs</item>
         <item>We hire people who want to make the best things in the world. Steven Jobs</item>
         <item>I think death is the most wonderful invention of life. It purges the system of these old models that are obsolete. Steven Jobs</item>
@@ -889,8 +846,6 @@
         <item>Nothing will come of nothing: speak again. William Shakespeare</item>
         <item>What\'s done cannot be undone. William Shakespeare</item>
         <item>Parting is such sweet sorrow that I shall say goodnight till it be morrow. Hell is empty and all the devils are here. William Shakespeare</item>
-        <item>Life is as tedious as twice-told tale, vexing the dull ear of a drowsy man. Fishes live in the sea, as men do a-land; the great ones eat up the little ones. William Shakespeare</item>
-        <item>A young woman in love always looks like patience on a monument smiling at grief. People’s good deeds we write in water. The evil deeds are etched in brass. William Shakespeare</item>
         <item>Better three hours too soon than a minute too late. No legacy is so rich as honesty. William Shakespeare</item>
 
     </string-array>
@@ -906,7 +861,6 @@
         <item>It takes 20 years to build a reputation and five minuted to ruin it. If you think about that you\'ll do things differently.</item>
         <item>You never know who\'s swimming naked until the tide goes out. Warren Buffett</item>
         <item>Honesty is a very expensive gift, Don\'t expect it from cheap people. Warren Buffett</item>
-        <item>It’s better to hang out with people better than you. Pick out associates whose behavior is better than yours and you’ll drift in that direction. Warren Buffett</item>
         <item>You can\'t produce a baby in one month by getting nine women pregnant. Warren Buffett</item>
         <item>When you combine ignorance and leverage, you get some pretty interesting results. Warren Buffett</item>
         <item>Never ask a barber if you need a haircut. Warren Buffett</item>
