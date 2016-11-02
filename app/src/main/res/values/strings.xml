@@ -43,6 +43,8 @@
     <string name="on">On</string>
     <string name="about">About</string>
     <string name="set">Set</string>
+    <string name="launch">launchKey</string>
+    <string name="change_theme">You can change the theme,check settings.</string>
 
 
     <string-array name="quotesOptions">

@@ -31,6 +31,7 @@ public class WelcomeActivity extends AppCompatActivity {
     private int mPosition;
     private String mCurrentQuote;
     private DBOpenHelper mDBOpenHelper;
+    private Preferences mPreferences;
 
     @Bind(R.id.faceImageView)
     ImageView mFace;
@@ -58,7 +59,9 @@ public class WelcomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
         ButterKnife.bind(this);
+        mPreferences = new Preferences(this);
 
+        appLaunch();
         setMyTheme();
 
         //Get and set UI data
@@ -334,9 +337,9 @@ public class WelcomeActivity extends AppCompatActivity {
     private void setMyTheme() {
 
         //Set theme using mTheme passed from the SettingsActivity
-        Preferences preferences = new Preferences(this);
 
-        String theme = preferences.getMyTheme();
+
+        String theme = mPreferences.getMyTheme();
         if (theme.equals("brown")) {
             String darkGrey = "#212121";
             mBackgroundImage.setImageResource(R.drawable.bg_brown);
@@ -364,6 +367,25 @@ public class WelcomeActivity extends AppCompatActivity {
             mIconSettings.setImageResource(R.drawable.ic_settings_white_48dp);
         }
     }
+
+    private void appLaunch(){
+        int launchTime = mPreferences.getLauchTime();
+        if(launchTime<=4){
+            if(launchTime==2 || launchTime==4){
+                mPreferences.setTheme("blue");
+                Toast.makeText(WelcomeActivity.this, R.string.change_theme,Toast.LENGTH_LONG).show();
+            }
+
+            else {
+                mPreferences.setTheme("brown");
+            }
+
+
+        }
+        launchTime++;
+        mPreferences.setLaunchTime(launchTime);
+    }
+
 
     @Override
     protected void onResume() {
